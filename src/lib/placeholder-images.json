@@ -1,3 +1,65 @@
+
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "Screenshot of a modern web application dashboard.",
+      "imageUrl": "https://picsum.photos/seed/101/800/600",
+      "imageHint": "dashboard ui"
+    },
+    {
+      "id": "project-2",
+      "description": "Mobile app interface for a social media platform.",
+      "imageUrl": "https://picsum.photos/seed/102/800/600",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "project-3",
+      "description": "Data visualization chart from an analytics tool.",
+      "imageUrl": "https://picsum.photos/seed/103/800/600",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "project-4",
+      "description": "E-commerce website product page.",
+      "imageUrl": "https://picsum.photos/seed/104/800/600",
+      "imageHint": "ecommerce website"
+    },
+    {
+      "id": "book-1",
+      "description": "Abstract cover for a book on AI.",
+      "imageUrl": "https://picsum.photos/seed/201/400/600",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book-2",
+      "description": "Minimalist cover for a book on software architecture.",
+      "imageUrl": "https://picsum.photos/seed/202/400/600",
+      "imageHint": "book design"
+    },
+    {
+      "id": "paper-1",
+      "description": "First page of a research paper on machine learning.",
+      "imageUrl": "https://picsum.photos/seed/203/400/600",
+      "imageHint": "research paper"
+    },
+    {
+      "id": "youtube-1",
+      "description": "Thumbnail for a YouTube video about coding.",
+      "imageUrl": "https://picsum.photos/seed/301/1280/720",
+      "imageHint": "youtube thumbnail"
+    },
+    {
+      "id": "youtube-2",
+      "description": "Thumbnail for a tech talk presentation.",
+      "imageUrl": "https://picsum.photos/seed/302/1280/720",
+      "imageHint": "presentation slide"
+    },
+    {
+      "id": "cv-preview",
+      "description": "Screenshot of the first page of a CV.",
+      "imageUrl": "https://picsum.photos/seed/401/600/800",
+      "imageHint": "document resume"
+    }
+  ]
 }
