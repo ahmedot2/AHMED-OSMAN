@@ -1,12 +1,12 @@
 'use client';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect, useRef } from 'react';
+import { useFormStatus } from 'react-dom';
 import SectionWrapper from '../SectionWrapper';
 import { handleContactForm } from '@/app/actions';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { CheckCircle, Loader, Github, Linkedin, Phone, Send } from 'lucide-react';
 import Link from 'next/link';
@@ -37,7 +37,7 @@ const socialLinks = [
 
 export default function Contact() {
   const initialState = { errors: null, summary: null, success: false };
-  const [state, dispatch] = useFormState(handleContactForm, initialState);
+  const [state, dispatch] = useActionState(handleContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
