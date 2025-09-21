@@ -30,7 +30,7 @@ export default function Hero() {
   }, []);
 
   const imageTransform = {
-    transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -10}px) translateZ(0) scale(1.1)`,
+    transform: `translateX(${mousePosition.x * -10}px) translateY(${mousePosition.y * -5}px) translateZ(0) scale(1.1)`,
   };
 
   const textTransformAhmed = {
@@ -78,33 +78,43 @@ export default function Hero() {
 
       {/* Desktop Layout */}
        <div className="hidden md:flex relative w-full h-full items-center justify-center overflow-hidden" style={{ perspective: '1000px' }}>
-         <div className="absolute z-0 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformOsman}>
-             <h1 className="text-9xl lg:text-[180px] text-center text-primary" style={{transform: 'translateY(50%)'}}>
+          {/* Back Layer */}
+          <div className="absolute z-0 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformOsman}>
+            <h1 className="text-9xl lg:text-[240px] text-center text-primary leading-none tracking-tighter" style={{transform: 'translateY(50%)'}}>
                 OSMAN
               </h1>
           </div>
-          <div className="absolute z-20 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformAhmed}>
-             <h1 className="text-9xl lg:text-[180px] text-center" style={{transform: 'translateY(-50%)'}}>
-                AHMED
-              </h1>
-           </div>
-          <div className="relative z-10 w-full h-[90%] aspect-[4/3]">
+          {/* Middle Layer */}
+          <div className="relative z-10 w-[500px] h-[750px]" style={imageTransform}>
             <Image
               src={`/hero-image.png${cacheBust}`}
               alt="Ahmed Osman Portrait"
               fill
               priority
-              style={imageTransform}
               className="object-contain object-center"
               data-ai-hint="professional portrait"
             />
           </div>
-           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/80 z-20" />
+           {/* Top Layer */}
+          <div className="absolute z-20 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformAhmed}>
+             <h1 className="text-9xl lg:text-[240px] text-center leading-none tracking-tighter" style={{transform: 'translateY(-50%)'}}>
+                AHMED
+             </h1>
+           </div>
+           
            <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-30">
-            <p className="font-body text-xl lg:text-2xl" style={{ animation: 'slide-in-left 1s ease-out forwards' }}>
-                Creative Technologist, AI Innovator, and a lifelong builder of things. I turn complex problems into elegant digital experiences.
-            </p>
-        </div>
+                <div className="font-headline text-3xl lg:text-4xl text-white font-bold flex flex-col">
+                    <span>Creative Technologist</span>
+                    <span>AI Innovator</span>
+                    <span>Product Designer</span>
+                </div>
+            </div>
+
+            <div className="absolute top-1/2 right-12 transform -translate-y-1/2 text-white/80 max-w-xs z-30 text-right">
+                <p className="font-body text-lg">
+                    My passion is creating meaningful products for the world that solves real problems, delights users and exceeds expectations.
+                </p>
+            </div>
       </div>
     </SectionWrapper>
   );
