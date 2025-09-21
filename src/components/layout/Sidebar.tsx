@@ -1,20 +1,19 @@
 import {
   Home,
-  Terminal,
-  CircleDot,
-  CalendarDays,
-  Folder,
+  User,
+  Briefcase,
+  BookOpen,
   PlaySquare,
   Mail,
-  Moon,
+  Terminal
 } from 'lucide-react';
 import Link from 'next/link';
 
 const navLinks = [
   { href: '#hero', icon: Home, isPrimary: true },
-  { href: '#about', icon: CircleDot },
-  { href: '#projects', icon: CalendarDays },
-  { href: '#publications', icon: Folder },
+  { href: '#about', icon: User },
+  { href: '#projects', icon: Briefcase },
+  { href: '#publications', icon: BookOpen },
   { href: '#media', icon: PlaySquare },
   { href: '#contact', icon: Mail },
 ];
