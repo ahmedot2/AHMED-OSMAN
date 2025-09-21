@@ -29,9 +29,9 @@ export default function Hero() {
     };
   }, []);
 
-  const textTransform = {
-    transform: `translateX(${mousePosition.x * 10}px) translateY(${mousePosition.y * 5}px) translateZ(0)`,
-  };
+  const textTransform = (multiplier: number) => ({
+    transform: `translateX(${mousePosition.x * multiplier}px) translateY(${mousePosition.y * (multiplier / 2)}px) translateZ(0)`,
+  });
 
   const imageTransform = {
     transform: `translateX(${mousePosition.x * -5}px) translateY(${mousePosition.y * -3}px) translateZ(0) scale(1.05)`,
@@ -75,7 +75,7 @@ export default function Hero() {
       {/* Desktop Layout */}
        <div className="hidden md:flex relative w-full h-full items-center justify-between overflow-hidden px-12" style={{ perspective: '1000px' }}>
             {/* Left Titles */}
-            <div className="text-white/80 max-w-xs z-30 self-center" style={textTransform}>
+            <div className="text-white/80 max-w-xs z-30 self-center" style={textTransform(10)}>
                 <div className="font-headline text-2xl text-white font-medium flex flex-col" style={{lineHeight: 1.2, letterSpacing: '0.05em'}}>
                     <span>Creative Technologist</span>
                     <span>AI Innovator</span>
@@ -85,7 +85,7 @@ export default function Hero() {
 
             {/* Center Content */}
             <div className='flex items-center justify-center flex-1'>
-              <h1 className="text-9xl lg:text-[180px] text-white font-headline leading-none tracking-tighter" style={textTransform}>
+              <h1 className="text-9xl lg:text-[180px] text-white font-headline leading-none tracking-tighter" style={textTransform(20)}>
                 AHMED
               </h1>
               
@@ -100,13 +100,13 @@ export default function Hero() {
                 />
               </div>
 
-              <h1 className="text-9xl lg:text-[180px] text-primary font-headline leading-none tracking-tighter" style={textTransform}>
+              <h1 className="text-9xl lg:text-[180px] text-primary font-headline leading-none tracking-tighter" style={textTransform(20)}>
                 OSMAN
               </h1>
             </div>
 
             {/* Right Passion Statement */}
-            <div className="text-white/80 max-w-xs z-30 text-right self-center" style={textTransform}>
+            <div className="text-white/80 max-w-xs z-30 text-right self-center" style={textTransform(10)}>
                 <p className="font-body text-lg" style={{lineHeight: 1.5}}>
                     My passion is creating meaningful products for the world that solves real problems, delights users and exceeds expectations.
                 </p>
