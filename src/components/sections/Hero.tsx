@@ -8,13 +8,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="relative z-10 w-full animate-stagger-in flex justify-center items-center">
         <div className="animate-slide-in-left">
-            <span className="font-headline text-8xl md:text-9xl lg:text-[20rem] tracking-tighter uppercase leading-none text-white">
-                Ahm
+            <span className="font-headline text-8xl md:text-9xl lg:text-[10rem] tracking-tighter uppercase leading-none text-white">
+                Ahmed
             </span>
         </div>
+        <div className="w-4 md:w-8 lg:w-16"></div>
         <div className="animate-slide-in-right">
-            <span className="font-headline text-8xl md:text-9xl lg:text-[20rem] tracking-tighter uppercase leading-none text-primary">
-                osm
+            <span className="font-headline text-8xl md:text-9xl lg:text-[10rem] tracking-tighter uppercase leading-none text-primary">
+                Osman
             </span>
         </div>
       </div>
