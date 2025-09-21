@@ -50,12 +50,12 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       
       {/* Mobile-only Text Block */}
-      <div className="md:hidden w-full px-4 mb-8 z-20">
+      <div className="md:hidden w-full px-4 mb-4 z-20">
         <div className="grid grid-cols-2 gap-4 text-left">
             <div>
-                <h2 className="text-lg font-bold text-white">Creative Technologist</h2>
-                <h2 className="text-lg font-bold text-white">AI Innovator</h2>
-                <h2 className="text-lg font-bold text-white">Product Designer</h2>
+                <h2 className="text-base font-bold text-white">Creative Technologist</h2>
+                <h2 className="text-base font-bold text-white">AI Innovator</h2>
+                <h2 className="text-base font-bold text-white">Product Designer</h2>
             </div>
             <div>
                 <p className="text-xs text-white/70">
@@ -85,10 +85,10 @@ export default function Hero() {
           className={cn(
             "relative z-0",
             // Desktop dimensions & margin
-            "w-40 h-60 sm:w-48 sm:h-72 md:w-64 md:h-96 lg:w-80 lg:h-[32rem]",
+            "w-48 h-72 sm:w-56 sm:h-80 md:w-64 md:h-96 lg:w-80 lg:h-[32rem]",
             "mx-[-1.5rem] sm:mx-[-2.5rem] md:mx-[-3.5rem] lg:mx-[-4.5rem]",
             // Mobile dimensions & margin
-            "w-full h-64 -my-8"
+            "w-full h-80 -my-10"
           )} 
           style={{ transformStyle: 'preserve-3d' }}
         >
@@ -97,9 +97,9 @@ export default function Hero() {
             alt="Ahmed Osman"
             fill
             className={cn(
-              "object-contain",
-              "md:object-contain", // Desktop
-              "object-cover" // Mobile
+              "object-contain", // Desktop
+              "md:object-contain", 
+              "object-cover object-top" // Mobile
             )}
             style={imageTransform}
             priority
