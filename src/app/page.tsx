@@ -1,4 +1,4 @@
-import Header from '@/components/layout/Header';
+import Sidebar from '@/components/layout/Sidebar';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
@@ -9,9 +9,9 @@ import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   return (
-    <div className="bg-black text-white">
-      <Header />
-      <main className="snap-y snap-mandatory h-screen w-screen overflow-y-scroll overflow-x-hidden">
+    <div className="flex min-h-screen bg-black text-white">
+      <Sidebar />
+      <main className="flex-1 h-screen overflow-y-auto snap-y snap-mandatory">
         <Hero />
         <About />
         <Projects />

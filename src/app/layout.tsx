@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={cn('font-body antialiased', spaceGrotesk.variable, inter.variable)}>
+      <body className={cn('font-body antialiased pl-16', spaceGrotesk.variable, inter.variable)}>
         {children}
         <Toaster />
       </body>
