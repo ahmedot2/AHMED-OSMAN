@@ -2,6 +2,7 @@
 import { Home, User, Briefcase, BookOpen, PlaySquare, Mail, Terminal } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const navItems = [
   { name: 'Hero', icon: Home, href: '#hero' },
@@ -12,8 +13,8 @@ const navItems = [
   { name: 'Contact', icon: Mail, href: '#contact' },
 ];
 
-const NavLink = ({ href, icon: Icon, label, isActive }: { href: string; icon: React.ElementType; label: string; isActive: boolean }) => (
-  <Link href={href} passHref>
+export const NavLink = ({ href, icon: Icon, label, isActive, onClick }: { href: string; icon: React.ElementType; label: string; isActive: boolean, onClick?: () => void }) => (
+  <Link href={href} passHref onClick={onClick}>
     <div
       className={`group relative flex items-center justify-center h-12 w-12 transition-colors duration-200 rounded-lg ${
         isActive ? 'bg-primary/20' : ''
@@ -28,10 +29,10 @@ const NavLink = ({ href, icon: Icon, label, isActive }: { href: string; icon: Re
   </Link>
 );
 
-export default function Sidebar() {
-  const [activeSection, setActiveSection] = useState('hero');
+export const NavContent = ({ onLinkClick }: { onLinkClick?: () => void }) => {
+    const [activeSection, setActiveSection] = useState('hero');
 
-  useEffect(() => {
+    useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -56,7 +57,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="fixed top-0 left-0 h-screen w-20 bg-black flex flex-col items-center z-50 border-r border-white/10">
+    <>
       <div className="flex flex-col items-center justify-center mt-4 py-4">
         <Terminal className="h-8 w-8 text-white/90" />
       </div>
@@ -68,12 +69,22 @@ export default function Sidebar() {
             icon={item.icon}
             label={item.name}
             isActive={activeSection === item.href.substring(1)}
+            onClick={onLinkClick}
           />
         ))}
       </nav>
       <div className="mb-4">
         {/* Bottom icons or elements if needed */}
       </div>
+    </>
+  )
+}
+
+
+export default function Sidebar() {
+  return (
+    <aside className="fixed top-0 left-0 h-screen w-20 bg-black flex-col items-center z-50 border-r border-white/10 hidden md:flex">
+      <NavContent />
     </aside>
   );
 }
