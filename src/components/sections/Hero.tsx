@@ -40,7 +40,7 @@ export default function Hero() {
     transform: `translateX(${mousePosition.x * 15}px) translateY(${mousePosition.y * 8}px) translateZ(0)`,
     transition: 'transform 0.1s ease-out',
   };
-
+  
   const textTransformRight = {
     transform: `translateX(${mousePosition.x * -15}px) translateY(${mousePosition.y * -8}px) translateZ(0)`,
     transition: 'transform 0.1s ease-out',
@@ -78,7 +78,7 @@ export default function Hero() {
              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
           </div>
 
-          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center text-white font-headline -mt-20">
+          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center text-white font-headline -mt-40">
               <h1 className="text-8xl -ml-16" style={{...textTransformLeft, letterSpacing: '0.05em'}}>
                 AHMED
               </h1>
