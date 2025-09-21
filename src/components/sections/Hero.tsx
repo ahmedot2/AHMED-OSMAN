@@ -79,10 +79,10 @@ export default function Hero() {
           </div>
 
           <div className="relative z-10 w-full flex flex-col items-center justify-center text-center text-white font-headline -mt-40">
-              <h1 className="text-8xl -ml-16" style={{...textTransformLeft, letterSpacing: '0.05em'}}>
+              <h1 className="text-8xl" style={{...textTransformLeft, letterSpacing: '0.05em'}}>
                 AHMED
               </h1>
-              <h1 className="text-8xl ml-16" style={{...textTransformRight, letterSpacing: '0.05em'}}>
+              <h1 className="text-8xl" style={{...textTransformRight, letterSpacing: '0.05em'}}>
                 OSMAN
               </h1>
           </div>
