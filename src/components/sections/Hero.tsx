@@ -103,15 +103,15 @@ export default function Hero() {
            </div>
            
            <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-30">
-                <div className="font-headline text-3xl lg:text-4xl text-white font-bold flex flex-col">
-                    <span>Creative Technologist</span>
-                    <span>AI Innovator</span>
-                    <span>Product Designer</span>
+                <div className="font-headline text-3xl lg:text-4xl text-white font-bold flex flex-col" style={{lineHeight: 1.2}}>
+                    <span style={{letterSpacing: '0.05em'}}>Creative Technologist</span>
+                    <span style={{letterSpacing: '0.05em'}}>AI Innovator</span>
+                    <span style={{letterSpacing: '0.05em'}}>Product Designer</span>
                 </div>
             </div>
 
             <div className="absolute top-1/2 right-12 transform -translate-y-1/2 text-white/80 max-w-xs z-30 text-right">
-                <p className="font-body text-lg">
+                <p className="font-body text-lg" style={{lineHeight: 1.5}}>
                     My passion is creating meaningful products for the world that solves real problems, delights users and exceeds expectations.
                 </p>
             </div>
