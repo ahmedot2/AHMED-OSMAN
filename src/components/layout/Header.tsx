@@ -22,7 +22,7 @@ import Link from 'next/link';
 const navLinks = [
   { href: '#hero', label: 'Home', icon: Home },
   { href: '#about', label: 'About', icon: Sparkles },
-  { href_alt: '#projects', label_alt: 'Projects', icon_alt: Projector },
+  { href: '#projects', label: 'Projects', icon: Projector },
   { href: '#publications', label: 'Publications', icon: FileText },
   { href: '#contact', label: 'Contact', icon: Contact },
 ];
@@ -67,7 +67,7 @@ export default function Header() {
           <SheetHeader>
             <nav className="flex flex-col h-full justify-between pt-16">
               <div className="flex flex-col gap-6">
-                {navLinks.map((link) => link.href && (
+                {navLinks.map((link) => (
                   <NavLink key={link.href} href={link.href} label={link.label} icon={link.icon} />
                 ))}
               </div>
