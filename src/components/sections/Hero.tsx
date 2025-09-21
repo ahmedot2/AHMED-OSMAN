@@ -15,8 +15,8 @@ export default function Hero() {
             textAnchor="middle" 
             className="font-headline text-[180px] leading-none tracking-tighter"
           >
-            <tspan className="fill-white">MED</tspan>
-            <tspan className="fill-primary">OSM</tspan>
+            <tspan className="fill-white">AHMED</tspan>
+            <tspan className="fill-primary">OSMAN</tspan>
           </text>
         </svg>
 
