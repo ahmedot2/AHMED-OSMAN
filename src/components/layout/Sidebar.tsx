@@ -1,3 +1,4 @@
+
 'use client';
 import { Home, User, Briefcase, BookOpen, PlaySquare, Mail, Terminal } from 'lucide-react';
 import Link from 'next/link';
@@ -59,7 +60,9 @@ export const NavContent = ({ onLinkClick }: { onLinkClick?: () => void }) => {
   return (
     <>
       <div className="flex flex-col items-center justify-center mt-4 py-4">
-        <Terminal className="h-8 w-8 text-white/90" />
+        <Link href="#hero" onClick={onLinkClick}>
+            <Terminal className="h-8 w-8 text-white/90 hover:text-primary transition-colors" />
+        </Link>
       </div>
       <nav className="flex flex-col items-center gap-2 w-full flex-grow justify-center">
         {navItems.map((item) => (
