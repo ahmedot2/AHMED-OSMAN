@@ -50,7 +50,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       
       {/* Mobile-only Text Block */}
-      <div className="md:hidden w-full px-4 mb-8 z-10">
+      <div className="md:hidden w-full px-4 mb-8 z-20">
         <div className="grid grid-cols-2 gap-4 text-left">
             <div>
                 <h2 className="text-lg font-bold text-white">Creative Technologist</h2>
@@ -117,7 +117,7 @@ export default function Hero() {
         </div>
       </div>
       
-       <p className="text-white/70 mt-4 text-base md:text-xl max-w-2xl mx-auto absolute bottom-[25%] sm:bottom-[30%] hidden md:block" style={{ animationDelay: '0.5s' }}>
+       <p className="text-white/70 mt-4 text-base md:text-xl max-w-2xl mx-auto absolute bottom-[25%] sm:bottom-[30%] hidden md:block z-20" style={{ animationDelay: '0.5s' }}>
           Creative Technologist, AI Innovator, and a lifelong builder of things.
           I turn complex problems into elegant digital experiences.
         </p>
