@@ -49,7 +49,7 @@ export default function Hero() {
     <SectionWrapper id="hero" ref={containerRef} className="!p-0 !h-screen !min-h-[800px] md:!min-h-screen">
       {/* Mobile Layout */}
       <div className="md:hidden relative w-full h-full flex flex-col">
-        <div className="absolute inset-x-0 top-0 z-20 p-6 bg-gradient-to-b from-black/80 to-transparent">
+        <div className="z-20 p-6 pt-12 bg-black">
           <div className="grid grid-cols-2 gap-4 text-white">
             <div>
               <h3 className="font-bold text-lg">Creative Technologist</h3>
@@ -57,14 +57,14 @@ export default function Hero() {
               <h3 className="font-bold text-lg">Product Designer</h3>
             </div>
             <div>
-              <p className="text-sm text-white/70">
+               <p className="text-sm text-white/70">
                 My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
               </p>
             </div>
           </div>
         </div>
         
-        <div className="relative flex-grow flex items-center justify-center -mt-24">
+        <div className="relative flex-grow flex items-center justify-center">
           <div
             className="absolute inset-0 w-full h-full overflow-hidden"
           >
@@ -79,7 +79,7 @@ export default function Hero() {
              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
           </div>
 
-          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center text-white font-headline -mt-40">
+          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center text-white font-headline">
               <h1 className="text-8xl" style={{...textTransformLeft, letterSpacing: '0.05em'}}>
                 AHMED
               </h1>
