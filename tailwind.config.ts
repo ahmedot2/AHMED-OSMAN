@@ -100,7 +100,7 @@ export default {
         },
         'slide-in-left': {
           from: {
-            transform: 'translateX(-100%)',
+            transform: 'translateX(-50%)',
             opacity: '0',
           },
           to: {
@@ -110,7 +110,7 @@ export default {
         },
         'slide-in-right': {
           from: {
-            transform: 'translateX(100%)',
+            transform: 'translateX(50%)',
             opacity: '0',
           },
           to: {
