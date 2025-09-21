@@ -29,16 +29,12 @@ export default function Hero() {
     };
   }, []);
 
-  const imageTransform = {
-    transform: `translateX(${mousePosition.x * -10}px) translateY(${mousePosition.y * -5}px) translateZ(0) scale(1.1)`,
+  const textTransform = {
+    transform: `translateX(${mousePosition.x * 10}px) translateY(${mousePosition.y * 5}px) translateZ(0)`,
   };
 
-  const textTransformAhmed = {
-    transform: `translateX(${mousePosition.x * 15}px) translateY(${mousePosition.y * 8}px) translateZ(0)`,
-  };
-  
-  const textTransformOsman = {
-    transform: `translateX(${mousePosition.x * 25}px) translateY(${mousePosition.y * 12}px) translateZ(0)`,
+  const imageTransform = {
+    transform: `translateX(${mousePosition.x * -5}px) translateY(${mousePosition.y * -3}px) translateZ(0) scale(1.05)`,
   };
 
   return (
@@ -77,40 +73,40 @@ export default function Hero() {
       </div>
 
       {/* Desktop Layout */}
-       <div className="hidden md:flex relative w-full h-full items-center justify-center overflow-hidden" style={{ perspective: '1000px' }}>
-          {/* Back Layer */}
-          <div className="absolute z-0 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformOsman}>
-            <h1 className="text-9xl lg:text-[240px] text-center text-primary leading-none tracking-tighter" style={{transform: 'translateY(50%)'}}>
-                OSMAN
-              </h1>
-          </div>
-          {/* Middle Layer */}
-          <div className="relative z-10 w-[500px] h-[750px]" style={imageTransform}>
-            <Image
-              src={`/hero-image.png${cacheBust}`}
-              alt="Ahmed Osman Portrait"
-              fill
-              priority
-              className="object-contain object-center"
-              data-ai-hint="professional portrait"
-            />
-          </div>
-           {/* Top Layer */}
-          <div className="absolute z-20 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformAhmed}>
-             <h1 className="text-9xl lg:text-[240px] text-center leading-none tracking-tighter" style={{transform: 'translateY(-50%)'}}>
-                AHMED
-             </h1>
-           </div>
-           
-           <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-30">
-                <div className="font-headline text-3xl lg:text-4xl text-white font-bold flex flex-col" style={{lineHeight: 1.2}}>
-                    <span style={{letterSpacing: '0.05em'}}>Creative Technologist</span>
-                    <span style={{letterSpacing: '0.05em'}}>AI Innovator</span>
-                    <span style={{letterSpacing: '0.05em'}}>Product Designer</span>
+       <div className="hidden md:flex relative w-full h-full items-center justify-between overflow-hidden px-12" style={{ perspective: '1000px' }}>
+            {/* Left Titles */}
+            <div className="text-white/80 max-w-xs z-30 self-center" style={textTransform}>
+                <div className="font-headline text-2xl text-white font-medium flex flex-col" style={{lineHeight: 1.2, letterSpacing: '0.05em'}}>
+                    <span>Creative Technologist</span>
+                    <span>AI Innovator</span>
+                    <span>Product Designer</span>
                 </div>
             </div>
 
-            <div className="absolute top-1/2 right-12 transform -translate-y-1/2 text-white/80 max-w-xs z-30 text-right">
+            {/* Center Content */}
+            <div className='flex items-center justify-center flex-1'>
+              <h1 className="text-9xl lg:text-[180px] text-white font-headline leading-none tracking-tighter" style={textTransform}>
+                AHMED
+              </h1>
+              
+              <div className="relative z-10 w-[300px] h-[450px] mx-8 shrink-0" style={imageTransform}>
+                <Image
+                  src={`/hero-image.png${cacheBust}`}
+                  alt="Ahmed Osman Portrait"
+                  fill
+                  priority
+                  className="object-contain object-center"
+                  data-ai-hint="professional portrait"
+                />
+              </div>
+
+              <h1 className="text-9xl lg:text-[180px] text-primary font-headline leading-none tracking-tighter" style={textTransform}>
+                OSMAN
+              </h1>
+            </div>
+
+            {/* Right Passion Statement */}
+            <div className="text-white/80 max-w-xs z-30 text-right self-center" style={textTransform}>
                 <p className="font-body text-lg" style={{lineHeight: 1.5}}>
                     My passion is creating meaningful products for the world that solves real problems, delights users and exceeds expectations.
                 </p>
