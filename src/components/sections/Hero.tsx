@@ -46,21 +46,16 @@ export default function Hero() {
   };
 
   return (
-    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-16 md:pt-0" style={{ perspective: '1000px' }}>
-      <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-24 md:pt-0" style={{ perspective: '1000px' }}>
+      <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       
       {/* Mobile-only Text Block */}
-      <div className="md:hidden w-full px-4 mb-4 z-20">
+      <div className="md:hidden w-full px-4 mb-8 z-20">
         <div className="grid grid-cols-2 gap-4 text-left">
             <div>
                 <h2 className="text-base font-bold text-white">Creative Technologist</h2>
                 <h2 className="text-base font-bold text-white">AI Innovator</h2>
                 <h2 className="text-base font-bold text-white">Product Designer</h2>
-            </div>
-            <div>
-                <p className="text-xs text-white/70">
-                    My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
-                </p>
             </div>
         </div>
       </div>
