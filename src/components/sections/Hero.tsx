@@ -27,7 +27,7 @@ export default function Hero() {
   }, []);
 
   const imageTransform = {
-    transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -10}px) translateZ(0)`,
+    transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -10}px) translateZ(0) scale(1.2)`,
     transition: 'transform 0.1s ease-out',
   };
 
@@ -50,11 +50,11 @@ export default function Hero() {
       >
         <div className="animate-slide-in-left" style={textTransformLeft}>
             <span className="font-headline text-8xl md:text-9xl lg:text-[10rem] tracking-tighter uppercase leading-none text-white">
-                Ahmed
+                AHMED
             </span>
         </div>
         
-        <div className="w-40 h-60 md:w-56 md:h-80 lg:w-72 lg:h-[28rem] relative z-0" style={{ transformStyle: 'preserve-3d' }}>
+        <div className="w-40 h-60 md:w-56 md:h-80 lg:w-72 lg:h-[28rem] relative z-0 mx-[-2rem] md:mx-[-3rem] lg:mx-[-4rem]" style={{ transformStyle: 'preserve-3d' }}>
           <Image
             src="/hero-image.png"
             alt="Ahmed Osman"
@@ -67,7 +67,7 @@ export default function Hero() {
 
         <div className="animate-slide-in-right" style={textTransformRight}>
             <span className="font-headline text-8xl md:text-9xl lg:text-[10rem] tracking-tighter uppercase leading-none text-primary">
-                Osman
+                OSMAN
             </span>
         </div>
       </div>
