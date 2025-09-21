@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -41,80 +42,88 @@ export default function Hero() {
   };
 
   const textTransformRight = {
-    transform: `translateX(${mousePosition.x * 15}px) translateY(${mousePosition.y * 8}px) translateZ(0)`,
+    transform: `translateX(${mousePosition.x * -15}px) translateY(${mousePosition.y * -8}px) translateZ(0)`,
     transition: 'transform 0.1s ease-out',
   };
 
   return (
-    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-12 md:pt-0" style={{ perspective: '1000px' }}>
-      
-      {/* Mobile-only Text Block */}
-      <div className="md:hidden w-full px-4 mb-8 z-20">
-        <div className="grid grid-cols-2 gap-4 text-left">
+    <SectionWrapper id="hero" ref={containerRef} className="!p-0 !h-screen !min-h-[800px] md:!min-h-screen">
+      {/* Mobile Layout */}
+      <div className="md:hidden relative w-full h-full flex flex-col">
+        <div className="absolute inset-x-0 top-0 z-20 p-6 bg-gradient-to-b from-black/80 to-transparent">
+          <div className="grid grid-cols-2 gap-4 text-white">
             <div>
-                <h2 className="text-base font-bold text-white">Creative Technologist</h2>
-                <h2 className="text-base font-bold text-white">AI Innovator</h2>
-                <h2 className="text-base font-bold text-white">Product Designer</h2>
+              <h3 className="font-bold text-lg">Creative Technologist</h3>
+              <h3 className="font-bold text-lg">AI Innovator</h3>
+              <h3 className="font-bold text-lg">Product Designer</h3>
             </div>
-        </div>
-      </div>
-      
-      {/* Combined Layout for Desktop and Mobile */}
-      <div className={cn(
-        "relative z-10 w-full flex justify-center items-center",
-        "md:flex-row", // Desktop: row layout
-        "flex-col" // Mobile: column layout
-      )}>
-        <div className="animate-slide-in-left -mr-20 md:mr-0 lg:-mr-32 -mt-24" style={textTransformLeft}>
-            <span className={cn(
-              "font-headline tracking-tighter uppercase leading-none text-white",
-              "text-7xl", // Mobile font size
-              "md:text-6xl sm:text-8xl md:text-9xl lg:text-[10rem]" // Desktop font sizes
-            )}>
-                AHMED
-            </span>
+            <div>
+              {/* This paragraph is hidden on mobile now */}
+            </div>
+          </div>
         </div>
         
-        <div 
-          className={cn(
-            "relative z-0",
-            // Desktop dimensions & margin
-            "w-48 h-72 sm:w-56 sm:h-80 md:w-64 md:h-96 lg:w-80 lg:h-[32rem]",
-            "mx-[-1.5rem] sm:mx-[-2.5rem] md:mx-[-3.5rem] lg:mx-[-4.5rem]",
-            // Mobile dimensions & margin
-            "w-full h-80 -my-16"
-          )} 
-          style={{ transformStyle: 'preserve-3d' }}
-        >
-          {cacheBust && <Image
-            src={`/hero-image.png${cacheBust}`}
-            alt="Ahmed Osman"
-            fill
-            className={cn(
-              "object-contain", // Desktop
-              "md:object-contain", 
-              "object-cover object-top" // Mobile
-            )}
-            style={imageTransform}
-            priority
-          />}
-        </div>
+        <div className="relative flex-grow flex items-center justify-center -mt-24">
+          <div
+            className="absolute inset-0 w-full h-full overflow-hidden"
+          >
+            <Image
+              src={`/hero-image.png${cacheBust}`}
+              alt="Ahmed Osman Portrait"
+              fill
+              priority
+              className="object-cover object-top"
+              data-ai-hint="professional portrait"
+            />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+          </div>
 
-        <div className="animate-slide-in-right -ml-20 md:ml-0" style={textTransformRight}>
-            <span className={cn(
-              "font-headline tracking-tighter uppercase leading-none text-primary",
-              "text-7xl", // Mobile font size
-              "md:text-6xl sm:text-8xl md:text-9xl lg:text-[10rem]" // Desktop font sizes
-            )}>
+          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center text-white font-headline -mt-20">
+              <h1 className="text-8xl -ml-16" style={{...textTransformLeft, letterSpacing: '0.05em'}}>
+                AHMED
+              </h1>
+              <h1 className="text-8xl ml-16" style={{...textTransformRight, letterSpacing: '0.05em'}}>
                 OSMAN
-            </span>
+              </h1>
+          </div>
         </div>
       </div>
-      
-       <p className="text-white/70 mt-4 text-base md:text-xl max-w-2xl mx-auto absolute bottom-[25%] sm:bottom-[30%] hidden md:block z-20" style={{ animationDelay: '0.5s' }}>
-          Creative Technologist, AI Innovator, and a lifelong builder of things.
-          I turn complex problems into elegant digital experiences.
-        </p>
+
+      {/* Desktop Layout */}
+      <div className="hidden md:flex relative w-full h-full items-center justify-center">
+        <div
+          className="absolute inset-0 w-full h-full overflow-hidden"
+          style={{ perspective: '1000px' }}
+        >
+          <Image
+            src={`/hero-image.png${cacheBust}`}
+            alt="Ahmed Osman Portrait"
+            fill
+            priority
+            style={imageTransform}
+            className="object-cover object-center"
+            data-ai-hint="professional portrait"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-12 flex flex-col items-start text-left text-white font-headline">
+          <div className="flex">
+            <h1 className="text-9xl lg:text-[180px]" style={textTransformLeft}>
+              AHMED
+            </h1>
+          </div>
+          <div className="flex">
+            <h1 className="text-9xl lg:text-[180px] -mt-4 lg:-mt-8" style={textTransformRight}>
+              OSMAN
+            </h1>
+          </div>
+          <p className="font-body text-xl lg:text-2xl max-w-lg mt-4 text-white/80" style={{ animation: 'slide-in-left 1s ease-out forwards' }}>
+            Creative Technologist, AI Innovator, and a lifelong builder of things. I turn complex problems into elegant digital experiences.
+          </p>
+        </div>
+      </div>
     </SectionWrapper>
   );
 }
+ 
