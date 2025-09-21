@@ -56,6 +56,9 @@ export default function Hero() {
               <h3 className="font-bold text-lg">AI Innovator</h3>
               <h3 className="font-bold text-lg">Product Designer</h3>
             </div>
+            <p className="text-sm text-white/70">
+              My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
+            </p>
           </div>
         </div>
         
