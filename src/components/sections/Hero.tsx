@@ -7,8 +7,12 @@ import Image from 'next/image';
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLElement>(null);
+  const [cacheBust, setCacheBust] = useState('');
 
   useEffect(() => {
+    // This runs only on the client, preventing hydration mismatch errors.
+    setCacheBust(`?t=${new Date().getTime()}`);
+
     const handleMouseMove = (event: MouseEvent) => {
       if (containerRef.current) {
         const { clientX, clientY } = event;
@@ -55,14 +59,14 @@ export default function Hero() {
         </div>
         
         <div className="w-40 h-60 md:w-56 md:h-80 lg:w-72 lg:h-[28rem] relative z-0 mx-[-2rem] md:mx-[-3rem] lg:mx-[-4rem]" style={{ transformStyle: 'preserve-3d' }}>
-          <Image
-            src="/hero-image.png"
+          {cacheBust && <Image
+            src={`/hero-image.png${cacheBust}`}
             alt="Ahmed Osman"
             fill
             className="object-contain"
             style={imageTransform}
             priority
-          />
+          />}
         </div>
 
         <div className="animate-slide-in-right" style={textTransformRight}>
