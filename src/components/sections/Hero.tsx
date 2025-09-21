@@ -46,7 +46,7 @@ export default function Hero() {
   };
 
   return (
-    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-24 md:pt-0" style={{ perspective: '1000px' }}>
+    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-12 md:pt-0" style={{ perspective: '1000px' }}>
       
       {/* Mobile-only Text Block */}
       <div className="md:hidden w-full px-4 mb-8 z-20">
@@ -65,7 +65,7 @@ export default function Hero() {
         "md:flex-row", // Desktop: row layout
         "flex-col" // Mobile: column layout
       )}>
-        <div className="animate-slide-in-left -mr-20 md:mr-0" style={textTransformLeft}>
+        <div className="animate-slide-in-left -mr-20 md:mr-0 lg:-mr-32 -mt-24" style={textTransformLeft}>
             <span className={cn(
               "font-headline tracking-tighter uppercase leading-none text-white",
               "text-7xl", // Mobile font size
