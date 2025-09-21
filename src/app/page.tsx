@@ -11,15 +11,14 @@ export default function Home() {
   return (
     <div className="bg-black text-white">
       <Header />
-      <main>
+      <main className="snap-y snap-mandatory h-screen w-screen overflow-y-scroll overflow-x-hidden">
         <Hero />
-        {/* The rest of the sections can be re-enabled as needed */}
-        {/* <About />
+        <About />
         <Projects />
         <Publications />
         <Media />
         <Contact />
-        <Footer /> */}
+        <Footer />
       </main>
     </div>
   );
