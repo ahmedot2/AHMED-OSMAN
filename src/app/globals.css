@@ -13,7 +13,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
     
-    --primary: 16 100% 50%; /* Reddish-Orange */
+    --primary: 0 100% 59%; /* #FF2D2D */
     --primary-foreground: 0 0% 100%; /* White */
     
     --secondary: 60 5.6% 95.9%;
@@ -30,7 +30,7 @@
     
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 16 100% 50%;
+    --ring: 0 100% 59%;
     
     --radius: 0.5rem;
 
@@ -47,7 +47,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
     
-    --primary: 16 100% 50%; /* Reddish-Orange */
+    --primary: 0 100% 59%; /* #FF2D2D */
     --primary-foreground: 0 0% 100%; /* White */
     
     --secondary: 240 3.7% 15.9%;
@@ -64,7 +64,7 @@
     
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 16 100% 50%;
+    --ring: 0 100% 59%;
   }
 }
 
