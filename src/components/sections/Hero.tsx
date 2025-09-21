@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import SectionWrapper from '../SectionWrapper';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -45,60 +46,77 @@ export default function Hero() {
   };
 
   return (
-    <SectionWrapper ref={containerRef} id="hero" className="justify-center items-center text-center bg-black" style={{ perspective: '1000px' }}>
+    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-24 md:pt-0" style={{ perspective: '1000px' }}>
       <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       
-      {/* Desktop Title */}
-      <div className="relative z-10 w-full animate-stagger-in hidden md:flex justify-center items-center">
+      {/* Mobile-only Text Block */}
+      <div className="md:hidden w-full px-4 mb-8 z-10">
+        <div className="grid grid-cols-2 gap-4 text-left">
+            <div>
+                <h2 className="text-lg font-bold text-white">Creative Technologist</h2>
+                <h2 className="text-lg font-bold text-white">AI Innovator</h2>
+                <h2 className="text-lg font-bold text-white">Product Designer</h2>
+            </div>
+            <div>
+                <p className="text-xs text-white/70">
+                    My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
+                </p>
+            </div>
+        </div>
+      </div>
+      
+      {/* Combined Layout for Desktop and Mobile */}
+      <div className={cn(
+        "relative z-10 w-full flex justify-center items-center",
+        "md:flex-row", // Desktop: row layout
+        "flex-col" // Mobile: column layout
+      )}>
         <div className="animate-slide-in-left" style={textTransformLeft}>
-            <span className="font-headline text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] tracking-tighter uppercase leading-none text-white">
+            <span className={cn(
+              "font-headline tracking-tighter uppercase leading-none text-white",
+              "text-7xl", // Mobile font size
+              "md:text-6xl sm:text-8xl md:text-9xl lg:text-[10rem]" // Desktop font sizes
+            )}>
                 AHMED
             </span>
         </div>
         
-        <div className="w-40 h-60 sm:w-48 sm:h-72 md:w-64 md:h-96 lg:w-80 lg:h-[32rem] relative z-0 mx-[-1.5rem] sm:mx-[-2.5rem] md:mx-[-3.5rem] lg:mx-[-4.5rem]" style={{ transformStyle: 'preserve-3d' }}>
+        <div 
+          className={cn(
+            "relative z-0",
+            // Desktop dimensions & margin
+            "w-40 h-60 sm:w-48 sm:h-72 md:w-64 md:h-96 lg:w-80 lg:h-[32rem]",
+            "mx-[-1.5rem] sm:mx-[-2.5rem] md:mx-[-3.5rem] lg:mx-[-4.5rem]",
+            // Mobile dimensions & margin
+            "w-full h-64 -my-8"
+          )} 
+          style={{ transformStyle: 'preserve-3d' }}
+        >
           {cacheBust && <Image
             src={`/hero-image.png${cacheBust}`}
             alt="Ahmed Osman"
             fill
-            className="object-contain"
+            className={cn(
+              "object-contain",
+              "md:object-contain", // Desktop
+              "object-cover" // Mobile
+            )}
             style={imageTransform}
             priority
           />}
         </div>
 
         <div className="animate-slide-in-right" style={textTransformRight}>
-            <span className="font-headline text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] tracking-tighter uppercase leading-none text-primary">
+            <span className={cn(
+              "font-headline tracking-tighter uppercase leading-none text-primary",
+              "text-7xl", // Mobile font size
+              "md:text-6xl sm:text-8xl md:text-9xl lg:text-[10rem]" // Desktop font sizes
+            )}>
                 OSMAN
             </span>
         </div>
       </div>
       
-      {/* Mobile Layout */}
-      <div className="md:hidden flex flex-col w-full h-full px-4 pt-20">
-        <div className="grid grid-cols-2 gap-4 text-left mb-8">
-            <div>
-                <h2 className="text-xl font-bold text-white">Creative Technologist</h2>
-                <h2 className="text-xl font-bold text-white">AI Innovator</h2>
-                <h2 className="text-xl font-bold text-white">Product Designer</h2>
-            </div>
-            <div>
-                <p className="text-sm text-white/70">
-                    My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
-                </p>
-            </div>
-        </div>
-        <div className="relative flex-1 w-full h-full">
-            {cacheBust && <Image
-                src={`/hero-image.png${cacheBust}`}
-                alt="Ahmed Osman"
-                fill
-                className="object-contain object-bottom"
-                priority
-            />}
-        </div>
-      </div>
-
        <p className="text-white/70 mt-4 text-base md:text-xl max-w-2xl mx-auto absolute bottom-[25%] sm:bottom-[30%] hidden md:block" style={{ animationDelay: '0.5s' }}>
           Creative Technologist, AI Innovator, and a lifelong builder of things.
           I turn complex problems into elegant digital experiences.
