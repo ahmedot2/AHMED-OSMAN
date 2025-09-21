@@ -63,9 +63,9 @@ export default function Hero() {
       <div className={cn(
         "relative z-10 w-full flex justify-center items-center",
         "md:flex-row", // Desktop: row layout
-        "flex-col pt-12" // Mobile: column layout
+        "flex-col" // Mobile: column layout
       )}>
-        <div className="animate-slide-in-left md:mr-0 -mr-20" style={textTransformLeft}>
+        <div className="animate-slide-in-left -mr-20 md:mr-0" style={textTransformLeft}>
             <span className={cn(
               "font-headline tracking-tighter uppercase leading-none text-white",
               "text-7xl", // Mobile font size
@@ -82,7 +82,7 @@ export default function Hero() {
             "w-48 h-72 sm:w-56 sm:h-80 md:w-64 md:h-96 lg:w-80 lg:h-[32rem]",
             "mx-[-1.5rem] sm:mx-[-2.5rem] md:mx-[-3.5rem] lg:mx-[-4.5rem]",
             // Mobile dimensions & margin
-            "w-full h-80 -my-10"
+            "w-full h-80 -my-16"
           )} 
           style={{ transformStyle: 'preserve-3d' }}
         >
@@ -100,7 +100,7 @@ export default function Hero() {
           />}
         </div>
 
-        <div className="animate-slide-in-right md:ml-0 -ml-20" style={textTransformRight}>
+        <div className="animate-slide-in-right -ml-20 md:ml-0" style={textTransformRight}>
             <span className={cn(
               "font-headline tracking-tighter uppercase leading-none text-primary",
               "text-7xl", // Mobile font size
