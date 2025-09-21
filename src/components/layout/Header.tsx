@@ -10,6 +10,7 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
+  SheetTitle,
 } from "@/components/ui/sheet"
 
 
@@ -67,6 +68,7 @@ function MobileNav() {
                     <Menu className="w-7 h-7 text-white/80" />
                 </SheetTrigger>
                 <SheetContent className="bg-black border-l-border/50" side="right">
+                    <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     <nav className="mt-12">
                         <ul className="flex flex-col items-start gap-4">
                             {navItems.map(item => {
