@@ -1,5 +1,5 @@
 'use client';
-import { Home, User, Briefcase, BookOpen, PlaySquare, Mail } from 'lucide-react';
+import { Home, User, Briefcase, BookOpen, PlaySquare, Mail, Terminal } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -57,8 +57,8 @@ export default function Sidebar() {
 
   return (
     <aside className="fixed top-0 left-0 h-screen w-20 bg-black flex flex-col items-center z-50 border-r border-white/10">
-      <div className="flex flex-col items-center justify-center mt-4">
-        {/* You can place a logo here if you want */}
+      <div className="flex flex-col items-center justify-center mt-4 py-4">
+        <Terminal className="h-8 w-8 text-white/90" />
       </div>
       <nav className="flex flex-col items-center gap-2 w-full flex-grow justify-center">
         {navItems.map((item) => (
