@@ -6,19 +6,10 @@ export default function Hero() {
     <SectionWrapper id="hero" hasBackground>
       <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
         
-        {/* SVG container for scalable text */}
-        <svg viewBox="0 0 1200 200" className="w-full h-auto">
-          <text 
-            x="50%" 
-            y="50%" 
-            dy=".35em" 
-            textAnchor="middle" 
-            className="font-headline text-[180px] leading-none tracking-tighter"
-          >
-            <tspan className="fill-white">AHMED</tspan>
-            <tspan className="fill-primary">OSMAN</tspan>
-          </text>
-        </svg>
+        <div className="hero-title font-headline font-black text-center uppercase text-[clamp(4rem,15vw,12rem)] leading-[0.9] tracking-tighter">
+          <span className="text-white">AHMED</span>
+          <span className="text-primary">OSMAN</span>
+        </div>
 
         <div className="max-w-xl text-center mt-4">
           <p className="text-white/70 text-lg">
