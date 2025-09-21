@@ -47,7 +47,6 @@ export default function Hero() {
 
   return (
     <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-24 md:pt-0" style={{ perspective: '1000px' }}>
-      <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       
       {/* Mobile-only Text Block */}
       <div className="md:hidden w-full px-4 mb-8 z-20">
@@ -64,9 +63,9 @@ export default function Hero() {
       <div className={cn(
         "relative z-10 w-full flex justify-center items-center",
         "md:flex-row", // Desktop: row layout
-        "flex-col" // Mobile: column layout
+        "flex-col pt-12" // Mobile: column layout
       )}>
-        <div className="animate-slide-in-left" style={textTransformLeft}>
+        <div className="animate-slide-in-left md:mr-0 -mr-20" style={textTransformLeft}>
             <span className={cn(
               "font-headline tracking-tighter uppercase leading-none text-white",
               "text-7xl", // Mobile font size
@@ -101,7 +100,7 @@ export default function Hero() {
           />}
         </div>
 
-        <div className="animate-slide-in-right" style={textTransformRight}>
+        <div className="animate-slide-in-right md:ml-0 -ml-20" style={textTransformRight}>
             <span className={cn(
               "font-headline tracking-tighter uppercase leading-none text-primary",
               "text-7xl", // Mobile font size
