@@ -77,33 +77,31 @@ export default function Hero() {
       {/* Desktop Layout */}
        <div className="hidden md:flex relative w-full h-full items-center justify-center overflow-hidden">
         <div
-          className="absolute z-10 text-white font-headline w-full max-w-7xl mx-auto px-12 flex flex-col items-center"
-          style={{ perspective: '1000px', ...textTransform }}
-        >
-          <h1 className="text-9xl lg:text-[180px] text-center">
-            AHMED
-          </h1>
-          <h1 className="text-9xl lg:text-[180px] text-primary text-center -mt-8 lg:-mt-12">
-            OSMAN
-          </h1>
-        </div>
-
-        <div
           className="absolute inset-0 w-full h-full"
           style={{ perspective: '1000px' }}
         >
+          <div className="absolute z-0 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={{...textTransform}}>
+             <h1 className="text-9xl lg:text-[180px] text-center" style={{transform: 'translateY(50%)'}}>
+                OSMAN
+              </h1>
+          </div>
           <Image
             src={`/hero-image.png${cacheBust}`}
             alt="Ahmed Osman Portrait"
             fill
             priority
             style={imageTransform}
-            className="object-contain object-center"
+            className="object-contain object-center z-10"
             data-ai-hint="professional portrait"
           />
-           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/80" />
+           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/80 z-20" />
+           <div className="absolute z-30 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={{...textTransform}}>
+             <h1 className="text-9xl lg:text-[180px] text-center" style={{transform: 'translateY(-50%)'}}>
+                AHMED
+              </h1>
+           </div>
         </div>
-         <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-20">
+         <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-40">
             <p className="font-body text-xl lg:text-2xl" style={{ animation: 'slide-in-left 1s ease-out forwards' }}>
                 Creative Technologist, AI Innovator, and a lifelong builder of things. I turn complex problems into elegant digital experiences.
             </p>
