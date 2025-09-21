@@ -46,8 +46,8 @@ export default function Hero() {
   };
 
   return (
-    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-24 md:pt-0" style={{ perspective: '1000px' }}>
-      <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <SectionWrapper ref={containerRef} id="hero" className="justify-start md:justify-center items-center text-center bg-black pt-16 md:pt-0" style={{ perspective: '1000px' }}>
+      <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       
       {/* Mobile-only Text Block */}
       <div className="md:hidden w-full px-4 mb-4 z-20">
