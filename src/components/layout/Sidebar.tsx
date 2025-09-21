@@ -21,7 +21,7 @@ const navLinks = [
 
 const NavLink = ({ href, icon: Icon, isPrimary = false }: { href: string; icon: React.ElementType, isPrimary?: boolean }) => {
   return (
-    <Link href={href} className="group relative flex items-center justify-center h-12 w-full text-white/70 hover:text-white transition-colors">
+    <Link href={href} className="group relative flex items-center justify-center h-12 w-full text-white/70 hover:text-primary transition-colors">
       <Icon className={`h-6 w-6 ${isPrimary ? 'text-primary' : ''}`} />
       <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
         {href.substring(1).charAt(0).toUpperCase() + href.substring(2)}
