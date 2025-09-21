@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import SectionWrapper from '../SectionWrapper';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -46,23 +45,16 @@ export default function Hero() {
   };
 
   return (
-    <SectionWrapper id="hero" ref={containerRef} className="!p-0 !h-screen !min-h-[800px] md:!min-h-screen">
+    <SectionWrapper id="hero" ref={containerRef} className="!p-0 !h-screen !min-h-[800px] md:!min-h-screen bg-black">
       {/* Mobile Layout */}
-      <div className="md:hidden relative w-full h-full flex flex-col">
-        <div className="z-20 p-6 pt-20 bg-black">
-          <div className="grid grid-cols-2 gap-4 text-white">
-            <div>
-              <h3 className="font-bold text-lg">Creative Technologist</h3>
-              <h3 className="font-bold text-lg">AI Innovator</h3>
-              <h3 className="font-bold text-lg">Product Designer</h3>
-            </div>
-            <p className="text-sm text-white/70">
-              My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
-            </p>
-          </div>
+      <div className="md:hidden relative w-full h-full flex flex-col justify-center">
+        <div className="absolute top-24 left-6 z-20 text-white">
+            <h3 className="font-bold text-lg">Creative Technologist</h3>
+            <h3 className="font-bold text-lg">AI Innovator</h3>
+            <h3 className="font-bold text-lg">Product Designer</h3>
         </div>
         
-        <div className="relative flex-grow flex items-center justify-center -mt-16">
+        <div className="relative flex-grow flex items-center justify-center">
           <div
             className="absolute inset-0 w-full h-full overflow-hidden"
           >
@@ -71,17 +63,16 @@ export default function Hero() {
               alt="Ahmed Osman Portrait"
               fill
               priority
-              className="object-cover object-top"
+              className="object-contain object-bottom"
               data-ai-hint="professional portrait"
             />
-             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
           </div>
 
-          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center text-white font-headline">
-              <h1 className="text-8xl" style={{...textTransformLeft, letterSpacing: '0.05em'}}>
+          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center font-headline">
+              <h1 className="text-8xl text-white" style={{ letterSpacing: '0.05em', transform: 'translateY(40px)'}}>
                 AHMED
               </h1>
-              <h1 className="text-8xl" style={{...textTransformRight, letterSpacing: '0.05em'}}>
+              <h1 className="text-8xl text-primary" style={{ letterSpacing: '0.05em', transform: 'translateY(160px)' }}>
                 OSMAN
               </h1>
           </div>
