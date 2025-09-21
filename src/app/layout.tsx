@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
-import { Space_Grotesk, Inter } from 'next/font/google';
+import { Space_Grotesk, Inter, Anton } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'Ahmed Osman',
@@ -19,6 +19,12 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const anton = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-display',
+});
+
 
 export default function RootLayout({
   children,
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={cn('font-body antialiased pl-16', spaceGrotesk.variable, inter.variable)}>
+      <body className={cn('font-body antialiased pl-16', spaceGrotesk.variable, inter.variable, anton.variable)}>
         {children}
         <Toaster />
       </body>

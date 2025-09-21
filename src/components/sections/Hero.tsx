@@ -6,7 +6,7 @@ export default function Hero() {
     <SectionWrapper id="hero" hasBackground>
       <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
         
-        <div className="hero-title font-headline font-black text-center uppercase text-[clamp(4rem,15vw,12rem)] leading-[0.9] tracking-tighter">
+        <div className="hero-title font-display font-black text-center uppercase text-[clamp(4rem,15vw,12rem)] leading-[0.9] tracking-tighter">
           <span className="text-white">AHMED</span>
           <span className="text-primary">OSMAN</span>
         </div>
