@@ -1,3 +1,4 @@
+'use client';
 import {
   Home,
   User,
@@ -8,6 +9,8 @@ import {
   Terminal
 } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '#hero', icon: Home, isPrimary: true },
@@ -18,10 +21,10 @@ const navLinks = [
   { href: '#contact', icon: Mail },
 ];
 
-const NavLink = ({ href, icon: Icon, isPrimary = false }: { href: string; icon: React.ElementType, isPrimary?: boolean }) => {
+const NavLink = ({ href, icon: Icon, isActive }: { href: string; icon: React.ElementType, isActive: boolean }) => {
   return (
     <Link href={href} className="group relative flex items-center justify-center h-12 w-full text-white/70 hover:text-primary transition-colors">
-      <Icon className={`h-6 w-6 ${isPrimary ? 'text-primary' : ''}`} />
+      <Icon className={cn('h-6 w-6 transition-colors', isActive && 'text-primary')} />
       <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
         {href.substring(1).charAt(0).toUpperCase() + href.substring(2)}
       </div>
@@ -30,6 +33,31 @@ const NavLink = ({ href, icon: Icon, isPrimary = false }: { href: string; icon: 
 };
 
 export default function Sidebar() {
+    const [activeSection, setActiveSection] = useState('#hero');
+
+    useEffect(() => {
+        const sectionElements = navLinks.map(link => document.querySelector(link.href));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveSection(`#${entry.target.id}`);
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+        sectionElements.forEach(el => {
+            if (el) observer.observe(el);
+        });
+
+        return () => {
+            sectionElements.forEach(el => {
+                if (el) observer.unobserve(el);
+            });
+        };
+    }, []);
+
+
   return (
     <aside className="fixed top-0 left-0 h-screen w-16 bg-black flex flex-col items-center justify-between py-4 z-50 border-r border-white/10">
       <div className="flex flex-col items-center gap-2 w-full">
@@ -37,7 +65,7 @@ export default function Sidebar() {
           <Terminal className="h-7 w-7" />
         </Link>
         {navLinks.map(link => (
-          <NavLink key={link.href} href={link.href} icon={link.icon} isPrimary={link.isPrimary} />
+          <NavLink key={link.href} href={link.href} icon={link.icon} isActive={activeSection === link.href} />
         ))}
       </div>
       <div className="flex flex-col items-center gap-4">
