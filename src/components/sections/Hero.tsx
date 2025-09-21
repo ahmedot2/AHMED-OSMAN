@@ -1,48 +1,23 @@
 'use client';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Hero() {
-  const portraitImage = PlaceHolderImages.find(img => img.id === 'cv-preview');
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center text-center p-4 sm:p-8">
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <div className="text-red-600 font-display font-black uppercase text-[clamp(8rem,30vw,25rem)] leading-none tracking-tighter" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)'}}>
-          Work For You
+    <div
+      id="hero"
+      className="h-screen min-h-[700px] w-full snap-start relative flex flex-col justify-center py-16 px-6 sm:px-12 md:px-24 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
+      <div className="container mx-auto max-w-7xl z-10 flex flex-col items-center justify-center w-full">
+        <div
+          className="font-display font-black uppercase text-center leading-[0.9] tracking-tighter text-[clamp(4rem,15vw,12rem)]"
+        >
+          <span className="text-white">AHMED</span>
+          <span className="text-primary">OSMAN</span>
         </div>
-      </div>
-
-      <div className="z-10 grid grid-cols-3 gap-8 items-center max-w-7xl mx-auto w-full">
-        {/* Left Column */}
-        <div className="text-left space-y-2">
-          <h2 className="text-3xl md:text-5xl font-bold font-headline">Rebel</h2>
-          <h2 className="text-3xl md:text-5xl font-bold font-headline">Entrepreneur</h2>
-          <h2 className="text-3xl md:text-5xl font-bold font-headline">Disruptor</h2>
-          <h2 className="text-3xl md:text-5xl font-bold font-headline">Designer</h2>
-        </div>
-
-        {/* Center Column (Image) */}
-        <div className="relative flex justify-center items-center">
-            {portraitImage && (
-                <Image
-                    src={portraitImage.imageUrl}
-                    alt="Portrait of Ahmed Osman"
-                    width={400}
-                    height={600}
-                    data-ai-hint={portraitImage.imageHint}
-                    className="object-contain grayscale"
-                    priority
-                />
-            )}
-        </div>
-
-        {/* Right Column */}
-        <div className="text-left">
-          <p className="text-lg md:text-xl leading-relaxed text-white/90">
-            My passion is creating meaningful products for the world that solves real problems, delights users and exceeds expectations.
-          </p>
-        </div>
+        <p className="text-lg md:text-xl text-white/70 max-w-2xl mt-4 text-center">
+          Creative Technologist, AI Innovator, and Product Leader dedicated to building the future.
+        </p>
       </div>
     </div>
   );
