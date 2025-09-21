@@ -31,12 +31,14 @@ export default function Hero() {
 
   const imageTransform = {
     transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -10}px) translateZ(0) scale(1.1)`,
-    transition: 'transform 0.1s ease-out',
   };
 
-  const textTransform = {
+  const textTransformAhmed = {
     transform: `translateX(${mousePosition.x * 15}px) translateY(${mousePosition.y * 8}px) translateZ(0)`,
-    transition: 'transform 0.1s ease-out',
+  };
+  
+  const textTransformOsman = {
+    transform: `translateX(${mousePosition.x * 25}px) translateY(${mousePosition.y * 12}px) translateZ(0)`,
   };
 
   return (
@@ -75,33 +77,30 @@ export default function Hero() {
       </div>
 
       {/* Desktop Layout */}
-       <div className="hidden md:flex relative w-full h-full items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 w-full h-full"
-          style={{ perspective: '1000px' }}
-        >
-          <div className="absolute z-0 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={{...textTransform}}>
-             <h1 className="text-9xl lg:text-[180px] text-center" style={{transform: 'translateY(50%)'}}>
+       <div className="hidden md:flex relative w-full h-full items-center justify-center overflow-hidden" style={{ perspective: '1000px' }}>
+         <div className="absolute z-0 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformOsman}>
+             <h1 className="text-9xl lg:text-[180px] text-center text-primary" style={{transform: 'translateY(50%)'}}>
                 OSMAN
               </h1>
           </div>
-          <Image
-            src={`/hero-image.png${cacheBust}`}
-            alt="Ahmed Osman Portrait"
-            fill
-            priority
-            style={imageTransform}
-            className="object-contain object-center z-10"
-            data-ai-hint="professional portrait"
-          />
-           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/80 z-20" />
-           <div className="absolute z-30 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={{...textTransform}}>
+          <div className="absolute z-20 text-white font-headline w-full h-full flex flex-col items-center justify-center" style={textTransformAhmed}>
              <h1 className="text-9xl lg:text-[180px] text-center" style={{transform: 'translateY(-50%)'}}>
                 AHMED
               </h1>
            </div>
-        </div>
-         <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-40">
+          <div className="relative z-10 w-full h-[90%] aspect-[4/3]">
+            <Image
+              src={`/hero-image.png${cacheBust}`}
+              alt="Ahmed Osman Portrait"
+              fill
+              priority
+              style={imageTransform}
+              className="object-contain object-center"
+              data-ai-hint="professional portrait"
+            />
+          </div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/80 z-20" />
+           <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-30">
             <p className="font-body text-xl lg:text-2xl" style={{ animation: 'slide-in-left 1s ease-out forwards' }}>
                 Creative Technologist, AI Innovator, and a lifelong builder of things. I turn complex problems into elegant digital experiences.
             </p>
