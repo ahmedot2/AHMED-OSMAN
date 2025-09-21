@@ -49,22 +49,17 @@ export default function Hero() {
     <SectionWrapper id="hero" ref={containerRef} className="!p-0 !h-screen !min-h-[800px] md:!min-h-screen">
       {/* Mobile Layout */}
       <div className="md:hidden relative w-full h-full flex flex-col">
-        <div className="z-20 p-6 pt-12 bg-black">
+        <div className="z-20 p-6 pt-20 bg-black">
           <div className="grid grid-cols-2 gap-4 text-white">
             <div>
               <h3 className="font-bold text-lg">Creative Technologist</h3>
               <h3 className="font-bold text-lg">AI Innovator</h3>
               <h3 className="font-bold text-lg">Product Designer</h3>
             </div>
-            <div>
-               <p className="text-sm text-white/70">
-                My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
-              </p>
-            </div>
           </div>
         </div>
         
-        <div className="relative flex-grow flex items-center justify-center">
+        <div className="relative flex-grow flex items-center justify-center -mt-16">
           <div
             className="absolute inset-0 w-full h-full overflow-hidden"
           >
@@ -127,4 +122,3 @@ export default function Hero() {
     </SectionWrapper>
   );
 }
- 
