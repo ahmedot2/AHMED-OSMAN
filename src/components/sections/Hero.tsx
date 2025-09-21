@@ -10,7 +10,6 @@ export default function Hero() {
   const [cacheBust, setCacheBust] = useState('');
 
   useEffect(() => {
-    // This runs only on the client, preventing hydration mismatch errors.
     setCacheBust(`?t=${new Date().getTime()}`);
 
     const handleMouseMove = (event: MouseEvent) => {
@@ -49,9 +48,8 @@ export default function Hero() {
     <SectionWrapper ref={containerRef} id="hero" className="justify-center items-center text-center bg-black" style={{ perspective: '1000px' }}>
       <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       
-      <div 
-        className="relative z-10 w-full animate-stagger-in flex justify-center items-center"
-      >
+      {/* Desktop Title */}
+      <div className="relative z-10 w-full animate-stagger-in hidden md:flex justify-center items-center">
         <div className="animate-slide-in-left" style={textTransformLeft}>
             <span className="font-headline text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] tracking-tighter uppercase leading-none text-white">
                 AHMED
@@ -75,8 +73,33 @@ export default function Hero() {
             </span>
         </div>
       </div>
+      
+      {/* Mobile Layout */}
+      <div className="md:hidden flex flex-col w-full h-full px-4 pt-20">
+        <div className="grid grid-cols-2 gap-4 text-left mb-8">
+            <div>
+                <h2 className="text-xl font-bold text-white">Creative Technologist</h2>
+                <h2 className="text-xl font-bold text-white">AI Innovator</h2>
+                <h2 className="text-xl font-bold text-white">Product Designer</h2>
+            </div>
+            <div>
+                <p className="text-sm text-white/70">
+                    My passion is creating meaningful products for the world that solves real user problems, delights users and exceeds expectations.
+                </p>
+            </div>
+        </div>
+        <div className="relative flex-1 w-full h-full">
+            {cacheBust && <Image
+                src={`/hero-image.png${cacheBust}`}
+                alt="Ahmed Osman"
+                fill
+                className="object-contain object-bottom"
+                priority
+            />}
+        </div>
+      </div>
 
-       <p className="text-white/70 mt-4 text-base md:text-xl max-w-2xl mx-auto absolute bottom-[25%] sm:bottom-[30%]" style={{ animationDelay: '0.5s' }}>
+       <p className="text-white/70 mt-4 text-base md:text-xl max-w-2xl mx-auto absolute bottom-[25%] sm:bottom-[30%] hidden md:block" style={{ animationDelay: '0.5s' }}>
           Creative Technologist, AI Innovator, and a lifelong builder of things.
           I turn complex problems into elegant digital experiences.
         </p>
