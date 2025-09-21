@@ -30,17 +30,12 @@ export default function Hero() {
   }, []);
 
   const imageTransform = {
-    transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -10}px) translateZ(0) scale(1.2)`,
+    transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -10}px) translateZ(0) scale(1.1)`,
     transition: 'transform 0.1s ease-out',
   };
 
-  const textTransformLeft = {
+  const textTransform = {
     transform: `translateX(${mousePosition.x * 15}px) translateY(${mousePosition.y * 8}px) translateZ(0)`,
-    transition: 'transform 0.1s ease-out',
-  };
-  
-  const textTransformRight = {
-    transform: `translateX(${mousePosition.x * -15}px) translateY(${mousePosition.y * -8}px) translateZ(0)`,
     transition: 'transform 0.1s ease-out',
   };
 
@@ -80,9 +75,21 @@ export default function Hero() {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden md:flex relative w-full h-full items-center justify-center">
+       <div className="hidden md:flex relative w-full h-full items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 w-full h-full overflow-hidden"
+          className="absolute z-10 text-white font-headline w-full max-w-7xl mx-auto px-12 flex flex-col items-center"
+          style={{ perspective: '1000px', ...textTransform }}
+        >
+          <h1 className="text-9xl lg:text-[180px] text-center">
+            AHMED
+          </h1>
+          <h1 className="text-9xl lg:text-[180px] text-primary text-center -mt-8 lg:-mt-12">
+            OSMAN
+          </h1>
+        </div>
+
+        <div
+          className="absolute inset-0 w-full h-full"
           style={{ perspective: '1000px' }}
         >
           <Image
@@ -91,26 +98,15 @@ export default function Hero() {
             fill
             priority
             style={imageTransform}
-            className="object-cover object-center"
+            className="object-contain object-center"
             data-ai-hint="professional portrait"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
+           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/80" />
         </div>
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-12 flex flex-col items-start text-left text-white font-headline">
-          <div className="flex">
-            <h1 className="text-9xl lg:text-[180px]" style={textTransformLeft}>
-              AHMED
-            </h1>
-          </div>
-          <div className="flex">
-            <h1 className="text-9xl lg:text-[180px] -mt-4 lg:-mt-8" style={textTransformRight}>
-              OSMAN
-            </h1>
-          </div>
-          <p className="font-body text-xl lg:text-2xl max-w-lg mt-4 text-white/80" style={{ animation: 'slide-in-left 1s ease-out forwards' }}>
-            Creative Technologist, AI Innovator, and a lifelong builder of things. I turn complex problems into elegant digital experiences.
-          </p>
+         <div className="absolute top-1/2 left-12 transform -translate-y-1/2 text-white/80 max-w-xs z-20">
+            <p className="font-body text-xl lg:text-2xl" style={{ animation: 'slide-in-left 1s ease-out forwards' }}>
+                Creative Technologist, AI Innovator, and a lifelong builder of things. I turn complex problems into elegant digital experiences.
+            </p>
         </div>
       </div>
     </SectionWrapper>
