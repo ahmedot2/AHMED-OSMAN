@@ -58,7 +58,7 @@ export default function Hero() {
             </span>
         </div>
         
-        <div className="w-32 h-48 sm:w-40 sm:h-60 md:w-56 md:h-80 lg:w-72 lg:h-[28rem] relative z-0 mx-[-1rem] sm:mx-[-2rem] md:mx-[-3rem] lg:mx-[-4rem]" style={{ transformStyle: 'preserve-3d' }}>
+        <div className="w-40 h-60 sm:w-48 sm:h-72 md:w-64 md:h-96 lg:w-80 lg:h-[32rem] relative z-0 mx-[-1.5rem] sm:mx-[-2.5rem] md:mx-[-3.5rem] lg:mx-[-4.5rem]" style={{ transformStyle: 'preserve-3d' }}>
           {cacheBust && <Image
             src={`/hero-image.png${cacheBust}`}
             alt="Ahmed Osman"
