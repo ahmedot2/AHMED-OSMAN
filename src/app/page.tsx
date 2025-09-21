@@ -11,14 +11,15 @@ export default function Home() {
   return (
     <div className="bg-black text-white">
       <Header />
-      <main className="ml-16 md:ml-20 h-screen overflow-y-scroll snap-y snap-mandatory">
+      <main>
         <Hero />
-        <About />
+        {/* The rest of the sections can be re-enabled as needed */}
+        {/* <About />
         <Projects />
         <Publications />
         <Media />
         <Contact />
-        <Footer />
+        <Footer /> */}
       </main>
     </div>
   );
