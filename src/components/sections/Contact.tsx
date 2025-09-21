@@ -61,12 +61,12 @@ export default function Contact() {
     <SectionWrapper id="contact" hasBackground>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div className="flex flex-col gap-6">
-          <h2 className="font-headline text-5xl md:text-6xl text-white">Contact</h2>
+          <h2 className="font-headline text-6xl md:text-7xl text-white">Contact</h2>
           <p className="text-white/70 text-lg">
             Have a project in mind, a question, or just want to connect? Drop me a line. I'm always open to discussing new ideas and opportunities.
           </p>
           <div className="mt-4">
-            <h3 className="font-headline text-2xl text-white mb-4">Or, have a chat.</h3>
+            <h3 className="font-headline text-3xl text-white mb-4">Or, have a chat.</h3>
             <div className="flex gap-4">
               {socialLinks.map(link => (
                 <Button key={link.name} variant="outline" size="icon" asChild>

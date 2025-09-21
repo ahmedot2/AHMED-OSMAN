@@ -31,8 +31,8 @@ export default function About() {
     <SectionWrapper id="about" hasBackground>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
         <div className="flex flex-col gap-6">
-          <h2 className="font-headline text-5xl md:text-6xl text-white">About Me</h2>
-          <div className="text-white/80 leading-relaxed text-base md:text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
+          <h2 className="font-headline text-6xl md:text-7xl text-white">About Me</h2>
+          <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
              <EmotionalContent originalContent={bio} />
           </div>
           <Button size="lg" variant="outline" className="self-start group" asChild>
@@ -45,7 +45,7 @@ export default function About() {
 
         <div className="flex flex-col gap-8">
           <div className="bg-card/30 p-4 rounded-lg border border-border/10">
-            <h3 className="text-2xl font-headline mb-4 text-white/90">Skills</h3>
+            <h3 className="text-3xl font-headline mb-4 text-white/90">Skills</h3>
             <Accordion type="single" collapsible className="w-full">
               {skills.map((skill, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
@@ -62,7 +62,7 @@ export default function About() {
             </Accordion>
           </div>
           <div className="bg-card/30 p-4 rounded-lg border border-border/10">
-            <h3 className="text-2xl font-headline mb-4 text-white/90">Milestones</h3>
+            <h3 className="text-3xl font-headline mb-4 text-white/90">Milestones</h3>
             <div className="space-y-4">
               {milestones.map((milestone, index) => (
                 <div key={index} className="flex items-start gap-4 group">

@@ -40,7 +40,7 @@ export default function Publications() {
   return (
     <SectionWrapper id="publications" hasBackground>
       <div className="flex flex-col gap-8">
-        <h2 className="font-headline text-5xl md:text-6xl text-white">Publications</h2>
+        <h2 className="font-headline text-6xl md:text-7xl text-white">Publications</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {publications.map((pub, index) => (
             <Dialog key={index}>
@@ -61,7 +61,7 @@ export default function Publications() {
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <Badge variant="outline" className="self-start mb-2 border-primary/50 text-primary">{pub.genre}</Badge>
-                  <h3 className="text-2xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
+                  <h3 className="text-3xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
                   <p className="text-white/70 mb-4 text-sm">{pub.synopsis}</p>
                   <DialogTrigger asChild>
                     <Button variant="outline">View Details</Button>

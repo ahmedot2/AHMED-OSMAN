@@ -57,7 +57,7 @@ export default function Projects() {
     <SectionWrapper id="projects" hasBackground>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <h2 className="font-headline text-5xl md:text-6xl text-white">Projects</h2>
+          <h2 className="font-headline text-6xl md:text-7xl text-white">Projects</h2>
           <div className="flex flex-wrap gap-2">
             {filters.map(filter => (
               <Button
@@ -91,7 +91,7 @@ export default function Projects() {
                 )}
               </div>
               <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-                <h3 className="text-2xl font-headline text-white mb-2">{project.title}</h3>
+                <h3 className="text-3xl font-headline text-white mb-2">{project.title}</h3>
                 <p className="text-white/70 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map(t => (
