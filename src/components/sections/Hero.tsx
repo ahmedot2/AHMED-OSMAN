@@ -6,8 +6,8 @@ export default function Hero() {
     <SectionWrapper id="hero" hasBackground>
       <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
         <div className="font-headline text-[18vw] md:text-[200px] lg:text-[240px] leading-none tracking-tighter">
-          <span className="text-white">AHM</span>
-          <span className="text-primary">OSM</span>
+          <span className="text-white">AHMED</span>
+          <span className="text-primary">OSMAN</span>
         </div>
         <div className="max-w-xl text-center mt-4">
           <p className="text-white/70 text-lg">
