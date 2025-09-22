@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import CurvedLoop from '../CurvedLoop';
+import TextType from '../TextType';
 
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
@@ -70,9 +71,7 @@ export default function Hero() {
 
         <div className="relative w-full flex flex-col items-center justify-center z-20 -mt-24">
           <h1 className="font-display font-black uppercase text-center text-[clamp(2.5rem,18vw,10rem)] leading-[0.8] tracking-wider">
-              <span className="text-white">
-                AHMED
-              </span>
+              <TextType as="span" text="AHMED" className="text-white" loop={false} typingSpeed={200} showCursor={true} cursorClassName="text-white" />
               <span className="text-primary">
                 OSMAN
               </span>
