@@ -2,7 +2,6 @@
 'use server';
 import { z } from 'zod';
 import { summarizeContactFormSubmission } from '@/ai/flows/summarize-contact-form-submissions';
-import { rewriteContent as rewriteContentFlow } from '@/ai/flows/dynamically-rewrite-content';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -44,14 +43,4 @@ export async function handleContactForm(prevState: ContactFormState, formData: F
     console.error(error);
     return { errors: null, summary: 'An error occurred while processing your request.', success: false };
   }
-}
-
-export async function rewriteContent(content: string, emotionalState: string) {
-    try {
-        const { rewrittenContent } = await rewriteContentFlow({ content, emotionalState });
-        return rewrittenContent;
-    } catch (error) {
-        console.error('AI content rewrite failed:', error);
-        return content;
-    }
 }

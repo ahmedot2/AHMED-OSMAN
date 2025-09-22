@@ -6,7 +6,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Badge } from '../ui/badge';
-import EmotionalContent from '../EmotionalContent';
 
 const bio = "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent. I've learned: The honey trap of comfort leads nowhere—true paths forge through the iron curtain of doubt.";
 
@@ -31,7 +30,7 @@ export default function About() {
         <div className="flex flex-col gap-6">
           <h2 className="font-headline text-6xl md:text-7xl text-white">About Me</h2>
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
-             <EmotionalContent originalContent={bio} />
+             <p>{bio}</p>
           </div>
         </div>
 
