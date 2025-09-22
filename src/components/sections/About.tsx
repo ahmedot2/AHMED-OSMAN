@@ -26,7 +26,9 @@ const milestones = [
 
 export default function About() {
   const [leftColRef, isLeftColVisible] = useScrollAnimation();
-  const [rightColRef, isRightColVisible] = useScrollAnimation();
+  const [skillsRef, areSkillsVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [milestonesRef, areMilestonesVisible] = useScrollAnimation({ threshold: 0.1 });
+
 
   const bioText = [
     "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent.",
@@ -50,20 +52,17 @@ export default function About() {
         >
           
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm min-h-[160px] md:min-h-[140px]">
-            <TextType
-              text={bioText}
-              typingSpeed={50}
-              pauseDuration={2000}
-              highlightedWords={highlightedWords}
-            />
+            <p>
+              In the turbulence beneath the surface, shadows over <span className="text-primary">Tokyo</span> whisper secrets of ascent. I've learned: The <span className="text-primary">honey trap</span> of comfort leads nowhere—<span className="text-primary">true paths</span> forge through the <span className="text-primary">iron curtain of doubt</span>.
+            </p>
           </div>
         </div>
 
-        <div 
-          ref={rightColRef}
-          className={`flex flex-col gap-8 transition-all duration-1000 delay-300 ${isRightColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
-        >
-          <div className="bg-card/30 p-4 rounded-lg border border-border/10">
+        <div className="flex flex-col gap-8">
+          <div 
+            ref={skillsRef}
+            className={`bg-card/30 p-4 rounded-lg border border-border/10 transition-all duration-700 ${areSkillsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          >
             <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {skills.map((skill, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
@@ -79,7 +78,10 @@ export default function About() {
               ))}
             </Accordion>
           </div>
-          <div className="bg-card/30 p-4 rounded-lg border border-border/10">
+          <div 
+            ref={milestonesRef}
+            className={`bg-card/30 p-4 rounded-lg border border-border/10 transition-all duration-700 delay-200 ${areMilestonesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          >
             <h3 className="text-3xl font-headline mb-4 text-white/90">Milestones</h3>
             <div className="space-y-4">
               {milestones.map((milestone, index) => (
