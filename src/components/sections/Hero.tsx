@@ -49,17 +49,16 @@ export default function Hero() {
             </h1>
           </div>
         </div>
-        
-        <div className="absolute bottom-8 left-0 z-30 w-full flex justify-center">
-          <CurvedLoop 
-            marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦ Author ✦ AI Enthusiast ✦ Blockchain Early Bird ✦ Traveler ✦" 
-            direction="left" 
-            speed={0.6}
-            curveAmount={100}
-            className="font-display uppercase text-white fill-current text-[clamp(24px,8vw,50px)]"
-          />
-        </div>
       </motion.div>
+      <div className="absolute bottom-8 left-0 z-30 w-full flex justify-center">
+        <CurvedLoop 
+          marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦ Author ✦ AI Enthusiast ✦ Blockchain Early Bird ✦ Traveler ✦" 
+          direction="left" 
+          speed={0.6}
+          curveAmount={100}
+          className="font-display uppercase text-white fill-current text-[clamp(24px,8vw,50px)]"
+        />
+      </div>
     </SectionWrapper>
   );
 }
