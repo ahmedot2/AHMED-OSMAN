@@ -9,8 +9,6 @@ import { Label } from '@/components/ui/label';
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
-  const [speed, setSpeed] = useState(0.6);
-  const [curveAmount, setCurveAmount] = useState(-400);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -57,8 +55,8 @@ export default function Hero() {
         <CurvedLoop 
           marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" 
           direction="right" 
-          speed={speed}
-          curveAmount={curveAmount}
+          speed={0.6}
+          curveAmount={-400}
           className="font-display uppercase text-white fill-current text-[24px]"
         />
       </div>
@@ -91,39 +89,6 @@ export default function Hero() {
                 OSMAN
               </span>
           </h1>
-        </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 w-full max-w-sm p-4 bg-black/50 rounded-lg backdrop-blur-sm border border-white/10">
-        <div className="space-y-6">
-          <div className="grid gap-2">
-            <div className="flex justify-between items-center">
-              <Label htmlFor="speed-slider" className="text-white">Speed</Label>
-              <span className="text-white/70 text-sm">{speed.toFixed(1)}</span>
-            </div>
-            <Slider
-              id="speed-slider"
-              min={0.1}
-              max={5}
-              step={0.1}
-              value={[speed]}
-              onValueChange={(value) => setSpeed(value[0])}
-            />
-          </div>
-          <div className="grid gap-2">
-            <div className="flex justify-between items-center">
-              <Label htmlFor="curve-slider" className="text-white">Curve Amount</Label>
-               <span className="text-white/70 text-sm">{curveAmount}px</span>
-            </div>
-            <Slider
-              id="curve-slider"
-              min={-500}
-              max={500}
-              step={10}
-              value={[curveAmount]}
-              onValue-change={(value) => setCurveAmount(value[0])}
-            />
-          </div>
         </div>
       </div>
     </div>
