@@ -1,3 +1,4 @@
+
 'use client';
 
 import { cn } from '@/lib/utils';
@@ -14,7 +15,7 @@ type CurvedLoopProps = {
 
 export default function CurvedLoop({
   marqueeText,
-  speed = 10,
+  speed = 2,
   curveAmount = 100,
   direction = 'left',
   interactive = true,
@@ -23,6 +24,7 @@ export default function CurvedLoop({
   const uniqueId = useId();
   const pathId = `curve-path-${uniqueId}`;
   const textPathRef = useRef<SVGTextPathElement>(null);
+  
   const fullText = `${marqueeText} ${marqueeText}`;
 
   // Ensure the curve amount is within a reasonable range
@@ -56,13 +58,13 @@ export default function CurvedLoop({
       if (direction === 'left') {
         startOffset -= animationSpeed;
         const textLength = textPath.getComputedTextLength() / 2;
-        if (startOffset <= -textLength) {
+        if (textLength > 0 && startOffset <= -textLength) {
           startOffset += textLength;
         }
       } else { // 'right'
         startOffset += animationSpeed;
         const textLength = textPath.getComputedTextLength() / 2;
-        if (startOffset >= 0) {
+        if (textLength > 0 && startOffset >= 0) {
           startOffset -= textLength;
         }
       }
@@ -71,7 +73,10 @@ export default function CurvedLoop({
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    // Delay start to allow text length to be computed
+    setTimeout(() => {
+        animate();
+    }, 0);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
