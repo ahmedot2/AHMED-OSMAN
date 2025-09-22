@@ -84,9 +84,6 @@ export default function Hero() {
                 OSMAN
               </span>
           </h1>
-          <p className="text-lg md:text-xl text-white/70 max-w-2xl mt-4 text-center">
-            Creative Technologist, AI Innovator, and Product Leader dedicated to building the future.
-          </p>
         </div>
       </div>
     </div>
