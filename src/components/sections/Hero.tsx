@@ -56,7 +56,7 @@ export default function Hero() {
           marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" 
           direction="right" 
           speed={0.6}
-          curveAmount={-300}
+          curveAmount={-100}
           className="font-display uppercase text-white fill-current text-[50px]"
         />
       </div>
