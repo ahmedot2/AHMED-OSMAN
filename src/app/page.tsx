@@ -9,9 +9,9 @@ import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   return (
-    <div className="flex bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen">
       <Sidebar />
-      <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-auto">
+      <main className="snap-y snap-mandatory h-screen overflow-y-auto md:pl-20">
         <Hero />
         <About />
         <Projects />

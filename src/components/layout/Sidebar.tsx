@@ -2,7 +2,6 @@
 import { Home, User, Briefcase, BookOpen, PlaySquare, Mail, Terminal } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
 
 const navItems = [
   { name: 'Hero', icon: Home, href: '#hero' },
