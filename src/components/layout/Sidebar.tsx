@@ -1,4 +1,3 @@
-
 'use client';
 import { Home, User, Briefcase, BookOpen, PlaySquare, Mail, Terminal } from 'lucide-react';
 import Link from 'next/link';
