@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      textDecorationColor: {
+        primary: 'hsl(var(--primary))',
+      },
       fontFamily: {
         body: ['var(--font-inter)', 'sans-serif'],
         headline: ['var(--font-space-grotesk)', 'sans-serif'],
