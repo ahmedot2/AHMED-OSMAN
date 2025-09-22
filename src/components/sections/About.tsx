@@ -35,12 +35,6 @@ export default function About() {
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
              <EmotionalContent originalContent={bio} />
           </div>
-          <Button size="lg" variant="outline" className="self-start group" asChild>
-            <a href="/ahmed-osman-cv.pdf" download>
-              <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-              Download CV
-            </a>
-          </Button>
         </div>
 
         <div className="flex flex-col gap-8">
