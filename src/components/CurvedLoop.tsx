@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useId } from 'react';
+import { useId, useRef, useEffect, useState } from 'react';
 
 type CurvedLoopProps = {
   marqueeText: string;
@@ -22,15 +22,53 @@ export default function CurvedLoop({
 }: CurvedLoopProps) {
   const uniqueId = useId();
   const pathId = `curve-path-${uniqueId}`;
+  const textPathRef = useRef<SVGTextPathElement>(null);
 
   // Ensure the curve amount is within a reasonable range
   const clampedCurve = Math.max(10, Math.min(curveAmount, 500));
   const pathDefinition = `M 0,${clampedCurve} C 0,${clampedCurve} 300,${-clampedCurve} 600,${clampedCurve}`;
 
-  const from = direction === 'right' ? '100%' : '0%';
-  const to = direction === 'right' ? '0%' : '100%';
-
   const fullText = `${marqueeText} ${marqueeText}`;
+
+  useEffect(() => {
+    let animationFrameId: number;
+    const textPath = textPathRef.current;
+    if (!textPath) return;
+    
+    let startOffset = 0;
+    const animate = () => {
+      const textLength = textPath.getComputedTextLength() / 2; // Length of a single instance of the text
+      const animationSpeed = (speed / 10) * (textLength / 600);
+
+      if (direction === 'left') {
+        startOffset -= animationSpeed;
+        if (startOffset <= -textLength) {
+          startOffset += textLength;
+        }
+      } else {
+        startOffset += animationSpeed;
+        if (startOffset >= 0) {
+          startOffset -= textLength;
+        }
+      }
+      
+      textPath.setAttribute('startOffset', `${startOffset}`);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    // Initialize position for right-to-left
+    if (direction === 'right' && textPathRef.current) {
+        const textLength = textPathRef.current.getComputedTextLength() / 2;
+        startOffset = -textLength;
+    }
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [speed, direction, marqueeText]);
+
 
   return (
     <div
@@ -54,16 +92,9 @@ export default function CurvedLoop({
           className="font-display uppercase text-white fill-current text-[24px]"
         >
           <textPath 
+            ref={textPathRef}
             href={`#${pathId}`}
           >
-             <animate
-              attributeName="startOffset"
-              from={from}
-              to={to}
-              begin="0s"
-              dur={`${speed}s`}
-              repeatCount="indefinite"
-            />
             {fullText}
           </textPath>
         </text>
