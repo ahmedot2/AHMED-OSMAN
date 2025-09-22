@@ -57,7 +57,7 @@ export default function Hero() {
           direction="left" 
           speed={0.6}
           curveAmount={100}
-          className="font-display uppercase text-white fill-current text-[clamp(40px,8vw,50px)]"
+          className="font-display uppercase text-white fill-current text-[50px]"
         />
       </div>
     </SectionWrapper>
