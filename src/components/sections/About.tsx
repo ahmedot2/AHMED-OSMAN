@@ -9,6 +9,7 @@ import {
 import { Badge } from '../ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import TextType from '../TextType';
+import Image from 'next/image';
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
@@ -48,8 +49,16 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
         <div 
           ref={leftColRef} 
-          className={`flex flex-col gap-6 transition-all duration-1000 ${isLeftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
+          className={`flex flex-col gap-8 transition-all duration-1000 ${isLeftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
         >
+          <Image 
+            src="/about-image.png"
+            alt="Philosophical depiction of challenge"
+            width={500}
+            height={300}
+            data-ai-hint="monochrome abstract"
+            className="rounded-lg object-cover w-full h-auto"
+          />
           
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm min-h-[160px] md:min-h-[140px]">
             <TextType 
