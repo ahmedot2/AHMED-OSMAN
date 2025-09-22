@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useRef, useEffect, useState, useMemo, useId } from 'react';
+import { useId } from 'react';
 
 type CurvedLoopProps = {
   marqueeText: string;
@@ -26,6 +26,11 @@ export default function CurvedLoop({
   // Ensure the curve amount is within a reasonable range
   const clampedCurve = Math.max(10, Math.min(curveAmount, 500));
   const pathDefinition = `M 0,${clampedCurve} C 0,${clampedCurve} 300,${-clampedCurve} 600,${clampedCurve}`;
+
+  const from = direction === 'right' ? '100%' : '0%';
+  const to = direction === 'right' ? '0%' : '100%';
+
+  const fullText = `${marqueeText} ${marqueeText}`;
 
   return (
     <div
@@ -53,13 +58,13 @@ export default function CurvedLoop({
           >
              <animate
               attributeName="startOffset"
-              from={direction === 'left' ? '0%' : '100%'}
-              to={direction === 'left' ? '100%' : '0%'}
+              from={from}
+              to={to}
               begin="0s"
               dur={`${speed}s`}
               repeatCount="indefinite"
             />
-            {marqueeText}
+            {fullText}
           </textPath>
         </text>
       </svg>
