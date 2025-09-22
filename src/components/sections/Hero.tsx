@@ -53,7 +53,8 @@ export default function Hero() {
         <CurvedLoop 
           marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" 
           direction="right" 
-          speed={2} 
+          speed={2}
+          curveAmount={100}
           className="font-display uppercase text-white fill-current text-[24px]"
         />
       </div>
