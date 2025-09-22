@@ -37,7 +37,7 @@ export default function About() {
           
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
              <p>
-                In the turbulence beneath the surface, shadows over <span className="text-primary">Tokyo</span> whisper secrets of ascent. I've learned: The <span className="text-primary">honey trap</span> of comfort leads nowhere—true paths forge through the iron curtain of doubt.
+                In the turbulence beneath the surface, shadows over <span className="text-primary">Tokyo</span> whisper secrets of ascent. I've learned: The <span className="text-primary">honey trap</span> of comfort leads nowhere—<span className="text-primary">true paths</span> forge through the <span className="text-primary">iron curtain of doubt</span>.
             </p>
           </div>
         </div>
