@@ -51,16 +51,6 @@ export default function Hero() {
       className="h-screen min-h-[700px] w-full snap-start relative flex flex-col justify-center items-center py-16 px-6 sm:px-12 md:px-24 overflow-hidden"
       style={{ perspective: '1000px' }}
     >
-      <div className="absolute top-8 left-0 z-30 w-full flex justify-center">
-        <CurvedLoop 
-          marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" 
-          direction="right" 
-          speed={0.6}
-          curveAmount={-100}
-          className="font-display uppercase text-white fill-current text-[50px]"
-        />
-      </div>
-
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
       
       <div className="relative flex flex-col items-center justify-center">
@@ -90,6 +80,16 @@ export default function Hero() {
               </span>
           </h1>
         </div>
+      </div>
+      
+      <div className="absolute bottom-8 left-0 z-30 w-full flex justify-center">
+        <CurvedLoop 
+          marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" 
+          direction="right" 
+          speed={0.6}
+          curveAmount={100}
+          className="font-display uppercase text-white fill-current text-[50px]"
+        />
       </div>
     </div>
   );
