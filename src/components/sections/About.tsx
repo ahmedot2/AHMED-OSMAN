@@ -36,7 +36,7 @@ export default function About() {
           ref={leftColRef} 
           className={`flex flex-col gap-6 transition-all duration-1000 ${isLeftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
         >
-          <h2 className="font-headline text-6xl md:text-7xl text-white">About Me</h2>
+          
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
              <p>{bio}</p>
           </div>
