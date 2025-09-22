@@ -51,11 +51,15 @@ export default function CurvedLoop({
             {
               '--speed': `${speed}s`,
               '--direction': direction === 'left' ? 'normal' : 'reverse',
-              animation: 'marquee var(--speed) linear infinite var(--direction)',
             } as React.CSSProperties
           }
         >
-          <textPath href={`#${pathId}`} startOffset="0%">
+          <textPath 
+            href={`#${pathId}`} 
+            style={{
+                animation: 'marquee var(--speed) linear infinite var(--direction)',
+            } as React.CSSProperties}
+          >
             {marqueeText}
           </textPath>
         </text>

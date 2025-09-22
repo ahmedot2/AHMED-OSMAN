@@ -85,10 +85,10 @@
 @layer utilities {
   @keyframes marquee {
     from {
-      text-offset: 0%;
+      startOffset: 0%;
     }
     to {
-      text-offset: 100%;
+      startOffset: 100%;
     }
   }
 }
