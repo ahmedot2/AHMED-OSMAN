@@ -49,7 +49,10 @@ export default function Hero() {
     >
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
       
-      <div className="z-10 absolute" style={{ transformStyle: 'preserve-3d', transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)` }}>
+      <div 
+        className="z-10 absolute" 
+        style={{ transformStyle: 'preserve-3d', transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)` }}
+      >
          <Image
            src="/portrait.png"
            alt="Portrait of Ahmed Osman"
