@@ -5,12 +5,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Button } from '../ui/button';
-import { Download } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import EmotionalContent from '../EmotionalContent';
 
-const bio = "With over a decade of experience at the intersection of software engineering, artificial intelligence, and product design, I have a proven track record of leading teams to deliver innovative solutions. My expertise lies in architecting scalable systems, mentoring talent, and driving technical strategy to align with business goals. I am passionate about leveraging technology to solve real-world problems and create meaningful impact.";
+const bio = "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent. I've learned: The honey trap of comfort leads nowhere—true paths forge through the iron curtain of doubt.";
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
