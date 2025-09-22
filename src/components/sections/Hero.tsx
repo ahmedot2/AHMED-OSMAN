@@ -62,7 +62,7 @@ export default function Hero() {
           width={200}
           height={200}
           data-ai-hint="portrait man"
-          className="rounded-full object-cover border-4 border-primary/50 shadow-2xl shadow-primary/20"
+          className="object-cover border-4 border-primary/50 shadow-2xl shadow-primary/20"
           style={{ transform: 'translateZ(40px)' }}
         />
       </div>
