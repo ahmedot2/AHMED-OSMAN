@@ -9,8 +9,6 @@ import {
 import { Badge } from '../ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const bio = "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent. I've learned: The honey trap of comfort leads nowhere—true paths forge through the iron curtain of doubt.";
-
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
   { category: 'Frameworks', items: ['Next.js', 'React', 'Node.js', 'FastAPI'] },
@@ -38,7 +36,9 @@ export default function About() {
         >
           
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
-             <p>{bio}</p>
+             <p>
+                In the turbulence beneath the surface, shadows over <span className="text-primary">Tokyo</span> whisper secrets of ascent. I've learned: The <span className="text-primary">honey trap</span> of comfort leads nowhere—true paths forge through the iron curtain of doubt.
+            </p>
           </div>
         </div>
 
