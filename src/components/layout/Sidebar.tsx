@@ -97,11 +97,8 @@ export default function Sidebar() {
 
       {/* Mobile Header */}
       <header className="md:hidden fixed top-0 left-0 right-0 h-16 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-between px-4 border-b border-white/10">
-        <Link href="#hero" className="z-50" onClick={() => setIsMobileMenuOpen(false)}>
-          <Terminal className="h-8 w-8 text-white/90 hover:text-primary transition-colors" />
-        </Link>
-        <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
-          {isMobileMenuOpen ? <X className="h-6 w-6 text-white/80" /> : <Menu className="h-6 w-6 text-white/80" />}
+        <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" className="z-50">
+          {isMobileMenuOpen ? <X className="h-8 w-8 text-white/90" /> : <Terminal className="h-8 w-8 text-white/90 hover:text-primary transition-colors" />}
         </Button>
       </header>
 
