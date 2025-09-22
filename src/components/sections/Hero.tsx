@@ -20,8 +20,8 @@ export default function Hero() {
       const xPct = mouseX / width - 0.5;
       const yPct = mouseY / height - 0.5;
 
-      const rotateX = yPct * -20; // Max rotation 10 degrees
-      const rotateY = xPct * 20;  // Max rotation 10 degrees
+      const rotateX = yPct * -20; // Max rotation
+      const rotateY = xPct * 20;  // Max rotation
 
       setRotate({ x: rotateX, y: rotateY });
     };
@@ -50,7 +50,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
       
       <div 
-        className="z-10 absolute" 
         style={{ transformStyle: 'preserve-3d', transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)` }}
       >
          <Image
@@ -61,17 +60,15 @@ export default function Hero() {
            data-ai-hint="portrait man"
            className="object-cover"
            style={{ transform: 'translateZ(40px)' }}
+           priority
          />
       </div>
 
-
-      <div className="container mx-auto max-w-7xl z-20 flex flex-col items-center justify-center w-full">
-        <div className="w-full flex items-center justify-center overflow-hidden">
-          <h1 className="font-display font-black uppercase text-center text-[clamp(2.5rem,18vw,10rem)] leading-[0.8] tracking-wider">
-              <span className="text-white">AHMED</span>
-              <span className="text-primary">OSMAN</span>
-          </h1>
-        </div>
+      <div className="w-full flex flex-col items-center justify-center -mt-16 z-20">
+        <h1 className="font-display font-black uppercase text-center text-[clamp(2.5rem,18vw,10rem)] leading-[0.8] tracking-wider">
+            <span className="text-white">AHMED</span>
+            <span className="text-primary">OSMAN</span>
+        </h1>
         <p className="text-lg md:text-xl text-white/70 max-w-2xl mt-4 text-center">
           Creative Technologist, AI Innovator, and Product Leader dedicated to building the future.
         </p>
