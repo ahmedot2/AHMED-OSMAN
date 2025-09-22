@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/accordion';
 import { Badge } from '../ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import TextType from '../TextType';
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
@@ -27,6 +28,19 @@ export default function About() {
   const [leftColRef, isLeftColVisible] = useScrollAnimation();
   const [rightColRef, isRightColVisible] = useScrollAnimation();
 
+  const bioText = [
+    "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent.",
+    "I've learned: The honey trap of comfort leads nowhere...",
+    "...true paths forge through the iron curtain of doubt."
+  ];
+
+  const highlightedWords = {
+    "Tokyo": "text-primary",
+    "honey trap": "text-primary",
+    "true paths": "text-primary",
+    "iron curtain of doubt": "text-primary",
+  };
+
   return (
     <SectionWrapper id="about" hasBackground>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
@@ -35,10 +49,13 @@ export default function About() {
           className={`flex flex-col gap-6 transition-all duration-1000 ${isLeftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
         >
           
-          <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
-             <p>
-                In the turbulence beneath the surface, shadows over <span className="text-primary">Tokyo</span> whisper secrets of ascent. I've learned: The <span className="text-primary">honey trap</span> of comfort leads nowhere—<span className="text-primary">true paths</span> forge through the <span className="text-primary">iron curtain of doubt</span>.
-            </p>
+          <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm min-h-[160px] md:min-h-[140px]">
+            <TextType
+              text={bioText}
+              typingSpeed={50}
+              pauseDuration={2000}
+              highlightedWords={highlightedWords}
+            />
           </div>
         </div>
 
