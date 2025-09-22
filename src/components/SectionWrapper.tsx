@@ -1,3 +1,4 @@
+'use client';
 import { cn } from '@/lib/utils';
 import React from 'react';
 
@@ -9,7 +10,7 @@ const SectionWrapper = React.forwardRef<
     <section
       ref={ref}
       className={cn(
-        'h-screen min-h-[700px] w-full snap-start relative flex flex-col justify-center py-16 px-6 sm:px-12 md:px-24 overflow-hidden',
+        'min-h-screen w-full snap-start relative flex flex-col justify-center py-24 px-6 sm:px-12 md:px-24 overflow-hidden',
         className
       )}
       {...props}

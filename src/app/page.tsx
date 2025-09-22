@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="bg-black text-white min-h-screen">
       <Sidebar />
-      <main className="snap-y snap-mandatory h-screen overflow-y-auto md:pl-20 pt-16 md:pt-0">
+      <main className="snap-y snap-mandatory md:pl-20">
         <Hero />
         <About />
         <Projects />
