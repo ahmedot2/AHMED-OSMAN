@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
       <div className="container mx-auto max-w-7xl z-10 flex flex-col items-center justify-center w-full">
         <div
-          className="font-display font-black uppercase text-center leading-[0.9] tracking-tighter text-[clamp(4rem,15vw,12rem)]"
+          className="font-display font-black uppercase text-center leading-[0.9] tracking-[-0.08em] text-[clamp(4rem,15vw,12rem)]"
         >
           <span className="text-white">AHMED</span>
           <span className="text-primary">OSMAN</span>
