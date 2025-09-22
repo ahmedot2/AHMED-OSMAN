@@ -1,13 +1,10 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
-
-  const portraitImage = PlaceHolderImages.find(img => img.id === 'cv-preview');
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -59,17 +56,15 @@ export default function Hero() {
           transformStyle: 'preserve-3d'
         }}
       >
-        {portraitImage && (
-          <Image
-            src={portraitImage.imageUrl.replace('/600/800', '/400/400')}
-            alt="Portrait of Ahmed Osman"
-            width={200}
-            height={200}
-            data-ai-hint="portrait man"
-            className="rounded-full object-cover border-4 border-primary/50 shadow-2xl shadow-primary/20"
-            style={{ transform: 'translateZ(40px)' }}
-          />
-        )}
+        <Image
+          src="/portrait.png"
+          alt="Portrait of Ahmed Osman"
+          width={200}
+          height={200}
+          data-ai-hint="portrait man"
+          className="rounded-full object-cover border-4 border-primary/50 shadow-2xl shadow-primary/20"
+          style={{ transform: 'translateZ(40px)' }}
+        />
       </div>
 
       <div className="container mx-auto max-w-7xl z-10 flex flex-col items-center justify-center w-full">
