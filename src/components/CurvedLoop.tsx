@@ -23,19 +23,32 @@ export default function CurvedLoop({
   const uniqueId = useId();
   const pathId = `curve-path-${uniqueId}`;
   const textPathRef = useRef<SVGTextPathElement>(null);
+  const fullText = `${marqueeText} ${marqueeText}`;
 
   // Ensure the curve amount is within a reasonable range
   const clampedCurve = Math.max(10, Math.min(curveAmount, 500));
   const pathDefinition = `M 0,${clampedCurve} C 0,${clampedCurve} 300,${-clampedCurve} 600,${clampedCurve}`;
 
-  const fullText = `${marqueeText} ${marqueeText}`;
-
   useEffect(() => {
     let animationFrameId: number;
     const textPath = textPathRef.current;
     if (!textPath) return;
-    
+
     let startOffset = 0;
+    
+    // Set initial position for right-to-left for seamless start
+    if (direction === 'right') {
+        try {
+            const textLength = textPath.getComputedTextLength() / 2;
+            if(textLength > 0) {
+                startOffset = -textLength;
+            }
+        } catch(e) {
+            // Can throw error in some cases, ignore
+        }
+    }
+
+
     const animate = () => {
       // Use a fixed value for speed to make it independent of text length
       const animationSpeed = speed / 5;
@@ -57,18 +70,6 @@ export default function CurvedLoop({
       textPath.setAttribute('startOffset', `${startOffset}`);
       animationFrameId = requestAnimationFrame(animate);
     };
-
-    // Initialize position for right-to-left for seamless start
-    if (direction === 'right' && textPathRef.current) {
-        try {
-            const textLength = textPathRef.current.getComputedTextLength() / 2;
-            if(textLength > 0) {
-                startOffset = -textLength;
-            }
-        } catch(e) {
-            // Can throw error in some cases, ignore
-        }
-    }
 
     animate();
 
