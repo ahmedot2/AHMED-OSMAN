@@ -46,7 +46,6 @@ export default function Hero() {
     <SectionWrapper
       id="hero"
       ref={heroRef}
-      className="justify-center items-center"
       style={{ perspective: '1000px' }}
     >
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
