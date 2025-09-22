@@ -41,7 +41,7 @@ export default function Hero() {
           </div>
 
           <div className="relative w-full flex flex-col items-center justify-center z-20 -mt-24">
-            <h1 className="font-display font-black uppercase text-center text-[clamp(2.5rem,18vw,10rem)] leading-[0.8] tracking-wider">
+            <h1 className="font-display font-black uppercase text-center text-[clamp(3.5rem,15vw,8rem)] leading-[0.8] tracking-wider">
                 <span className="text-white">AHMED</span>
                 <span className="text-primary">
                   OSMAN
@@ -56,7 +56,7 @@ export default function Hero() {
             direction="left" 
             speed={0.6}
             curveAmount={100}
-            className="font-display uppercase text-white fill-current text-[50px]"
+            className="font-display uppercase text-white fill-current text-[clamp(24px,8vw,50px)]"
           />
         </div>
       </motion.div>
