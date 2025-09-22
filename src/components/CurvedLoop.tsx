@@ -46,7 +46,7 @@ export default function CurvedLoop({
           <path id={pathId} d={pathDefinition} />
         </defs>
         <text
-          className="font-display uppercase text-white fill-current text-[24px]"
+          className="font-display uppercase text-white fill-current text-[24px] [animation:marquee_var(--speed)_linear_infinite_var(--direction)]"
           style={
             {
               '--speed': `${speed}s`,
@@ -55,10 +55,7 @@ export default function CurvedLoop({
           }
         >
           <textPath 
-            href={`#${pathId}`} 
-            style={{
-                animation: 'marquee var(--speed) linear infinite var(--direction)',
-            } as React.CSSProperties}
+            href={`#${pathId}`}
           >
             {marqueeText}
           </textPath>
