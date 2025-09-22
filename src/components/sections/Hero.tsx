@@ -50,7 +50,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
       
       <div 
-        className="z-20 mb-8 transition-transform duration-300 ease-out"
+        className="z-10 absolute transition-transform duration-300 ease-out"
         style={{ 
           transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)`,
           transformStyle: 'preserve-3d'
@@ -67,7 +67,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container mx-auto max-w-7xl z-10 flex flex-col items-center justify-center w-full">
+      <div className="container mx-auto max-w-7xl z-20 flex flex-col items-center justify-center w-full">
         <div className="w-full flex items-center justify-center overflow-hidden">
           <h1 className="font-display font-black uppercase text-center text-[clamp(2.5rem,18vw,10rem)] leading-[0.8] tracking-wider">
               <span className="text-white">AHMED</span>
