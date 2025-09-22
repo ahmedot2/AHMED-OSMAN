@@ -97,20 +97,17 @@ export default function Sidebar() {
 
       {/* Mobile Header */}
       <header className="md:hidden fixed top-0 left-0 right-0 h-16 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-between px-4 border-b border-white/10">
-        <Link href="#hero">
+        <Link href="#hero" className="z-50">
           <Terminal className="h-8 w-8 text-white/90 hover:text-primary transition-colors" />
         </Link>
         <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
-          <Home className="h-6 w-6 text-white/80" />
+          {isMobileMenuOpen ? <X className="h-6 w-6 text-white/80" /> : <Home className="h-6 w-6 text-white/80" />}
         </Button>
       </header>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-black/90 z-40 flex flex-col items-center justify-center">
-           <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="absolute top-4 right-4">
-            <X className="h-8 w-8 text-white/80" />
-           </Button>
           <NavContent onLinkClick={() => setIsMobileMenuOpen(false)} />
         </div>
       )}
