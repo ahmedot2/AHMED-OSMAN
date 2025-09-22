@@ -49,7 +49,7 @@ export default function Hero() {
       style={{ perspective: '1000px' }}
     >
       <div className="absolute top-8 left-0 z-30 w-full flex justify-center">
-        <CurvedLoop marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" direction="right" />
+        <CurvedLoop marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" direction="right" speed={2} />
       </div>
 
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>

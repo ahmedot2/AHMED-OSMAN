@@ -37,16 +37,18 @@ export default function CurvedLoop({
     
     let startOffset = 0;
     const animate = () => {
-      const textLength = textPath.getComputedTextLength() / 2; // Length of a single instance of the text
-      const animationSpeed = (speed / 10) * (textLength / 600);
+      // Use a fixed value for speed to make it independent of text length
+      const animationSpeed = speed / 5;
 
       if (direction === 'left') {
         startOffset -= animationSpeed;
+        const textLength = textPath.getComputedTextLength() / 2;
         if (startOffset <= -textLength) {
           startOffset += textLength;
         }
-      } else {
+      } else { // 'right'
         startOffset += animationSpeed;
+        const textLength = textPath.getComputedTextLength() / 2;
         if (startOffset >= 0) {
           startOffset -= textLength;
         }
@@ -56,10 +58,16 @@ export default function CurvedLoop({
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    // Initialize position for right-to-left
+    // Initialize position for right-to-left for seamless start
     if (direction === 'right' && textPathRef.current) {
-        const textLength = textPathRef.current.getComputedTextLength() / 2;
-        startOffset = -textLength;
+        try {
+            const textLength = textPathRef.current.getComputedTextLength() / 2;
+            if(textLength > 0) {
+                startOffset = -textLength;
+            }
+        } catch(e) {
+            // Can throw error in some cases, ignore
+        }
     }
 
     animate();
