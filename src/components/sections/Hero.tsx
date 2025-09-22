@@ -13,9 +13,8 @@ export default function Hero() {
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-  const yImage = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const yText = useTransform(scrollYProgress, [0, 1], ['0%', '70%']);
+  const yImageTransform = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const yTextTransform = useTransform(scrollYProgress, [0, 1], ['0%', '70%']);
 
   return (
     <SectionWrapper
@@ -23,11 +22,14 @@ export default function Hero() {
       className="relative min-h-screen"
       ref={targetRef}
     >
-      <motion.div style={{ opacity }} className="h-full w-full flex flex-col items-center justify-center">
+      <motion.div
+        style={{ opacity }}
+        className="h-full w-full flex flex-col items-center justify-center"
+      >
         <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
         
         <div className="relative flex flex-col items-center justify-center h-full">
-          <motion.div style={{ y: yImage }} className="z-10">
+          <motion.div style={{ y: yImageTransform }} className="z-10">
             <Image
               src="/portrait.png"
               alt="Portrait of Ahmed Osman"
@@ -39,7 +41,7 @@ export default function Hero() {
             />
           </motion.div>
 
-          <motion.div style={{ y: yText }} className="relative w-full flex flex-col items-center justify-center z-20 -mt-24">
+          <motion.div style={{ y: yTextTransform }} className="relative w-full flex flex-col items-center justify-center z-20 -mt-24">
             <h1 className="font-display font-black uppercase text-center text-[clamp(3.5rem,15vw,8rem)] leading-[0.8] tracking-wider">
                 <span className="text-white">AHMED</span>
                 <span className="text-primary">
@@ -55,7 +57,7 @@ export default function Hero() {
           direction="left" 
           speed={0.6}
           curveAmount={100}
-          className="font-display uppercase text-white fill-current text-[clamp(24px,8vw,50px)]"
+          className="font-display uppercase text-white fill-current text-[clamp(30px,8vw,50px)]"
         />
       </div>
     </SectionWrapper>
