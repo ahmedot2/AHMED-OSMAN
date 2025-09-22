@@ -57,7 +57,7 @@ export default function Hero() {
           direction="right" 
           speed={0.6}
           curveAmount={-300}
-          className="font-display uppercase text-white fill-current text-[24px]"
+          className="font-display uppercase text-white fill-current text-[50px]"
         />
       </div>
 
