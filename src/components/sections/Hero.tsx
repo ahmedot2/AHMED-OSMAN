@@ -56,7 +56,7 @@ export default function Hero() {
       
       <div className="relative flex flex-col items-center justify-center">
         <div 
-          className="z-10 -mb-16"
+          className="z-10"
           style={{ transformStyle: 'preserve-3d', transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)` }}
         >
           <Image
@@ -71,7 +71,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="w-full flex flex-col items-center justify-center z-20">
+        <div className="relative w-full flex flex-col items-center justify-center z-20 -mt-24">
           <h1 className="font-display font-black uppercase text-center text-[clamp(2.5rem,18vw,10rem)] leading-[0.8] tracking-wider">
               <span className="text-white">
                 AHMED

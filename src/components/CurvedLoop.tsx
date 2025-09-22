@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useId } from 'react';
+import { useRef, useEffect, useState, useMemo, useId } from 'react';
 
 type CurvedLoopProps = {
   marqueeText: string;
