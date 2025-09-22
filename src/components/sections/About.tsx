@@ -36,8 +36,7 @@ export default function About() {
 
         <div className="flex flex-col gap-8">
           <div className="bg-card/30 p-4 rounded-lg border border-border/10">
-            <h3 className="text-3xl font-headline mb-4 text-white/90">Skills</h3>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {skills.map((skill, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
                   <AccordionTrigger className="text-white/80 hover:text-white text-lg">{skill.category}</AccordionTrigger>
