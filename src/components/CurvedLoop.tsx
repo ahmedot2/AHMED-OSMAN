@@ -25,12 +25,12 @@ export default function CurvedLoop({
 
   // Ensure the curve amount is within a reasonable range
   const clampedCurve = Math.max(10, Math.min(curveAmount, 500));
-  const pathDefinition = `M 0,${clampedCurve} C 0,${clampedCurve} ${150},${-clampedCurve / 2} 300,${clampedCurve}`;
+  const pathDefinition = `M -150,${clampedCurve} C -150,${clampedCurve} 300,${-clampedCurve} 750,${clampedCurve}`;
 
   return (
     <div
       className={cn(
-        'relative w-[300px] h-[300px]',
+        'relative w-[600px] h-[300px]',
         'group/curved-loop',
         interactive && '[&_text]:hover:[animation-play-state:paused]',
         className
@@ -38,7 +38,7 @@ export default function CurvedLoop({
     >
       <svg
         className="w-full h-full"
-        viewBox="0 0 300 150"
+        viewBox="0 0 600 150"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

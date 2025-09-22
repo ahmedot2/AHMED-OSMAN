@@ -48,7 +48,7 @@ export default function Hero() {
       className="h-screen min-h-[700px] w-full snap-start relative flex flex-col justify-center items-center py-16 px-6 sm:px-12 md:px-24 overflow-hidden"
       style={{ perspective: '1000px' }}
     >
-      <div className="absolute top-16 left-6 sm:left-12 md:left-24 z-30 w-48 h-48">
+      <div className="absolute top-8 left-0 z-30 w-full flex justify-center">
         <CurvedLoop marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" />
       </div>
 
