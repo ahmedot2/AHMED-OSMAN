@@ -39,7 +39,7 @@ const BlurText = ({
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.05,
+        staggerChildren: 0.08,
         delayChildren: delay,
       },
     },
