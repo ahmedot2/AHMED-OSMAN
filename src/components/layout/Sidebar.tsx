@@ -86,7 +86,7 @@ export const NavContent = ({ onLinkClick }: { onLinkClick?: () => void }) => {
 
 export default function Sidebar() {
   return (
-    <aside className="fixed top-0 left-0 h-screen w-20 bg-black flex flex-col items-center z-50 border-r border-white/10">
+    <aside className="fixed top-0 left-0 h-screen w-20 bg-black flex-col items-center z-50 border-r border-white/10 hidden md:flex">
       <NavContent />
     </aside>
   );
