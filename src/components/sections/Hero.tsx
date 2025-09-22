@@ -55,8 +55,8 @@ export default function Hero() {
          <Image
            src="/portrait.png"
            alt="Portrait of Ahmed Osman"
-           width={200}
-           height={200}
+           width={250}
+           height={250}
            data-ai-hint="portrait man"
            className="object-cover"
            style={{ transform: 'translateZ(40px)' }}
