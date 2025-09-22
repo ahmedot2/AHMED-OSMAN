@@ -35,10 +35,7 @@ const CurvedLoop = ({
   const pathId = `curve-${uid}`;
   const pathD = `M-100,${150-curveAmount} C 300,${curveAmount} 900,${curveAmount} 1300,${150-curveAmount}`;
 
-  const dragRef = useRef(false);
-  const lastXRef = useRef(0);
   const dirRef = useRef(direction);
-  const velRef = useRef(0);
 
   const textLength = spacing;
   const totalText = textLength
@@ -68,7 +65,7 @@ const CurvedLoop = ({
     if (!spacing || !ready) return;
     let frame: number;
     const step = () => {
-      if (!dragRef.current && textPathRef.current) {
+      if (textPathRef.current) {
         const delta = dirRef.current === 'right' ? speed : -speed;
         const currentOffset = parseFloat(textPathRef.current.getAttribute('startOffset') || '0');
         let newOffset = currentOffset + delta;
@@ -85,46 +82,10 @@ const CurvedLoop = ({
     return () => cancelAnimationFrame(frame);
   }, [spacing, speed, ready]);
 
-  const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
-    if (!interactive) return;
-    dragRef.current = true;
-    lastXRef.current = e.clientX;
-    velRef.current = 0;
-    (e.target as HTMLDivElement).setPointerCapture(e.pointerId);
-  };
-
-  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (!interactive || !dragRef.current || !textPathRef.current) return;
-    const dx = e.clientX - lastXRef.current;
-    lastXRef.current = e.clientX;
-    velRef.current = dx;
-
-    const currentOffset = parseFloat(textPathRef.current.getAttribute('startOffset') || '0');
-    let newOffset = currentOffset + dx;
-
-    const wrapPoint = spacing;
-    if (newOffset <= -wrapPoint) newOffset += wrapPoint;
-    if (newOffset > 0) newOffset -= wrapPoint;
-
-    textPathRef.current.setAttribute('startOffset', newOffset + 'px');
-  };
-
-  const endDrag = () => {
-    if (!interactive) return;
-    dragRef.current = false;
-    dirRef.current = velRef.current > 0 ? 'right' : 'left';
-  };
-
-  const cursorStyle = interactive ? (dragRef.current ? 'grabbing' : 'grab') : 'auto';
-
   return (
     <div
       className="w-full h-[150px] overflow-hidden"
-      style={{ visibility: ready ? 'visible' : 'hidden', cursor: cursorStyle }}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={endDrag}
-      onPointerLeave={endDrag}
+      style={{ visibility: ready ? 'visible' : 'hidden' }}
     >
       <svg className="w-full h-full" viewBox="0 0 1200 150">
         <text ref={measureRef} y="-9999" x="-9999" xmlSpace="preserve" style={{ visibility: 'hidden', pointerEvents: 'none' }} className={cn('font-display uppercase text-white fill-current text-[24px]', className)}>

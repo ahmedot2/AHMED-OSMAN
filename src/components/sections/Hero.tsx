@@ -3,8 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import CurvedLoop from '../CurvedLoop';
-import { Slider } from '@/components/ui/slider';
-import { Label } from '@/components/ui/label';
 
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
@@ -88,6 +86,7 @@ export default function Hero() {
           direction="right" 
           speed={0.6}
           curveAmount={100}
+          interactive={false}
           className="font-display uppercase text-white fill-current text-[50px]"
         />
       </div>
