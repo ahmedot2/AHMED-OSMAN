@@ -120,6 +120,14 @@ export default {
             opacity: '1',
           },
         },
+         'pulse-red': {
+          '0%, 100%': {
+            boxShadow: '0 0 0 0 hsl(var(--primary) / 0.7)',
+          },
+          '50%': {
+            boxShadow: '0 0 0 12px hsl(var(--primary) / 0)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -127,6 +135,7 @@ export default {
         'stagger-in': 'stagger-in 0.5s ease-out forwards',
         'slide-in-left': 'slide-in-left 1s ease-out forwards',
         'slide-in-right': 'slide-in-right 1s ease-out forwards',
+        'pulse-red': 'pulse-red 2s infinite',
       },
     },
   },
