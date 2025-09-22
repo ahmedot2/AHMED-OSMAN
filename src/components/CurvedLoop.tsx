@@ -25,7 +25,7 @@ export default function CurvedLoop({
 
   // Ensure the curve amount is within a reasonable range
   const clampedCurve = Math.max(10, Math.min(curveAmount, 500));
-  const pathDefinition = `M -150,${clampedCurve} C -150,${clampedCurve} 300,${-clampedCurve} 750,${clampedCurve}`;
+  const pathDefinition = `M 0,${clampedCurve} C 0,${clampedCurve} 300,${-clampedCurve} 600,${clampedCurve}`;
 
   return (
     <div
@@ -46,17 +46,19 @@ export default function CurvedLoop({
           <path id={pathId} d={pathDefinition} />
         </defs>
         <text
-          className="font-display uppercase text-white fill-current text-[24px] [animation:marquee_var(--speed)_linear_infinite_var(--direction)]"
-          style={
-            {
-              '--speed': `${speed}s`,
-              '--direction': direction === 'left' ? 'normal' : 'reverse',
-            } as React.CSSProperties
-          }
+          className="font-display uppercase text-white fill-current text-[24px]"
         >
           <textPath 
             href={`#${pathId}`}
           >
+             <animate
+              attributeName="startOffset"
+              from={direction === 'left' ? '0%' : '100%'}
+              to={direction === 'left' ? '100%' : '0%'}
+              begin="0s"
+              dur={`${speed}s`}
+              repeatCount="indefinite"
+            />
             {marqueeText}
           </textPath>
         </text>
