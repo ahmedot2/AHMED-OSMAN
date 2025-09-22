@@ -49,23 +49,18 @@ export default function Hero() {
     >
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
       
-      <div 
-        className="z-10 absolute transition-transform duration-300 ease-out"
-        style={{ 
-          transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)`,
-          transformStyle: 'preserve-3d'
-        }}
-      >
-        <Image
-          src="/portrait.png"
-          alt="Portrait of Ahmed Osman"
-          width={200}
-          height={200}
-          data-ai-hint="portrait man"
-          className="object-cover"
-          style={{ transform: 'translateZ(40px)' }}
-        />
+      <div className="z-10 absolute" style={{ transformStyle: 'preserve-3d', transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)` }}>
+         <Image
+           src="/portrait.png"
+           alt="Portrait of Ahmed Osman"
+           width={200}
+           height={200}
+           data-ai-hint="portrait man"
+           className="object-cover"
+           style={{ transform: 'translateZ(40px)' }}
+         />
       </div>
+
 
       <div className="container mx-auto max-w-7xl z-20 flex flex-col items-center justify-center w-full">
         <div className="w-full flex items-center justify-center overflow-hidden">
