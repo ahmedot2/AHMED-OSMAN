@@ -1,3 +1,4 @@
+'use client';
 import SectionWrapper from '../SectionWrapper';
 import {
   Accordion,
@@ -6,6 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Badge } from '../ui/badge';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const bio = "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent. I've learned: The honey trap of comfort leads nowhere—true paths forge through the iron curtain of doubt.";
 
@@ -24,17 +26,26 @@ const milestones = [
 ];
 
 export default function About() {
+  const [leftColRef, isLeftColVisible] = useScrollAnimation();
+  const [rightColRef, isRightColVisible] = useScrollAnimation();
+
   return (
     <SectionWrapper id="about" hasBackground>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-        <div className="flex flex-col gap-6">
+        <div 
+          ref={leftColRef} 
+          className={`flex flex-col gap-6 transition-all duration-1000 ${isLeftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
+        >
           <h2 className="font-headline text-6xl md:text-7xl text-white">About Me</h2>
           <div className="text-white/80 leading-relaxed text-lg bg-card/50 p-6 rounded-lg border border-border/20 backdrop-blur-sm">
              <p>{bio}</p>
           </div>
         </div>
 
-        <div className="flex flex-col gap-8">
+        <div 
+          ref={rightColRef}
+          className={`flex flex-col gap-8 transition-all duration-1000 delay-300 ${isRightColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
+        >
           <div className="bg-card/30 p-4 rounded-lg border border-border/10">
             <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {skills.map((skill, index) => (
