@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import CurvedLoop from '../CurvedLoop';
 import SectionWrapper from '../SectionWrapper';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
 export default function Hero() {
@@ -15,12 +15,8 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
-  const yImageTransform = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const yTextTransform = useTransform(scrollYProgress, [0, 1], ['0%', '70%']);
-
-  const yImage = useSpring(yImageTransform, { stiffness: 400, damping: 90 });
-  const yText = useSpring(yTextTransform, { stiffness: 400, damping: 90 });
-
+  const yImage = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const yText = useTransform(scrollYProgress, [0, 1], ['0%', '70%']);
 
   return (
     <SectionWrapper
