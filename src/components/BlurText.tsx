@@ -57,7 +57,7 @@ const BlurText = ({
       y: 0,
       x: 0,
       transition: {
-        duration: 0.5,
+        duration: 1,
         ease: [0.22, 1, 0.36, 1],
       },
     },
