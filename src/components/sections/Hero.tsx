@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import CurvedLoop from '../CurvedLoop';
+import SectionWrapper from '../SectionWrapper';
 
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
@@ -42,10 +43,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <div
+    <SectionWrapper
       id="hero"
       ref={heroRef}
-      className="h-screen min-h-[700px] w-full snap-start relative flex flex-col justify-center items-center py-16 px-6 sm:px-12 md:px-24 overflow-hidden"
+      className="justify-center items-center"
       style={{ perspective: '1000px' }}
     >
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>
@@ -86,6 +87,6 @@ export default function Hero() {
           className="font-display uppercase text-white fill-current text-[50px]"
         />
       </div>
-    </div>
+    </SectionWrapper>
   );
 }

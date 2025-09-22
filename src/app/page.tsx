@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="flex bg-black text-white min-h-screen">
       <Sidebar />
-      <div className="flex flex-col flex-1 ml-20">
+      <div className="flex flex-col flex-1 md:ml-20">
         <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-auto">
           <Hero />
           <About />
