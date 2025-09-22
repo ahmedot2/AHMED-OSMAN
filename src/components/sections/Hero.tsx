@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <SectionWrapper
       id="hero"
-      className="relative px-4"
+      className="relative"
       ref={targetRef}
     >
       <motion.div style={{ y, opacity, scale }} className="h-full w-full flex flex-col items-center justify-center">
