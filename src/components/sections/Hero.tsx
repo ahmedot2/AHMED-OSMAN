@@ -4,6 +4,7 @@ import CurvedLoop from '../CurvedLoop';
 import SectionWrapper from '../SectionWrapper';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import BlurText from '../BlurText';
 
 export default function Hero() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -43,7 +44,11 @@ export default function Hero() {
 
           <motion.div style={{ y: yTextTransform }} className="relative w-full flex flex-col items-center justify-center z-20 -mt-24">
             <h1 className="font-display font-black uppercase text-center text-[clamp(3.5rem,15vw,8rem)] leading-[0.8] tracking-wider">
-                <span className="text-white">AHMED</span>
+                <BlurText
+                  text="AHMED"
+                  className="text-white"
+                  animateBy='chars'
+                  />
                 <span className="text-primary">
                   OSMAN
                 </span>
