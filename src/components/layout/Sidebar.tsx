@@ -96,7 +96,7 @@ export default function Sidebar() {
       </aside>
 
       {/* Mobile Header */}
-      <header className="md:hidden fixed top-0 left-0 right-0 h-16 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-between px-4 border-b border-white/10">
+      <header className="md:hidden fixed top-0 left-0 right-0 h-16 bg-transparent z-50 flex items-center justify-between px-4">
         <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" className="z-50 rounded-full animate-pulse-red">
           {isMobileMenuOpen ? <X className="h-8 w-8 text-primary" /> : <Terminal className="h-8 w-8 text-primary hover:text-primary transition-colors" />}
         </Button>
