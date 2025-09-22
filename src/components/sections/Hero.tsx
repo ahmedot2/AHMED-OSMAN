@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import CurvedLoop from '../CurvedLoop';
 
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
@@ -47,13 +48,8 @@ export default function Hero() {
       className="h-screen min-h-[700px] w-full snap-start relative flex flex-col justify-center items-center py-16 px-6 sm:px-12 md:px-24 overflow-hidden"
       style={{ perspective: '1000px' }}
     >
-      <div className="absolute top-16 left-6 sm:left-12 md:left-24 z-30">
-        <div className="font-display uppercase text-white text-3xl md:text-4xl space-y-2">
-            <p>Rebel</p>
-            <p>Entrepreneur</p>
-            <p>Disruptor</p>
-            <p>Designer</p>
-        </div>
+      <div className="absolute top-16 left-6 sm:left-12 md:left-24 z-30 w-48 h-48">
+        <CurvedLoop marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦" />
       </div>
 
       <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)]"></div>

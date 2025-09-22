@@ -81,3 +81,14 @@
     background-size: 40px 40px;
   }
 }
+
+@layer utilities {
+  @keyframes marquee {
+    from {
+      text-offset: 0%;
+    }
+    to {
+      text-offset: 100%;
+    }
+  }
+}
