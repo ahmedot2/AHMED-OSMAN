@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import GradientText from '../GradientText';
 
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
@@ -52,7 +51,7 @@ export default function Hero() {
       
       <div className="relative flex flex-col items-center justify-center">
         <div 
-          className="z-10"
+          className="z-10 -mb-16"
           style={{ transformStyle: 'preserve-3d', transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg)` }}
         >
           <Image
@@ -67,14 +66,14 @@ export default function Hero() {
           />
         </div>
 
-        <div className="w-full flex flex-col items-center justify-center -mt-16 z-20">
+        <div className="w-full flex flex-col items-center justify-center z-20">
           <h1 className="font-display font-black uppercase text-center text-[clamp(2.5rem,18vw,10rem)] leading-[0.8] tracking-wider">
-              <GradientText colors={['#FFFFFF', '#AAAAAA', '#FFFFFF']} animationSpeed={5}>
+              <span className="text-white">
                 AHMED
-              </GradientText>
-              <GradientText colors={['hsl(var(--primary))', '#FF8888', 'hsl(var(--primary))']} animationSpeed={5}>
+              </span>
+              <span className="text-primary">
                 OSMAN
-              </GradientText>
+              </span>
           </h1>
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mt-4 text-center">
             Creative Technologist, AI Innovator, and Product Leader dedicated to building the future.
