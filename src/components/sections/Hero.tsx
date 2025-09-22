@@ -83,7 +83,7 @@ export default function Hero() {
       <div className="absolute bottom-8 left-0 z-30 w-full flex justify-center">
         <CurvedLoop 
           marqueeText="Rebel ✦ Entrepreneur ✦ Disruptor ✦ Designer ✦ Author ✦ AI Enthusiast ✦ Blockchain Early Bird ✦ Traveler ✦" 
-          direction="right" 
+          direction="left" 
           speed={0.6}
           curveAmount={100}
           interactive={false}
