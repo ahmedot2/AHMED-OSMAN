@@ -1,7 +1,8 @@
 'use client';
-import { Home, User, Briefcase, BookOpen, PlaySquare, Mail, Terminal } from 'lucide-react';
+import { Home, User, Briefcase, BookOpen, PlaySquare, Mail, Terminal, X } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { Button } from '../ui/button';
 
 const navItems = [
   { name: 'Hero', icon: Home, href: '#hero' },
@@ -83,9 +84,36 @@ export const NavContent = ({ onLinkClick }: { onLinkClick?: () => void }) => {
 
 
 export default function Sidebar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
   return (
-    <aside className="fixed top-0 left-0 h-screen w-20 bg-transparent flex-col items-center z-50 border-r border-white/10 flex">
-      <NavContent />
-    </aside>
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="fixed top-0 left-0 h-screen w-20 bg-transparent flex-col items-center z-50 border-r border-white/10 hidden md:flex">
+        <NavContent />
+      </aside>
+
+      {/* Mobile Header */}
+      <header className="md:hidden fixed top-0 left-0 right-0 h-16 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-between px-4 border-b border-white/10">
+        <Link href="#hero">
+          <Terminal className="h-8 w-8 text-white/90 hover:text-primary transition-colors" />
+        </Link>
+        <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
+          <Home className="h-6 w-6 text-white/80" />
+        </Button>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-black/90 z-40 flex flex-col items-center justify-center">
+           <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="absolute top-4 right-4">
+            <X className="h-8 w-8 text-white/80" />
+           </Button>
+          <NavContent onLinkClick={() => setIsMobileMenuOpen(false)} />
+        </div>
+      )}
+    </>
   );
 }
