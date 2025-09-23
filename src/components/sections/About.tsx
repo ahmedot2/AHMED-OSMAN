@@ -72,9 +72,7 @@ export default function About() {
 
 
   const bioText = [
-    "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent.",
-    "I've learned: The honey trap of comfort leads nowhere...",
-    "...true paths forge through the iron curtain of doubt."
+    "In the turbulence beneath the surface, shadows over Tokyo whisper secrets of ascent. I've learned: The honey trap of comfort leads nowhere... ...true paths forge through the iron curtain of doubt."
   ];
 
   const highlightedWords = {
