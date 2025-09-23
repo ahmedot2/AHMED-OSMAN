@@ -11,6 +11,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import TextType from '../TextType';
 import InteractiveImage from '../InteractiveImage';
 import { Plane, DollarSign, Github, Briefcase, BookOpen, Globe } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
@@ -25,36 +26,42 @@ const milestones = [
         metric: '15,000+ Hours Aloft',
         title: 'Skyward Resilience',
         copy: '12 years with Emirates—turbulence forged into triumph at 30,000 feet.',
+        className: 'md:col-span-2',
     },
     {
         icon: DollarSign,
         metric: '$2M+ Asset Growth',
         title: 'Wealth Forged',
         copy: 'Osman Group’s rise from Cairo’s shadows—risks woven into wealth.',
+        className: 'md:col-span-1',
     },
     {
         icon: Github,
         metric: '1044 GitHub Contributions',
         title: 'Code Ascent',
         copy: 'Self-taught AI and blockchain code—redefining horizons line by line.',
+        className: 'md:col-span-1',
     },
     {
         icon: Briefcase,
         metric: '2 Ventures Co-Founded',
         title: 'Venture Vision',
         copy: 'Osman Group and T.O.M Logistics—$1M+ flows from chaos to mastery.',
+        className: 'md:col-span-2',
     },
     {
         icon: BookOpen,
         metric: 'UN Papers Authored',
         title: 'Global Wisdom',
         copy: 'Resilience strategies from aviation’s lessons to humanitarian shadows.',
+        className: 'md:col-span-3',
     },
     {
         icon: Globe,
         metric: 'Fluent Arabic & English',
         title: 'Cultural Bridges',
         copy: 'Connecting continents—Dubai skies to Cairo strategies in dialogue.',
+        className: 'md:col-span-3',
     },
 ];
 
@@ -125,11 +132,11 @@ export default function About() {
             ref={milestonesRef}
             className={`transition-all duration-700 delay-200 ${areMilestonesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {milestones.map((milestone, index) => {
                 const Icon = milestone.icon;
                 return (
-                  <div key={index} className="bg-card/30 border border-border/10 rounded-lg p-4 text-center flex flex-col items-center gap-2 group hover:bg-card/50 transition-colors">
+                  <div key={index} className={cn("bg-card/30 border border-border/10 rounded-lg p-4 text-center flex flex-col items-center justify-center gap-2 group hover:bg-card/50 transition-colors", milestone.className)}>
                     <Icon className="w-8 h-8 text-primary mb-2" />
                     <p className="font-bold text-lg text-white/90 leading-tight">{milestone.metric}</p>
                     <p className="text-sm text-white/70">{milestone.title}</p>
