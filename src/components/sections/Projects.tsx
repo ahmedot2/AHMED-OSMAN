@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Badge } from '../ui/badge';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const projects = [
@@ -135,14 +135,31 @@ export default function Projects() {
               </div>
             </motion.div>
           ))}
-        </div>
-        <div className="text-center flex flex-col items-center gap-4 mt-8">
-            <Button size="lg" asChild>
-                <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
-                    View All on GitHub
-                </a>
-            </Button>
-            <p className="text-white/70">From code to creation—each project a step in ascent.</p>
+            <motion.div
+              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
+              variants={cardVariants}
+              initial="initial"
+              whileInView="animate"
+              whileHover="hover"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="overflow-hidden h-full flex flex-col">
+                <div className="relative w-full h-[60%] bg-black/20 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300">
+                   <Github className="w-24 h-24 text-white/10" />
+                </div>
+                <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-4 flex-grow justify-center">
+                    <h3 className="text-3xl font-headline text-white">Explore More Projects</h3>
+                    <p className="text-white/70 font-body text-lg leading-relaxed">From code to creation—each project a step in ascent.</p>
+                    <div className="flex gap-4 mt-2">
+                        <Button asChild size="lg" className="w-full">
+                          <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
+                              View All on GitHub <ExternalLink className="ml-2"/>
+                          </a>
+                        </Button>
+                    </div>
+                </div>
+              </div>
+            </motion.div>
         </div>
       </div>
     </SectionWrapper>
