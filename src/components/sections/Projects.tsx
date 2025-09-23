@@ -126,7 +126,7 @@ export default function Projects() {
               </div>
               <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3">
                 <h3 className="text-2xl font-headline text-white">{project.title}</h3>
-                <p className="text-white/70 font-body text-base leading-relaxed">{project.description}</p>
+                
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map(t => (
                     <Badge key={t} variant="secondary" className="bg-white/10 text-white/80 border border-transparent">{t}</Badge>
@@ -161,7 +161,7 @@ export default function Projects() {
                 </div>
                 <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3">
                     <h3 className="text-2xl font-headline text-white">Explore More Projects</h3>
-                    <p className="text-white/70 font-body text-base leading-relaxed">From code to creation—each project a step in ascent.</p>
+                    
                     <div className="flex gap-4 mt-auto pt-2">
                          <Button asChild className="w-full">
                             <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
