@@ -1,4 +1,5 @@
 
+
 'use client';
 import { useState } from 'react';
 import SectionWrapper from '../SectionWrapper';
@@ -78,6 +79,7 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Directories');
 
   const filteredProjects = projects.filter(p => activeFilter === 'All' || p.category === activeFilter);
+  const githubCardImage = PlaceHolderImages.find(img => img.id === 'github-cta');
 
   return (
     <SectionWrapper id="projects" hasBackground>
@@ -140,31 +142,34 @@ export default function Projects() {
               </div>
             </motion.div>
           ))}
-            <motion.div
-              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
+            <motion.a
+              href="https://github.com/ahmedot2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden block"
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
               whileHover="hover"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="overflow-hidden h-full flex flex-col md:flex-row">
-                <div className="relative w-full md:w-1/2 h-64 md:h-auto bg-black/20 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300">
-                   <Github className="w-24 h-24 text-white/10" />
-                </div>
-                <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3 flex-grow justify-center md:w-1/2">
-                    <h3 className="text-2xl font-headline text-white">Explore More Projects</h3>
-                    <p className="text-white/70 font-body text-base leading-relaxed">From code to creation—each project a step in ascent.</p>
-                    <div className="flex gap-4 mt-2">
-                        <Button asChild size="lg" className="w-full">
-                          <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
-                              View All on GitHub <ExternalLink className="ml-2"/>
-                          </a>
-                        </Button>
-                    </div>
-                </div>
+              {githubCardImage && (
+                <Image
+                  src={githubCardImage.imageUrl}
+                  alt="Explore more on GitHub"
+                  width={800}
+                  height={600}
+                  data-ai-hint={githubCardImage.imageHint}
+                  className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                />
+              )}
+               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-center text-white">
+                      <Github className="w-16 h-16 mx-auto mb-2" />
+                      <h3 className="text-2xl font-headline">Explore More Projects</h3>
+                  </div>
               </div>
-            </motion.div>
+            </motion.a>
         </div>
       </div>
     </SectionWrapper>

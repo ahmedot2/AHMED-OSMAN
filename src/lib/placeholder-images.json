@@ -45,7 +45,7 @@
     {
       "id": "youtube-1",
       "description": "Thumbnail for a YouTube video about coding.",
-      "imageUrl": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx5b3V0dWJlJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc1ODY0MDM2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx5b3V0dWJlJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc1ODY0MDM2Mnww&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "youtube thumbnail"
     },
     {
@@ -57,32 +57,38 @@
     {
       "id": "cv-preview",
       "description": "Screenshot of the first page of a CV.",
-      "imageUrl": "https://images.unsplash.com/photo-1731074803855-cdd369adc621?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkb2N1bWVudCUyMHJlc3VtZXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1731074803855-cdd369adc621?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkb2N1bWVudCUyMHJlc3VtZXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "document resume"
     },
     {
       "id": "ai-agency-agents",
       "description": "Screenshot of AI directory grid",
-      "imageUrl": "https://images.unsplash.com/photo-1723812792798-dfcc0cbf539f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaSUyMGRpcmVjdG9yeXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1723812792798-dfcc0cbf539f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaSUyMGRpcmVjdG9yeXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "ai directory"
     },
     {
       "id": "finhub",
       "description": "Screenshot of finance categories",
-      "imageUrl": "https://images.unsplash.com/photo-1748439435495-722cc1728b7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmaW5hbmNlJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc1ODYxMDk5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1748439435495-722cc1728b7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmaW5hbmNlJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc1ODYxMDk5NHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "finance dashboard"
     },
     {
       "id": "globepulse",
       "description": "Screenshot of travel rankings",
-      "imageUrl": "https://images.unsplash.com/photo-1693721969759-ead32359777d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhdmVsJTIwd2Vic2l0ZXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693721969759-ead32359777d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhdmVsJTIwd2Vic2l0ZXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "travel website"
     },
     {
       "id": "un-strategic-perspectives",
       "description": "Screenshot of UN studies grid",
-      "imageUrl": "https://images.unsplash.com/photo-1721244653657-ad6b91780492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyZXNlYXJjaCUyMGdyaWR8ZW58MHx8fHwxNzU4NjQwMzYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1721244653657-ad6b91780492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyZXNlYXJjaCUyMGdyaWR8ZW58MHx8fHwxNzU4NjQwMzYyfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "research grid"
+    },
+    {
+      "id": "github-cta",
+      "description": "Abstract image representing code or technology.",
+      "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2RlfGVufDB8fHx8MTc1ODY0MDM2Mnww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "code technology"
     }
   ]
 }
