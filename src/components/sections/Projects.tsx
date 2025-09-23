@@ -9,12 +9,12 @@ import { Badge } from '../ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const projects = [
   {
     title: 'AI Agency Agents',
     category: 'Directories',
-    description: 'Unified platform for AI tools and directories—semantic search unlocking innovation from self-taught code.',
     tech: ['Next.js', 'TypeScript', 'Vercel'],
     link: 'https://ai-agency-agents-pied.vercel.app/',
     repo: 'https://github.com/ahmedot2/ai-agency-agents',
@@ -23,7 +23,6 @@ const projects = [
   {
     title: 'FINHUB',
     category: 'Directories',
-    description: 'Curated finance resources for stocks and crypto—navigating markets since 2015 with strategic precision.',
     tech: ['Next.js', 'TypeScript', 'Vercel'],
     link: 'https://fin-hub-ivory.vercel.app/',
     repo: 'https://github.com/ahmedot2/fin-hub',
@@ -32,7 +31,6 @@ const projects = [
   {
     title: 'GlobePulse',
     category: 'Directories',
-    description: '2025 travel guide inspired by global layovers—rankings that chart horizons beyond the skies.',
     tech: ['Next.js', 'TypeScript', 'Vercel'],
     link: 'https://globe-pulse-puce.vercel.app/',
     repo: 'https://github.com/ahmedot2/globe-pulse',
@@ -41,7 +39,6 @@ const projects = [
     {
     title: 'UN Strategic Perspectives',
     category: 'Directories',
-    description: 'Curated frameworks for global impact—blending policy insights with aviation\'s resilient edge.',
     tech: ['Manus.Space', 'Custom JS'],
     link: 'https://zmufmuyy.manus.space/?locale=en#',
     repo: '#',
@@ -51,29 +48,31 @@ const projects = [
 
 const filters = ['Directories', 'Blockchain'];
 
-const cardVariants = {
-  initial: { y: 20, opacity: 0 },
-  animate: { 
-    y: 0, 
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  },
-  hover: {
-    y: -5,
-    boxShadow: "0 10px 30px -10px hsl(var(--primary))",
-    transition: {
-      duration: 0.3,
-    }
-  }
-};
-
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Directories');
+  const isMobile = useIsMobile();
 
   const filteredProjects = projects.filter(p => activeFilter === 'All' || p.category === activeFilter);
+
+  const cardVariants = {
+    initial: { y: 20, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      boxShadow: isMobile ? "0 10px 30px -10px hsl(var(--primary))" : "0 0 0 0 hsl(var(--primary))",
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      y: -5,
+      boxShadow: "0 10px 30px -10px hsl(var(--primary))",
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
 
   return (
     <SectionWrapper id="projects" hasBackground>
@@ -105,7 +104,7 @@ export default function Projects() {
               initial="initial"
               whileInView="animate"
               whileHover="hover"
-              whileTap="hover"
+              whileTap={isMobile ? "" : "hover"}
               viewport={{ once: true, amount: 0.1 }}
             >
               <div className="overflow-hidden">
@@ -159,7 +158,7 @@ export default function Projects() {
                 <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3 flex-grow">
                     <h3 className="text-2xl font-headline text-white">Explore More Projects</h3>
                     
-                    <div className="flex gap-4 mt-auto pt-2">
+                    <div className="flex gap-4 mt-auto pt-2 flex-grow items-end">
                          <Button asChild className="w-full">
                             <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
                                 View All on GitHub <Github className="ml-2" />
