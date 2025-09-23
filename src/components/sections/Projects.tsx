@@ -9,7 +9,6 @@ import { Badge } from '../ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const projects = [
   {
@@ -50,7 +49,6 @@ const filters = ['Directories', 'Blockchain'];
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Directories');
-  const isMobile = useIsMobile();
 
   const filteredProjects = projects.filter(p => activeFilter === 'All' || p.category === activeFilter);
 
@@ -59,7 +57,7 @@ export default function Projects() {
     animate: {
       y: 0,
       opacity: 1,
-      boxShadow: isMobile ? "0 10px 30px -10px hsl(var(--primary))" : "0 0 0 0 hsl(var(--primary))",
+      boxShadow: "0 10px 30px -10px hsl(var(--primary))",
       transition: {
         duration: 0.5,
         ease: "easeOut",
@@ -67,7 +65,6 @@ export default function Projects() {
     },
     hover: {
       y: -5,
-      boxShadow: "0 10px 30px -10px hsl(var(--primary))",
       transition: {
         duration: 0.3,
       },
@@ -104,7 +101,6 @@ export default function Projects() {
               initial="initial"
               whileInView="animate"
               whileHover="hover"
-              whileTap={isMobile ? "" : "hover"}
               viewport={{ once: true, amount: 0.1 }}
             >
               <div className="overflow-hidden">
@@ -142,7 +138,6 @@ export default function Projects() {
                 initial="initial"
                 whileInView="animate"
                 whileHover="hover"
-                whileTap="hover"
                 viewport={{ once: true, amount: 0.3 }}
             >
                 <div className="overflow-hidden">
