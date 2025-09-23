@@ -19,7 +19,7 @@ const projects = [
     link: 'https://ai-agency-agents-pied.vercel.app/',
     repo: 'https://github.com/ahmedot2/ai-agency-agents',
     image: PlaceHolderImages.find(img => img.id === 'ai-agency-agents'),
-    className: 'md:col-span-2 md:row-span-1',
+    className: 'md:col-span-2',
   },
   {
     title: 'FINHUB',
@@ -49,7 +49,7 @@ const projects = [
     link: 'https://zmufmuyy.manus.space/?locale=en#',
     repo: '#',
     image: PlaceHolderImages.find(img => img.id === 'un-strategic-perspectives'),
-    className: 'md:col-span-2 md:row-span-1',
+    className: 'md:col-span-2',
   },
 ];
 
@@ -100,7 +100,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
@@ -141,7 +141,7 @@ export default function Projects() {
             </motion.div>
           ))}
             <motion.div
-              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden lg:col-span-4"
+              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden md:col-span-2"
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
