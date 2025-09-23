@@ -123,9 +123,9 @@ export default function Projects() {
                   />
                 )}
               </div>
-              <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-4">
-                <h3 className="text-3xl font-headline text-white">{project.title}</h3>
-                <p className="text-white/70 font-body text-lg leading-relaxed">{project.description}</p>
+              <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3">
+                <h3 className="text-2xl font-headline text-white">{project.title}</h3>
+                <p className="text-white/70 font-body text-base leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map(t => (
                     <Badge key={t} variant="secondary" className="bg-white/10 text-white/80 border border-transparent">{t}</Badge>
@@ -152,9 +152,9 @@ export default function Projects() {
                 <div className="relative w-full md:w-1/2 h-64 md:h-auto bg-black/20 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300">
                    <Github className="w-24 h-24 text-white/10" />
                 </div>
-                <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-4 flex-grow justify-center md:w-1/2">
-                    <h3 className="text-3xl font-headline text-white">Explore More Projects</h3>
-                    <p className="text-white/70 font-body text-lg leading-relaxed">From code to creation—each project a step in ascent.</p>
+                <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3 flex-grow justify-center md:w-1/2">
+                    <h3 className="text-2xl font-headline text-white">Explore More Projects</h3>
+                    <p className="text-white/70 font-body text-base leading-relaxed">From code to creation—each project a step in ascent.</p>
                     <div className="flex gap-4 mt-2">
                         <Button asChild size="lg" className="w-full">
                           <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
