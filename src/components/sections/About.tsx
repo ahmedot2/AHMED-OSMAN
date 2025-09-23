@@ -175,7 +175,7 @@ export default function About() {
              <div className="font-headline text-3xl text-center mt-8">
                 <FallingText
                     text="Each milestone lifts the ascent—where will you soar?"
-                    highlightWords={["Each", "lifts", "the", "ascent—where", "will", "you", "?"]}
+                    highlightWords={["milestone", "ascent", "soar?"]}
                     highlightClass="highlighted"
                     trigger="hover"
                     backgroundColor="transparent"

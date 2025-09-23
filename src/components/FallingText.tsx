@@ -124,6 +124,8 @@ const FallingText: React.FC<FallingTextProps> = ({
 
       (Matter.Render as any).world = function (render: Matter.Render) {
         originalRender(render);
+        const primaryColorHsl = `hsl(${getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()})`;
+        
         context.font = `${fontSize} sans-serif`;
         context.textAlign = 'center';
         context.textBaseline = 'middle';
@@ -135,15 +137,7 @@ const FallingText: React.FC<FallingTextProps> = ({
                 context.save();
                 context.translate(x, y);
                 context.rotate(angle);
-                context.fillStyle = (body as any).isHighlighted ? getComputedStyle(document.documentElement).getPropertyValue('--primary') : 'white';
-                if ((body as any).isHighlighted) {
-                  const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
-                   // HSL values are space-separated
-                  const hsl = `hsl(${primaryColor})`;
-                  context.fillStyle = hsl;
-                } else {
-                  context.fillStyle = 'white';
-                }
+                context.fillStyle = (body as any).isHighlighted ? primaryColorHsl : 'white';
                 context.fillText((body as any).word, 0, 0);
                 context.restore();
             }
@@ -189,7 +183,7 @@ const FallingText: React.FC<FallingTextProps> = ({
     }
 
     return cleanup;
-  }, [isReady, trigger, gravity, fontSize, highlightWords, highlightClass, backgroundColor, wireframes, mouseConstraintStiffness]);
+  }, [isReady, trigger, text, gravity, fontSize, highlightWords, highlightClass, backgroundColor, wireframes, mouseConstraintStiffness]);
 
   return <div ref={sceneRef} style={{ width: '100%', height: '150px', cursor: 'grab' }} />;
 };
