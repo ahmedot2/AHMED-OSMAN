@@ -79,7 +79,6 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Directories');
 
   const filteredProjects = projects.filter(p => activeFilter === 'All' || p.category === activeFilter);
-  const githubCardImage = PlaceHolderImages.find(img => img.id === 'github-cta');
 
   return (
     <SectionWrapper id="projects" hasBackground>
@@ -153,18 +152,16 @@ export default function Projects() {
               whileHover="hover"
               viewport={{ once: true, amount: 0.3 }}
             >
-              {githubCardImage && (
-                <Image
-                  src={githubCardImage.imageUrl}
-                  alt="Explore more on GitHub"
-                  width={800}
-                  height={600}
-                  data-ai-hint={githubCardImage.imageHint}
-                  className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
-                />
-              )}
+              <Image
+                src="/github-cta.png"
+                alt="Explore more on GitHub"
+                width={800}
+                height={600}
+                data-ai-hint="code technology"
+                className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+              />
                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-center text-white">
+                  <div className="text-center text-white p-4">
                       <Github className="w-16 h-16 mx-auto mb-2" />
                       <h3 className="text-2xl font-headline">Explore More Projects</h3>
                   </div>
