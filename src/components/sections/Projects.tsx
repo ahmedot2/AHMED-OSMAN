@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { Badge } from '../ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 const projects = [
   {
@@ -18,6 +19,7 @@ const projects = [
     link: 'https://ai-agency-agents-pied.vercel.app/',
     repo: 'https://github.com/ahmedot2/ai-agency-agents',
     image: PlaceHolderImages.find(img => img.id === 'ai-agency-agents'),
+    className: 'md:col-span-2 md:row-span-1',
   },
   {
     title: 'FINHUB',
@@ -27,6 +29,7 @@ const projects = [
     link: 'https://fin-hub-ivory.vercel.app/',
     repo: 'https://github.com/ahmedot2/fin-hub',
     image: PlaceHolderImages.find(img => img.id === 'finhub'),
+    className: '',
   },
   {
     title: 'GlobePulse',
@@ -36,6 +39,7 @@ const projects = [
     link: 'https://globe-pulse-puce.vercel.app/',
     repo: 'https://github.com/ahmedot2/globe-pulse',
     image: PlaceHolderImages.find(img => img.id === 'globepulse'),
+    className: '',
   },
     {
     title: 'UN Strategic Perspectives',
@@ -45,6 +49,7 @@ const projects = [
     link: 'https://zmufmuyy.manus.space/?locale=en#',
     repo: '#',
     image: PlaceHolderImages.find(img => img.id === 'un-strategic-perspectives'),
+    className: 'md:col-span-2 md:row-span-1',
   },
 ];
 
@@ -95,16 +100,16 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
-              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
+              className={cn("group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden", project.className)}
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
               whileHover="hover"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               <div className="overflow-hidden">
                 {project.image && (
@@ -136,18 +141,18 @@ export default function Projects() {
             </motion.div>
           ))}
             <motion.div
-              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
+              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden lg:col-span-4"
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
               whileHover="hover"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="overflow-hidden h-full flex flex-col">
-                <div className="relative w-full h-[60%] bg-black/20 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300">
+              <div className="overflow-hidden h-full flex flex-col md:flex-row">
+                <div className="relative w-full md:w-1/2 h-64 md:h-auto bg-black/20 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300">
                    <Github className="w-24 h-24 text-white/10" />
                 </div>
-                <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-4 flex-grow justify-center">
+                <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-4 flex-grow justify-center md:w-1/2">
                     <h3 className="text-3xl font-headline text-white">Explore More Projects</h3>
                     <p className="text-white/70 font-body text-lg leading-relaxed">From code to creation—each project a step in ascent.</p>
                     <div className="flex gap-4 mt-2">
