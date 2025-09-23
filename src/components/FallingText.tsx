@@ -32,6 +32,8 @@ const FallingText: React.FC<FallingTextProps> = ({
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    let primaryColorHsl: string;
+
     const handleResize = () => {
       if (renderRef.current && sceneRef.current) {
         renderRef.current.canvas.width = sceneRef.current.clientWidth;
@@ -43,6 +45,10 @@ const FallingText: React.FC<FallingTextProps> = ({
     const init = () => {
       const scene = sceneRef.current;
       if (!scene) return;
+
+      // Get computed color once
+      const primaryColorVar = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+      primaryColorHsl = `hsl(${primaryColorVar})`;
 
       const engine = engineRef.current;
       engine.world.gravity.y = gravity;
@@ -71,8 +77,8 @@ const FallingText: React.FC<FallingTextProps> = ({
       const wordBodies = words.map((word, i) => {
         const element = document.createElement('div');
         element.style.fontSize = fontSize;
+        element.style.fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--font-headline').trim();
         element.style.display = 'inline-block';
-        element.className = highlightWords.includes(word) ? highlightClass : '';
         element.innerText = word;
         document.body.appendChild(element);
         const { width, height } = element.getBoundingClientRect();
@@ -121,12 +127,12 @@ const FallingText: React.FC<FallingTextProps> = ({
 
       const context = render.context;
       const originalRender = Matter.Render.world;
+      const headlineFontFamily = getComputedStyle(document.documentElement).getPropertyValue('--font-headline').trim();
 
       (Matter.Render as any).world = function (render: Matter.Render) {
         originalRender(render);
-        const primaryColorHsl = `hsl(${getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()})`;
         
-        context.font = `${fontSize} sans-serif`;
+        context.font = `${fontSize} ${headlineFontFamily}`;
         context.textAlign = 'center';
         context.textBaseline = 'middle';
         
@@ -152,7 +158,9 @@ const FallingText: React.FC<FallingTextProps> = ({
     const cleanup = () => {
       if (renderRef.current) {
         Matter.Render.stop(renderRef.current);
-        renderRef.current.canvas.remove();
+        if (renderRef.current.canvas) {
+            renderRef.current.canvas.remove();
+        }
         (renderRef.current as any).textures = {};
       }
       if (runnerRef.current) {
