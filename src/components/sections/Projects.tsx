@@ -1,3 +1,4 @@
+
 'use client';
 import { useState } from 'react';
 import SectionWrapper from '../SectionWrapper';
@@ -6,65 +7,87 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Badge } from '../ui/badge';
 import { ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'Project Alpha',
-    category: 'Web App',
-    description: 'A cutting-edge data analytics platform for enterprise customers.',
-    tech: ['Next.js', 'TypeScript', 'GCP', 'AI'],
-    link: '#',
-    repo: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-1'),
+    title: 'AI Agency Agents',
+    category: 'Directories',
+    description: 'Unified platform for AI tools and directories—semantic search unlocking innovation from self-taught code.',
+    tech: ['Next.js', 'TypeScript', 'Vercel'],
+    link: 'https://ai-agency-agents-pied.vercel.app/',
+    repo: 'https://github.com/ahmedot2/ai-agency-agents',
+    image: PlaceHolderImages.find(img => img.id === 'ai-agency-agents'),
   },
   {
-    title: 'Project Beta',
-    category: 'Mobile App',
-    description: 'A social networking app focused on local communities.',
-    tech: ['React Native', 'Firebase', 'Go'],
-    link: '#',
-    repo: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-2'),
+    title: 'FINHUB',
+    category: 'Directories',
+    description: 'Curated finance resources for stocks and crypto—navigating markets since 2015 with strategic precision.',
+    tech: ['Next.js', 'TypeScript', 'Vercel'],
+    link: 'https://fin-hub-ivory.vercel.app/',
+    repo: 'https://github.com/ahmedot2/fin-hub',
+    image: PlaceHolderImages.find(img => img.id === 'finhub'),
   },
   {
-    title: 'Project Gamma',
-    category: 'Data Science',
-    description: 'A machine learning model for predictive market analysis.',
-    tech: ['Python', 'PyTorch', 'Kubernetes'],
-    link: '#',
-    repo: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-3'),
+    title: 'GlobePulse',
+    category: 'Directories',
+    description: '2025 travel guide inspired by global layovers—rankings that chart horizons beyond the skies.',
+    tech: ['Next.js', 'TypeScript', 'Vercel'],
+    link: 'https://globe-pulse-puce.vercel.app/',
+    repo: 'https://github.com/ahmedot2/globe-pulse',
+    image: PlaceHolderImages.find(img => img.id === 'globepulse'),
   },
     {
-    title: 'Project Delta',
-    category: 'Web App',
-    description: 'An e-commerce storefront with a custom headless CMS.',
-    tech: ['Next.js', 'Stripe', 'GraphQL'],
-    link: '#',
+    title: 'UN Strategic Perspectives',
+    category: 'Directories',
+    description: 'Curated frameworks for global impact—blending policy insights with aviation\'s resilient edge.',
+    tech: ['Manus.Space', 'Custom JS'],
+    link: 'https://zmufmuyy.manus.space/?locale=en#',
     repo: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-4'),
+    image: PlaceHolderImages.find(img => img.id === 'un-strategic-perspectives'),
   },
 ];
 
-const filters = ['All', 'Web App', 'Mobile App', 'Data Science'];
+const filters = ['Directories', 'Blockchain'];
+
+const cardVariants = {
+  initial: { y: 20, opacity: 0 },
+  animate: { 
+    y: 0, 
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  },
+  hover: {
+    y: -5,
+    boxShadow: "0 10px 30px -10px hsl(var(--primary))",
+    transition: {
+      duration: 0.3,
+    }
+  }
+};
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('Directories');
 
   const filteredProjects = projects.filter(p => activeFilter === 'All' || p.category === activeFilter);
 
   return (
     <SectionWrapper id="projects" hasBackground>
-      <div className="flex flex-col gap-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <h2 className="font-headline text-6xl md:text-7xl text-white">Projects</h2>
-          <div className="flex flex-wrap gap-2">
+      <div className="flex flex-col gap-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
+            PRO <span className="text-white">JECTS</span>
+          </h2>
+          <div className="flex flex-wrap gap-2 self-start md:self-center">
             {filters.map(filter => (
               <Button
                 key={filter}
                 variant={activeFilter === filter ? 'default' : 'outline'}
                 onClick={() => setActiveFilter(filter)}
-                className="rounded-full"
+                className="rounded-full border-primary/50 text-primary hover:bg-primary/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 {filter}
               </Button>
@@ -74,9 +97,14 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
+              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
+              variants={cardVariants}
+              initial="initial"
+              whileInView="animate"
+              whileHover="hover"
+              viewport={{ once: true, amount: 0.3 }}
             >
               <div className="overflow-hidden">
                 {project.image && (
@@ -86,25 +114,35 @@ export default function Projects() {
                     width={800}
                     height={600}
                     data-ai-hint={project.image.imageHint}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-auto object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
                 )}
               </div>
-              <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-                <h3 className="text-3xl font-headline text-white mb-2">{project.title}</h3>
-                <p className="text-white/70 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-4">
+                <h3 className="text-3xl font-headline text-white">{project.title}</h3>
+                <p className="text-white/70 font-body text-lg leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
                   {project.tech.map(t => (
-                    <Badge key={t} variant="secondary" className="bg-white/10 text-white/80">{t}</Badge>
+                    <Badge key={t} variant="secondary" className="bg-white/10 text-white/80 border border-transparent">{t}</Badge>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-2">
                     <Button asChild><a href={project.link} target="_blank" rel="noopener noreferrer">Live Demo <ExternalLink className="ml-2"/></a></Button>
-                    <Button variant="outline" asChild><a href={project.repo} target="_blank" rel="noopener noreferrer">View Code</a></Button>
+                    {project.repo !== '#' && (
+                      <Button variant="outline" asChild><a href={project.repo} target="_blank" rel="noopener noreferrer">View Code</a></Button>
+                    )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
+        </div>
+        <div className="text-center flex flex-col items-center gap-4 mt-8">
+            <Button size="lg" asChild>
+                <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
+                    View All on GitHub
+                </a>
+            </Button>
+            <p className="text-white/70">From code to creation—each project a step in ascent.</p>
         </div>
       </div>
     </SectionWrapper>
