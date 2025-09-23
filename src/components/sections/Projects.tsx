@@ -19,7 +19,6 @@ const projects = [
     link: 'https://ai-agency-agents-pied.vercel.app/',
     repo: 'https://github.com/ahmedot2/ai-agency-agents',
     image: PlaceHolderImages.find(img => img.id === 'ai-agency-agents'),
-    className: '',
   },
   {
     title: 'FINHUB',
@@ -29,7 +28,6 @@ const projects = [
     link: 'https://fin-hub-ivory.vercel.app/',
     repo: 'https://github.com/ahmedot2/fin-hub',
     image: PlaceHolderImages.find(img => img.id === 'finhub'),
-    className: '',
   },
   {
     title: 'GlobePulse',
@@ -39,7 +37,6 @@ const projects = [
     link: 'https://globe-pulse-puce.vercel.app/',
     repo: 'https://github.com/ahmedot2/globe-pulse',
     image: PlaceHolderImages.find(img => img.id === 'globepulse'),
-    className: '',
   },
     {
     title: 'UN Strategic Perspectives',
@@ -49,7 +46,6 @@ const projects = [
     link: 'https://zmufmuyy.manus.space/?locale=en#',
     repo: '#',
     image: PlaceHolderImages.find(img => img.id === 'un-strategic-perspectives'),
-    className: '',
   },
 ];
 
@@ -104,11 +100,12 @@ export default function Projects() {
           {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
-              className={cn("group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden flex flex-col", project.className)}
+              className={cn("group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden flex flex-col")}
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
               whileHover="hover"
+              whileTap="hover"
               viewport={{ once: true, amount: 0.1 }}
             >
               <div className="overflow-hidden">
@@ -146,6 +143,7 @@ export default function Projects() {
                 initial="initial"
                 whileInView="animate"
                 whileHover="hover"
+                whileTap="hover"
                 viewport={{ once: true, amount: 0.3 }}
             >
                 <div className="overflow-hidden">
