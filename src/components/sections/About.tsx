@@ -171,8 +171,12 @@ export default function About() {
                 )
               })}
             </div>
-             <p className="text-primary font-headline text-3xl text-center mt-8">
-                Each milestone lifts the ascent—where will you soar?
+             <p className="font-headline text-3xl text-center mt-8">
+                <span className="text-primary">Each </span>
+                milestone
+                <span className="text-primary"> lifts the ascent—where will you </span>
+                soar
+                <span className="text-primary">?</span>
             </p>
           </div>
         </div>
