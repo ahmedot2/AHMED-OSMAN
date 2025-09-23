@@ -34,7 +34,7 @@ const milestones = [
     },
     {
         icon: Github,
-        metric: '816 GitHub Contributions',
+        metric: '1044 GitHub Contributions',
         title: 'Code Ascent',
         copy: 'Self-taught AI and blockchain code—redefining horizons line by line.',
     },
