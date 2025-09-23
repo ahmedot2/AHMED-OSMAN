@@ -141,32 +141,36 @@ export default function Projects() {
               </div>
             </motion.div>
           ))}
-            <motion.a
-              href="https://github.com/ahmedot2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden block"
-              variants={cardVariants}
-              initial="initial"
-              whileInView="animate"
-              whileHover="hover"
-              viewport={{ once: true, amount: 0.3 }}
+            <motion.div
+                className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
+                viewport={{ once: true, amount: 0.3 }}
             >
-              <Image
-                src="/github-cta.png"
-                alt="Explore more on GitHub"
-                width={800}
-                height={600}
-                data-ai-hint="code technology"
-                className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
-              />
-               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-center text-white p-4">
-                      <Github className="w-16 h-16 mx-auto mb-2" />
-                      <h3 className="text-2xl font-headline">Explore More Projects</h3>
-                  </div>
-              </div>
-            </motion.a>
+                <div className="overflow-hidden">
+                    <Image
+                        src="/github-cta.png"
+                        alt="Explore more on GitHub"
+                        width={800}
+                        height={600}
+                        data-ai-hint="code technology"
+                        className="w-full h-auto object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    />
+                </div>
+                <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3">
+                    <h3 className="text-2xl font-headline text-white">Explore More Projects</h3>
+                    <p className="text-white/70 font-body text-base leading-relaxed">From code to creation—each project a step in ascent.</p>
+                    <div className="flex gap-4 mt-auto pt-2">
+                         <Button asChild className="w-full">
+                            <a href="https://github.com/ahmedot2" target="_blank" rel="noopener noreferrer">
+                                View All on GitHub <Github className="ml-2" />
+                            </a>
+                        </Button>
+                    </div>
+                </div>
+            </motion.div>
         </div>
       </div>
     </SectionWrapper>
