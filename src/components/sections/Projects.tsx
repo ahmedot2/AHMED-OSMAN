@@ -49,7 +49,7 @@ const projects = [
     link: 'https://zmufmuyy.manus.space/?locale=en#',
     repo: '#',
     image: PlaceHolderImages.find(img => img.id === 'un-strategic-perspectives'),
-    className: 'md:col-span-2',
+    className: '',
   },
 ];
 
@@ -141,7 +141,7 @@ export default function Projects() {
             </motion.div>
           ))}
             <motion.div
-              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden md:col-span-2"
+              className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
