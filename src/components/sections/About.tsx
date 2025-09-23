@@ -32,7 +32,7 @@ const milestones = [
         icon: DollarSign,
         metric: 'Asset Growth',
         title: 'Wealth Forged',
-        copy: 'Osman Group’s rise from Cairo’s shadows—risks woven into wealth.',
+        copy: 'Navigating the volatile currents of crypto and stocks since 2015—turning market shadows into a symphony of strategic gains.',
         className: 'md:col-span-1',
     },
     {
