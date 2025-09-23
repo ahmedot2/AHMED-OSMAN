@@ -10,6 +10,7 @@ import { Badge } from '../ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import TextType from '../TextType';
 import InteractiveImage from '../InteractiveImage';
+import { Plane, DollarSign, Github, Briefcase, BookOpen, Globe } from 'lucide-react';
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
@@ -19,10 +20,42 @@ const skills = [
 ];
 
 const milestones = [
-  { year: '2023', event: 'Launched AI-powered analytics platform, reaching 1M users.' },
-  { year: '2021', event: 'Published "Architecting Intelligence" with O\'Reilly.' },
-  { year: '2019', event: 'Led team to win a Webby Award for Best User Experience.' },
-  { year: '2016', event: 'Developed an open-source library with 10k+ stars on GitHub.' },
+    {
+        icon: Plane,
+        metric: '15,000+ Hours Aloft',
+        title: 'Skyward Resilience',
+        copy: '12 years with Emirates—turbulence forged into triumph at 30,000 feet.',
+    },
+    {
+        icon: DollarSign,
+        metric: '$2M+ Asset Growth',
+        title: 'Wealth Forged',
+        copy: 'Osman Group’s rise from Cairo’s shadows—risks woven into wealth.',
+    },
+    {
+        icon: Github,
+        metric: '816 GitHub Contributions',
+        title: 'Code Ascent',
+        copy: 'Self-taught AI and blockchain code—redefining horizons line by line.',
+    },
+    {
+        icon: Briefcase,
+        metric: '2 Ventures Co-Founded',
+        title: 'Venture Vision',
+        copy: 'Osman Group and T.O.M Logistics—$1M+ flows from chaos to mastery.',
+    },
+    {
+        icon: BookOpen,
+        metric: 'UN Papers Authored',
+        title: 'Global Wisdom',
+        copy: 'Resilience strategies from aviation’s lessons to humanitarian shadows.',
+    },
+    {
+        icon: Globe,
+        metric: 'Fluent Arabic & English',
+        title: 'Cultural Bridges',
+        copy: 'Connecting continents—Dubai skies to Cairo strategies in dialogue.',
+    },
 ];
 
 export default function About() {
@@ -90,18 +123,24 @@ export default function About() {
           </div>
           <div 
             ref={milestonesRef}
-            className={`bg-card/30 p-4 rounded-lg border border-border/10 transition-all duration-700 delay-200 ${areMilestonesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`transition-all duration-700 delay-200 ${areMilestonesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            <h3 className="text-3xl font-headline mb-4 text-white/90">Milestones</h3>
-            <div className="space-y-4">
-              {milestones.map((milestone, index) => (
-                <div key={index} className="flex items-start gap-4 group">
-                  <div className="font-bold text-primary w-12 text-right shrink-0">{milestone.year}</div>
-                  <div className="h-full w-px bg-border/50"></div>
-                  <p className="text-white/70 group-hover:text-white transition-colors">{milestone.event}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {milestones.map((milestone, index) => {
+                const Icon = milestone.icon;
+                return (
+                  <div key={index} className="bg-card/30 border border-border/10 rounded-lg p-4 text-center flex flex-col items-center gap-2 group hover:bg-card/50 transition-colors">
+                    <Icon className="w-8 h-8 text-primary mb-2" />
+                    <p className="font-bold text-lg text-white/90 leading-tight">{milestone.metric}</p>
+                    <p className="text-sm text-white/70">{milestone.title}</p>
+                    <p className="text-xs text-white/50 mt-2 opacity-0 group-hover:opacity-100 transition-opacity h-0 group-hover:h-auto">{milestone.copy}</p>
+                  </div>
+                )
+              })}
             </div>
+             <p className="text-primary font-headline text-3xl text-center mt-8">
+                Each milestone lifts the ascent—where will you soar?
+            </p>
           </div>
         </div>
       </div>
