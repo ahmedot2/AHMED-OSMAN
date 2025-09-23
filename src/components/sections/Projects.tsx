@@ -87,7 +87,7 @@ export default function Projects() {
                 key={filter}
                 variant={activeFilter === filter ? 'default' : 'outline'}
                 onClick={() => setActiveFilter(filter)}
-                className="rounded-full border-primary/50 text-primary hover:bg-primary/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                className="rounded-full border-primary/50 text-white hover:text-primary hover:bg-primary/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 {filter}
               </Button>
