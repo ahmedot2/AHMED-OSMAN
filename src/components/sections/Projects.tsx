@@ -19,7 +19,7 @@ const projects = [
     link: 'https://ai-agency-agents-pied.vercel.app/',
     repo: 'https://github.com/ahmedot2/ai-agency-agents',
     image: PlaceHolderImages.find(img => img.id === 'ai-agency-agents'),
-    className: 'md:col-span-2',
+    className: '',
   },
   {
     title: 'FINHUB',
