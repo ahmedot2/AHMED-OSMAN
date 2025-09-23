@@ -1,5 +1,4 @@
 
-
 'use client';
 import { useState } from 'react';
 import SectionWrapper from '../SectionWrapper';
@@ -105,7 +104,7 @@ export default function Projects() {
           {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
-              className={cn("group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden", project.className)}
+              className={cn("group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden flex flex-col", project.className)}
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
@@ -124,7 +123,7 @@ export default function Projects() {
                   />
                 )}
               </div>
-              <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3">
+              <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3 flex-grow">
                 <h3 className="text-2xl font-headline text-white">{project.title}</h3>
                 
                 <div className="flex flex-wrap gap-2">
@@ -132,7 +131,7 @@ export default function Projects() {
                     <Badge key={t} variant="secondary" className="bg-white/10 text-white/80 border border-transparent">{t}</Badge>
                   ))}
                 </div>
-                <div className="flex gap-4 mt-2">
+                <div className="flex gap-4 mt-auto pt-2">
                     <Button asChild><a href={project.link} target="_blank" rel="noopener noreferrer">Live Demo <ExternalLink className="ml-2"/></a></Button>
                     {project.repo !== '#' && (
                       <Button variant="outline" asChild><a href={project.repo} target="_blank" rel="noopener noreferrer">View Code</a></Button>
@@ -142,7 +141,7 @@ export default function Projects() {
             </motion.div>
           ))}
             <motion.div
-                className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden"
+                className="group relative bg-card/30 border border-border/10 rounded-lg overflow-hidden flex flex-col"
                 variants={cardVariants}
                 initial="initial"
                 whileInView="animate"
@@ -159,7 +158,7 @@ export default function Projects() {
                         className="w-full h-auto object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                     />
                 </div>
-                <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3">
+                <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3 flex-grow">
                     <h3 className="text-2xl font-headline text-white">Explore More Projects</h3>
                     
                     <div className="flex gap-4 mt-auto pt-2">
