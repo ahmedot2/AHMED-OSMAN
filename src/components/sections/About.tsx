@@ -12,6 +12,7 @@ import TextType from '../TextType';
 import InteractiveImage from '../InteractiveImage';
 import { Plane, DollarSign, Github, Briefcase, BookOpen, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
@@ -82,6 +83,25 @@ export default function About() {
     "iron curtain of doubt": "text-primary",
   };
 
+  const milestoneVariants = {
+    initial: { y: 20, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      boxShadow: "0 10px 30px -10px hsl(var(--primary))",
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      y: -5,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   return (
     <SectionWrapper id="about" hasBackground>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
@@ -134,12 +154,20 @@ export default function About() {
               {milestones.map((milestone, index) => {
                 const Icon = milestone.icon;
                 return (
-                  <div key={index} className={cn("bg-card/30 border border-border/10 rounded-lg p-4 text-center flex flex-col items-center justify-center gap-2 group hover:bg-card/50 transition-colors", milestone.className)}>
+                  <motion.div 
+                    key={index} 
+                    className={cn("bg-card/30 border border-border/10 rounded-lg p-4 text-center flex flex-col items-center justify-center gap-2 group hover:bg-card/50 transition-colors", milestone.className)}
+                    variants={milestoneVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    whileHover="hover"
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
                     <Icon className="w-8 h-8 text-primary mb-2" />
                     <p className="font-bold text-lg text-white/90 leading-tight">{milestone.metric}</p>
                     <p className="text-sm text-white/70">{milestone.title}</p>
                     <p className="text-xs text-white/50 mt-2 opacity-0 group-hover:opacity-100 transition-opacity h-0 group-hover:h-auto">{milestone.copy}</p>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
