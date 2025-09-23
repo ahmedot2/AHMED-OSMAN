@@ -13,7 +13,6 @@ import InteractiveImage from '../InteractiveImage';
 import { Plane, DollarSign, Github, Briefcase, BookOpen, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import FallingText from '../FallingText';
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
@@ -173,17 +172,12 @@ export default function About() {
               })}
             </div>
              <div className="font-headline text-3xl text-center mt-8">
-                <FallingText
-                    text="Each milestone lifts the ascent—where will you soar?"
-                    highlightWords={["milestone", "ascent", "soar?"]}
-                    highlightClass="highlighted"
-                    trigger="hover"
-                    backgroundColor="transparent"
-                    wireframes={false}
-                    gravity={0.56}
-                    fontSize="2rem"
-                    mouseConstraintStiffness={0.9}
-                />
+                <p>
+                    <span className="text-primary">Each </span>
+                    <span className="text-white">milestone</span>
+                    <span className="text-primary"> lifts the ascent—where will you </span>
+                    <span className="text-white">soar?</span>
+                </p>
             </div>
           </div>
         </div>
