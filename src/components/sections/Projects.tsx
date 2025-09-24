@@ -9,6 +9,7 @@ import { Badge } from '../ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const projects = [
   {
@@ -45,12 +46,16 @@ const projects = [
   },
 ];
 
-const filters = ['Directories', 'Blockchain'];
+const filters = ['Directories', 'GitHub'];
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Directories');
 
-  const filteredProjects = projects.filter(p => activeFilter === 'All' || p.category === activeFilter);
+  const filteredProjects = projects.filter(p => {
+    if (activeFilter === 'All') return true;
+    if (activeFilter === 'GitHub') return p.repo !== '#';
+    return p.category === activeFilter;
+  });
 
   const cardVariants = {
     initial: { y: 20, opacity: 0 },
@@ -70,6 +75,7 @@ export default function Projects() {
       },
     },
   };
+
 
   return (
     <SectionWrapper id="projects" hasBackground>
