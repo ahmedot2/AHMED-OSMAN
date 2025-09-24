@@ -51,7 +51,7 @@
     {
       "id": "youtube-2",
       "description": "Thumbnail for a tech talk presentation.",
-      "imageUrl": "https://images.unsplash.com/photo-1560463798-cf1d2db8c9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcmVzZW50YXRpb24lMjBzbGlkZXxlbnwwfHx8fDE3NTg1OTQ1NTh8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1560463798-cf1d2db8c9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcmVzZW50YXRpb24lMjBzbGlkZXxlbnwwfHx8fDE3NTg1OTQ1NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "presentation slide"
     },
     {
@@ -63,7 +63,7 @@
     {
       "id": "ai-agency-agents",
       "description": "Screenshot of AI directory grid",
-      "imageUrl": "https://images.unsplash.com/photo-1723812792798-dfcc0cbf539f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaSUyMGRpcmVjdG9yeXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/ai-agency-agents-new.png",
       "imageHint": "ai directory"
     },
     {
@@ -75,7 +75,7 @@
     {
       "id": "globepulse",
       "description": "Screenshot of travel rankings",
-      "imageUrl": "https://images.unsplash.com/photo-1693721969759-ead32359777d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhdmVsJTIwd2Vic2l0ZXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693721969759-ead32359777d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhdmVsJTIwd2Vic2l0ZXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "travel website"
     },
     {
