@@ -144,7 +144,9 @@ export default function Publications() {
     <SectionWrapper id="publications" hasBackground>
       <div className="flex flex-col gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <h2 className="font-headline text-6xl md:text-7xl text-white">Publications</h2>
+          <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
+            Publi<span className="text-white">cations</span>
+          </h2>
           <Tabs defaultValue={activeFilter} onValueChange={setActiveFilter} className="w-full md:w-auto">
             <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full md:w-auto bg-white/5 border-border/20">
               {filters.map(filter => (
@@ -262,5 +264,3 @@ export default function Publications() {
     </SectionWrapper>
   );
 }
-
-    
