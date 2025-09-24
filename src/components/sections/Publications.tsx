@@ -194,7 +194,7 @@ export default function Publications() {
                           />
                         )}
                       </div>
-                      <div className="p-6 flex flex-col flex-grow">
+                      <div className="p-6 flex flex-col flex-grow bg-card">
                         <Badge variant="outline" className="self-start mb-3 border-primary/50 text-primary">{pub.genre}</Badge>
                         <h3 className="text-2xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
                         <div className="flex items-center text-xs text-primary/80 mt-auto animate-pulse">
