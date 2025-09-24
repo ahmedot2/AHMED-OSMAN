@@ -233,7 +233,7 @@ export default function Publications() {
                         </Button>
                       )}
                       {pub.links.google !== '#' && (
-                         <Button variant="secondary" asChild>
+                         <Button asChild>
                           <a href={pub.links.google} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="mr-2 h-4 w-4" /> Google Books
                           </a>
