@@ -104,14 +104,14 @@ const publications = [
     synopsis: 'Curated strategic studies on global solutions: operational effectiveness, disaster resilience, child protection, and more.',
     image: PlaceHolderImages.find(img => img.id === 'un-papers'),
     papers: [
-        { title: 'UN Peacekeeping Efficiency Framework', url: '/books/un/un-paper-1.pdf' },
-        { title: 'DOS Client Experience Roadmap', url: '/books/un/un-paper-2.pdf' },
-        { title: 'Arab States DRR Resilience Plan', url: '/books/un/un-paper-3.pdf' },
-        { title: 'UN Programme Planning Strategies', url: '/books/un/un-paper-4.pdf' },
-        { title: 'Sustainable Trade in Developing Economies', url: '/books/un/un-paper-5.pdf' },
-        { title: 'Internal Displacement Solutions Guide', url: '/books/un/un-paper-6.pdf' },
-        { title: 'Children in Conflict Protection Tactics', url: '/books/un/un-paper-7.pdf' },
-        { title: 'UNJSPF Governance & Services Blueprint', url: '/books/un/un-paper-8.pdf' },
+      { title: 'UN Peacekeeping Efficiency Framework', url: '/books/un/un-paper-1.pdf' },
+      { title: 'DOS Client Experience Roadmap', url: '/books/un/un-paper-2.pdf' },
+      { title: 'Arab States DRR Resilience Plan', url: '/books/un/un-paper-3.pdf' },
+      { title: 'UN Programme Planning Strategies', url: '/books/un/un-paper-4.pdf' },
+      { title: 'Sustainable Trade in Developing Economies', url: '/books/un/un-paper-5.pdf' },
+      { title: 'Internal Displacement Solutions Guide', url: '/books/un/un-paper-6.pdf' },
+      { title: 'Children in Conflict Protection Tactics', url: '/books/un/un-paper-7.pdf' },
+      { title: 'UNJSPF Governance & Services Blueprint', url: '/books/un/un-paper-8.pdf' },
     ]
   },
 ];
@@ -185,7 +185,6 @@ export default function Publications() {
                         className="object-cover w-full h-full grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     <Badge variant={pub.type === 'Papers' ? 'secondary' : 'default'} className="absolute top-4 right-4">{pub.type === 'Papers' ? 'Papers' : 'Book'}</Badge>
                   </div>
                   <div className="p-6 flex flex-col flex-grow bg-card/40">
