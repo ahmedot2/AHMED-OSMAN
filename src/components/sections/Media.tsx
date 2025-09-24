@@ -72,10 +72,9 @@ export default function Media() {
                                 <Image
                                 src={channel.image.imageUrl}
                                 alt={channel.name}
-                                width={1280}
-                                height={720}
+                                fill
                                 data-ai-hint={channel.image.imageHint}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                                 />
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
