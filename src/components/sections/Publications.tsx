@@ -63,7 +63,7 @@ const publications = [
     image: PlaceHolderImages.find(img => img.id === 'subtle-art'),
     links: {
       apple: 'https://books.apple.com/us/book/the-subtle-art-of-giving-a-f-ck/id6740659959',
-      google: '#',
+      google: 'https://play.google.com/store/books/details?id=AfM9EQAAQBAJ',
       pdf: '/books/the-subtle-art.pdf',
       epub: '/books/the-subtle-art.epub',
     },
