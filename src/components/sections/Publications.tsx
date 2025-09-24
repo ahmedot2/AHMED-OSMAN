@@ -35,7 +35,7 @@ const publications = [
     image: PlaceHolderImages.find(img => img.id === 'law-of-mother-russia'),
     links: {
       apple: 'https://books.apple.com/us/book/law-of-mother-russia/id6741052687',
-      google: '#',
+      google: 'https://play.google.com/store/books/details?id=ZndBEQAAQBAJ',
       pdf: '/books/law-of-mother-russia.pdf',
       epub: '/books/law-of-mother-russia.epub',
     },
@@ -264,6 +264,3 @@ export default function Publications() {
     </SectionWrapper>
   );
 }
-
-    
-    
