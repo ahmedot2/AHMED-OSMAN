@@ -110,7 +110,7 @@ export default function About() {
           className={`flex flex-col gap-8 transition-all duration-1000 ${isLeftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
         >
           <InteractiveImage 
-            src="/about-image.png"
+            src="/about-image-new.png"
             alt="Philosophical depiction of challenge"
             width={500}
             height={300}
