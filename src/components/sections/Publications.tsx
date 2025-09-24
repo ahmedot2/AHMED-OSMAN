@@ -77,7 +77,7 @@ const publications = [
     image: PlaceHolderImages.find(img => img.id === 'favela-pact'),
     links: {
       apple: 'https://books.apple.com/us/book/the-favela-pact/id6741052868',
-      google: '#',
+      google: 'https://play.google.com/store/books/details?id=nL06EQAAQBAJ',
       pdf: '/books/the-favela-pact.pdf',
       epub: '/books/the-favela-pact.epub',
     },
@@ -144,7 +144,7 @@ export default function Publications() {
     <SectionWrapper id="publications" hasBackground>
       <div className="flex flex-col gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
+           <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
             <span className="block md:inline">Publi</span><span className="text-white block md:inline">cations</span>
           </h2>
           <Tabs defaultValue={activeFilter} onValueChange={setActiveFilter} className="w-full md:w-auto">
