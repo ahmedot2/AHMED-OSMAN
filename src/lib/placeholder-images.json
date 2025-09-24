@@ -125,6 +125,24 @@
       "description": "Video holder for AI Agency Agent channel",
       "imageUrl": "/media-ai-agency-channel.png",
       "imageHint": "ai youtube"
+    },
+    {
+      "id": "media-pinterest",
+      "description": "Thumbnail for Pinterest Profile",
+      "imageUrl": "/media-pinterest.png",
+      "imageHint": "pinterest profile"
+    },
+    {
+      "id": "media-tiktok-personal",
+      "description": "Thumbnail for Personal TikTok Profile",
+      "imageUrl": "/media-tiktok-personal.png",
+      "imageHint": "tiktok profile"
+    },
+    {
+      "id": "media-tiktok-money",
+      "description": "Thumbnail for Money Moves TikTok Profile",
+      "imageUrl": "/media-tiktok-money.png",
+      "imageHint": "tiktok profile"
     }
   ]
 }
