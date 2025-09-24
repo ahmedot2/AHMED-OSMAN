@@ -104,14 +104,14 @@ const publications = [
     synopsis: 'Curated strategic studies on global solutions: operational effectiveness, disaster resilience, child protection, and more.',
     image: PlaceHolderImages.find(img => img.id === 'un-papers'),
     papers: [
-        { title: 'Operational Effectiveness', url: '/books/un/un-paper-1.pdf' },
-        { title: 'Public Information Operations', url: '/books/un/un-paper-2.pdf' },
-        { title: 'Protection of Civilians', url: '/books/un/un-paper-3.pdf' },
-        { title: 'Disaster Resilience', url: '/books/un/un-paper-4.pdf' },
-        { title: 'Security Sector Reform', url: '/books/un/un-paper-5.pdf' },
-        { title: 'Child Protection', url: '/books/un/un-paper-6.pdf' },
-        { title: 'Gender Mainstreaming', url: '/books/un/un-paper-7.pdf' },
-        { title: 'Humanitarian-Development-Peace Nexus', url: '/books/un/un-paper-8.pdf' },
+        { title: 'UN Peacekeeping Efficiency Framework', url: '/books/un/un-paper-1.pdf' },
+        { title: 'DOS Client Experience Roadmap', url: '/books/un/un-paper-2.pdf' },
+        { title: 'Arab States DRR Resilience Plan', url: '/books/un/un-paper-3.pdf' },
+        { title: 'UN Programme Planning Strategies', url: '/books/un/un-paper-4.pdf' },
+        { title: 'Sustainable Trade in Developing Economies', url: '/books/un/un-paper-5.pdf' },
+        { title: 'Internal Displacement Solutions Guide', url: '/books/un/un-paper-6.pdf' },
+        { title: 'Children in Conflict Protection Tactics', url: '/books/un/un-paper-7.pdf' },
+        { title: 'UNJSPF Governance & Services Blueprint', url: '/books/un/un-paper-8.pdf' },
     ]
   },
 ];
