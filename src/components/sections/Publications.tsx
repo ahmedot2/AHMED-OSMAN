@@ -21,7 +21,7 @@ const publications = [
     image: PlaceHolderImages.find(img => img.id === 'flying-death'),
     links: {
       apple: 'https://books.apple.com/us/book/flying-death/id6741052325',
-      google: '#',
+      google: 'https://play.google.com/store/books/details?id=8r06EQAAQBAJ',
       pdf: '/books/flying-death.pdf',
       epub: '/books/flying-death.epub',
     },
@@ -265,4 +265,5 @@ export default function Publications() {
   );
 }
 
+    
     
