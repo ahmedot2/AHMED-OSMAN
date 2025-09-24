@@ -149,7 +149,7 @@ export default function Publications() {
       <div className="flex flex-col gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
            <h2 className="font-display text-8xl md:text-[120px] font-black uppercase leading-none tracking-widest">
-            <span className="text-primary block md:inline">Publi</span><span className="text-white block md:inline">cations</span>
+            <span className="text-primary block">Publi</span><span className="text-white block md:inline">cations</span>
           </h2>
           <Tabs defaultValue={activeFilter} onValueChange={setActiveFilter} className="w-full md:w-auto">
             <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full md:w-auto bg-white/5 border-border/20">
@@ -218,7 +218,7 @@ export default function Publications() {
                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                        {pub.papers.map((paper, paperIndex) => (
                          <Button key={paperIndex} variant="outline" asChild>
-                           <a href={paper.url} target="_blank" rel="noopener noreferrer" download>
+                           <a href={paper.url} target="_blank" rel="noopener noreferrer" download={`${paper.title}.pdf`}>
                              <Download className="mr-2 h-4 w-4" /> {paper.title}
                            </a>
                          </Button>
