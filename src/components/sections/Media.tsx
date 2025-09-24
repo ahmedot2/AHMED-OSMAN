@@ -137,7 +137,6 @@ export default function Media() {
                                     <CirclePlay className="w-20 h-20 text-primary" />
                                 </div>
                                 <div className="absolute bottom-4 left-6 z-10">
-                                    <h3 className="text-3xl font-headline text-white">{channel.name}</h3>
                                     <div className="flex items-center gap-2 mt-1">
                                         <Icon className={cn("w-5 h-5", 
                                             channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white",
