@@ -104,14 +104,14 @@ const publications = [
     synopsis: 'Curated strategic studies on global solutions: operational effectiveness, disaster resilience, child protection, and more.',
     image: PlaceHolderImages.find(img => img.id === 'un-papers'),
     papers: [
-      { title: 'UN Peacekeeping Efficiency Framework', url: '/books/un/un-paper-1.pdf' },
-      { title: 'DOS Client Experience Roadmap', url: '/books/un/un-paper-2.pdf' },
-      { title: 'Arab States DRR Resilience Plan', url: '/books/un/un-paper-3.pdf' },
-      { title: 'UN Programme Planning Strategies', url: '/books/un/un-paper-4.pdf' },
-      { title: 'Sustainable Trade in Developing Economies', url: '/books/un/un-paper-5.pdf' },
-      { title: 'Internal Displacement Solutions Guide', url: '/books/un/un-paper-6.pdf' },
-      { title: 'Children in Conflict Protection Tactics', url: '/books/un/un-paper-7.pdf' },
-      { title: 'UNJSPF Governance & Services Blueprint', url: '/books/un/un-paper-8.pdf' },
+      { title: 'UN Peacekeeping Efficiency Framework', url: '/books/un/un-paper-1.pdf', downloadName: 'UN Peacekeeping Efficiency Framework.pdf' },
+      { title: 'DOS Client Experience Roadmap', url: '/books/un/un-paper-2.pdf', downloadName: 'DOS Client Experience Roadmap.pdf' },
+      { title: 'Arab States DRR Resilience Plan', url: '/books/un/un-paper-3.pdf', downloadName: 'Arab States DRR Resilience Plan.pdf' },
+      { title: 'UN Programme Planning Strategies', url: '/books/un/un-paper-4.pdf', downloadName: 'UN Programme Planning Strategies.pdf' },
+      { title: 'Sustainable Trade in Developing Economies', url: '/books/un/un-paper-5.pdf', downloadName: 'Sustainable Trade in Developing Economies.pdf' },
+      { title: 'Internal Displacement Solutions Guide', url: '/books/un/un-paper-6.pdf', downloadName: 'Internal Displacement Solutions Guide.pdf' },
+      { title: 'Children in Conflict Protection Tactics', url: '/books/un/un-paper-7.pdf', downloadName: 'Children in Conflict Protection Tactics.pdf' },
+      { title: 'UNJSPF Governance & Services Blueprint', url: '/books/un/un-paper-8.pdf', downloadName: 'UNJSPF Governance & Services Blueprint.pdf' },
     ]
   },
 ];
@@ -185,13 +185,12 @@ export default function Publications() {
                         className="object-cover w-full h-full grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
                       />
                     )}
-                    <Badge variant={pub.type === 'Papers' ? 'secondary' : 'default'} className="absolute top-4 right-4">{pub.type === 'Papers' ? 'Papers' : 'Book'}</Badge>
                   </div>
                   <div className="p-6 flex flex-col flex-grow bg-card/40">
                     <Badge variant="outline" className="self-start mb-3 border-primary/50 text-primary">{pub.genre}</Badge>
                     <h3 className="text-2xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
-                    <div className="flex items-center text-xs text-white/50 mt-auto">
-                        <BookOpen className="w-4 h-4 mr-2"/>
+                    <div className="flex items-center text-xs text-primary/80 mt-auto animate-pulse">
+                        <BookOpen className="w-4 h-4 mr-2 text-primary"/>
                         <span>Click to see details & download options</span>
                     </div>
                   </div>
@@ -216,7 +215,7 @@ export default function Publications() {
                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                        {pub.papers.map((paper, paperIndex) => (
                          <Button key={paperIndex} variant="outline" asChild>
-                           <a href={paper.url} target="_blank" rel="noopener noreferrer" download={`${paper.title}.pdf`}>
+                           <a href={paper.url} target="_blank" rel="noopener noreferrer" download={paper.downloadName}>
                              <Download className="mr-2 h-4 w-4" /> {paper.title}
                            </a>
                          </Button>
@@ -284,3 +283,4 @@ export default function Publications() {
     </SectionWrapper>
   );
 }
+
