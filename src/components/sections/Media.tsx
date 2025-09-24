@@ -66,7 +66,7 @@ export default function Media() {
                     viewport={{ once: true, amount: 0.2 }}
                     className="block"
                     >
-                    <Card className="bg-card/50 group overflow-hidden h-full flex flex-col rounded-lg">
+                    <Card className="bg-card/50 group overflow-hidden rounded-lg">
                         <CardContent className="relative flex aspect-video items-center justify-center p-0">
                             {channel.image && (
                                 <Image
