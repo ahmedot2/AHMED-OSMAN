@@ -143,6 +143,18 @@
       "description": "Thumbnail for Money Moves TikTok Profile",
       "imageUrl": "/media-tiktok-money.png",
       "imageHint": "tiktok profile"
+    },
+    {
+      "id": "media-linkedin",
+      "description": "Thumbnail for LinkedIn Profile",
+      "imageUrl": "/media-linkedin.png",
+      "imageHint": "linkedin profile"
+    },
+    {
+      "id": "media-x",
+      "description": "Thumbnail for X (Twitter) Profile",
+      "imageUrl": "/media-x.png",
+      "imageHint": "x twitter"
     }
   ]
 }

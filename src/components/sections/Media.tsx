@@ -3,7 +3,7 @@ import SectionWrapper from '../SectionWrapper';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { CirclePlay, Youtube } from 'lucide-react';
+import { CirclePlay, Youtube, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -18,6 +18,12 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
       <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.65 4.32 1.71v3.91c-1.61.06-3.19.5-4.32 1.62-1.14 1.11-1.67 2.7-1.73 4.31H12.5c.06-1.61.5-3.2 1.62-4.33 1.11-1.12 2.7-1.66 4.31-1.72v-3.9c-1.61-.06-3.2-.5-4.32-1.62C13.02 3.2 12.58 1.6.525.02zM7.02 4.14c.03 1.37.58 2.74 1.68 3.82 1.1 1.08 2.5 1.62 3.92 1.66v3.89c-1.4.04-2.8.58-3.92 1.66-1.1 1.08-1.65 2.45-1.68 3.82H2.96c.03-2.3.9-4.55 2.56-6.2C7.18 7.07 9.42 6.2 11.72 6.2V2.3c-2.3-.02-4.55.85-6.2 2.52C3.86 6.47 3 8.71 2.96 11.02V4.14h4.06z"/>
     </svg>
   );
+
+const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+);
 
 
 const channels = [
@@ -57,6 +63,18 @@ const channels = [
     image: PlaceHolderImages.find(img => img.id === 'media-tiktok-money'),
     icon: TikTokIcon
   },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/ahmed-osman-60914a170?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+    image: PlaceHolderImages.find(img => img.id === 'media-linkedin'),
+    icon: Linkedin
+  },
+  {
+    name: 'X (Twitter)',
+    url: 'https://x.com/ahmedot2osman?s=21&t=AbxG907-0qN53I1vpOnOEA',
+    image: PlaceHolderImages.find(img => img.id === 'media-x'),
+    icon: XIcon
+  },
 ];
 
 export default function Media() {
@@ -86,7 +104,7 @@ export default function Media() {
               <span className="text-white">Appear&shy;ances</span>
           </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {channels.map((channel, index) => {
                 const Icon = channel.icon;
                 return (
@@ -121,7 +139,10 @@ export default function Media() {
                                 <div className="absolute bottom-4 left-6 z-10">
                                     <h3 className="text-3xl font-headline text-white">{channel.name}</h3>
                                     <div className="flex items-center gap-2 mt-1">
-                                        <Icon className={cn("w-5 h-5", channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white")} />
+                                        <Icon className={cn("w-5 h-5", 
+                                            channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white",
+                                            channel.icon === Linkedin && "text-[#0077B5]"
+                                        )} />
                                         <span className="text-sm font-medium text-white/80">Visit profile</span>
                                     </div>
                                 </div>
