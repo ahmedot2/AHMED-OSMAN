@@ -1,10 +1,10 @@
+
 'use client';
 import SectionWrapper from '../SectionWrapper';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '../ui/button';
-import { ArrowRight, CirclePlay } from 'lucide-react';
+import { CirclePlay } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const channels = [
@@ -83,15 +83,8 @@ export default function Media() {
                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <CirclePlay className="w-20 h-20 text-primary" />
                             </div>
+                             <h3 className="text-3xl font-headline text-white absolute bottom-4 left-6 z-10">{channel.name}</h3>
                         </CardContent>
-                        <div className="p-6 bg-card/30 flex-grow flex flex-col justify-between">
-                            <h3 className="text-3xl font-headline text-white mb-4">{channel.name}</h3>
-                            <Button asChild className="mt-auto w-full">
-                                <span className="flex items-center justify-center">
-                                    Visit Channel <ArrowRight className="ml-2 h-5 w-5" />
-                                </span>
-                            </Button>
-                        </div>
                     </Card>
                 </motion.a>
             ))}
