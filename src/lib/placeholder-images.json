@@ -51,7 +51,7 @@
     {
       "id": "youtube-2",
       "description": "Thumbnail for a tech talk presentation.",
-      "imageUrl": "https://images.unsplash.com/photo-1560463798-cf1d2db8c9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcmVzZW50YXRpb24lMjBzbGlkZXxlbnwwfHx8fDE3NTg1OTQ1NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1560463798-cf1d2db8c9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcmVzZW50YXRpb24lMjBzbGlkZXxlbnwwfHx8fDE3NTg1OTQ1NTh8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "presentation slide"
     },
     {
@@ -75,7 +75,7 @@
     {
       "id": "globepulse",
       "description": "Screenshot of travel rankings",
-      "imageUrl": "https://images.unsplash.com/photo-1693721969759-ead32359777d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhdmVsJTIwd2Vic2l0ZXxlbnwwfHx8fDE3NTg2NDAzNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/globepulse-new.png",
       "imageHint": "travel website"
     },
     {
