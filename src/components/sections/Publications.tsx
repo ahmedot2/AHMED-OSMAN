@@ -64,8 +64,8 @@ const publications = [
     links: {
       apple: 'https://books.apple.com/us/book/the-subtle-art-of-giving-a-f-ck/id6740659959',
       google: 'https://play.google.com/store/books/details?id=AfM9EQAAQBAJ',
-      pdf: '/books/the-subtle-art.pdf',
-      epub: '/books/the-subtle-art.epub',
+      pdf: '/books/subtle-art.pdf',
+      epub: '/books/subtle-art.epub',
     },
   },
   {
@@ -78,8 +78,8 @@ const publications = [
     links: {
       apple: 'https://books.apple.com/us/book/the-favela-pact/id6741052868',
       google: 'https://play.google.com/store/books/details?id=nL06EQAAQBAJ',
-      pdf: '/books/the-favela-pact.pdf',
-      epub: '/books/the-favela-pact.epub',
+      pdf: '/books/favela-pact.pdf',
+      epub: '/books/favela-pact.epub',
     },
   },
   {
@@ -92,8 +92,8 @@ const publications = [
     links: {
       apple: 'https://books.apple.com/us/book/the-haunting-of-flight-201/id6741052982',
       google: 'https://play.google.com/store/books/details?id=8r06EQAAQBAJ',
-      pdf: '/books/the-haunting-of-flight-201.pdf',
-      epub: '/books/the-haunting-of-flight-201.epub',
+      pdf: '/books/haunting-flight-201.pdf',
+      epub: '/books/haunting-flight-201.epub',
     },
   },
   {
@@ -106,7 +106,7 @@ const publications = [
     links: {
       apple: '#',
       google: '#',
-      pdf: 'https://zmufmuyy.manus.space/?locale=en#',
+      pdf: '/books/un-strategic-perspectives.pdf',
       epub: '#',
     },
   },
@@ -264,5 +264,7 @@ export default function Publications() {
     </SectionWrapper>
   );
 }
+
+    
 
     
