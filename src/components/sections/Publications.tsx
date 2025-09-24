@@ -49,7 +49,7 @@ const publications = [
     image: PlaceHolderImages.find(img => img.id === 'prague-christmas-affair'),
     links: {
       apple: 'https://books.apple.com/us/book/prague-christmas-affair/id6741052664',
-      google: '#',
+      google: 'https://play.google.com/store/books/details?id=jr06EQAAQBAJ',
       pdf: '/books/prague-christmas-affair.pdf',
       epub: '/books/prague-christmas-affair.epub',
     },
