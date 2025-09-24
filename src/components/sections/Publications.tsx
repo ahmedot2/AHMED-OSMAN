@@ -190,7 +190,6 @@ export default function Publications() {
                   <div className="p-6 flex flex-col flex-grow bg-card/40">
                     <Badge variant="outline" className="self-start mb-3 border-primary/50 text-primary">{pub.genre}</Badge>
                     <h3 className="text-2xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
-                    <p className="text-white/60 mb-4 text-sm line-clamp-3">{pub.synopsis}</p>
                     <div className="flex items-center text-xs text-white/50 mt-auto">
                         <BookOpen className="w-4 h-4 mr-2"/>
                         <span>Click to see details & download options</span>
