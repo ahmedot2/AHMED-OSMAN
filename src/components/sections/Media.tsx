@@ -1,4 +1,3 @@
-
 'use client';
 import SectionWrapper from '../SectionWrapper';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
