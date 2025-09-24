@@ -36,7 +36,7 @@ export default function Media() {
     <SectionWrapper id="media" hasBackground>
       <div className="flex flex-col gap-8">
         <h2 className="font-display text-8xl md:text-[120px] font-black uppercase leading-none tracking-widest">
-            <span className="text-primary block">Media &</span><span className="text-white block md:inline">Appearances</span>
+            <span className="text-primary block">Media &</span><span className="text-white">Appearances</span>
         </h2>
         <Tabs defaultValue={channels[0].name} className="w-full">
           <TabsList className="grid w-full grid-cols-2 bg-white/5 border-border/20">
