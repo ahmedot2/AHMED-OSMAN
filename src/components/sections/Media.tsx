@@ -3,7 +3,7 @@ import SectionWrapper from '../SectionWrapper';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { CirclePlay } from 'lucide-react';
+import { CirclePlay, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const channels = [
@@ -66,7 +66,7 @@ export default function Media() {
                     viewport={{ once: true, amount: 0.2 }}
                     className="block"
                     >
-                    <Card className="bg-card/50 border-border/20 group overflow-hidden h-full flex flex-col">
+                    <Card className="bg-card/50 border-border/20 group overflow-hidden h-full flex flex-col rounded-lg">
                         <CardContent className="relative flex aspect-video items-center justify-center p-0">
                             {channel.image && (
                                 <Image
@@ -78,11 +78,17 @@ export default function Media() {
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                             )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <CirclePlay className="w-20 h-20 text-primary" />
                             </div>
-                             <h3 className="text-3xl font-headline text-white absolute bottom-4 left-6 z-10">{channel.name}</h3>
+                             <div className="absolute bottom-4 left-6 z-10">
+                                <h3 className="text-3xl font-headline text-white">{channel.name}</h3>
+                                <div className="flex items-center gap-2 mt-1">
+                                    <Youtube className="w-5 h-5 text-red-600"/>
+                                    <span className="text-sm font-medium text-white/80 animate-pulse-red">Visit channel</span>
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
                 </motion.a>
