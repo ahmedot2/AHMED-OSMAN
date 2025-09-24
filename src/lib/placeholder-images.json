@@ -45,19 +45,19 @@
     {
       "id": "ai-agency-agents",
       "description": "Screenshot of AI directory grid",
-      "imageUrl": "/ai-agency-agents-video-holder.png",
+      "imageUrl": "/ai-agency-agents-new.png",
       "imageHint": "ai directory"
     },
     {
       "id": "finhub",
       "description": "Screenshot of finance categories",
-      "imageUrl": "/finhub-video-holder.png",
+      "imageUrl": "/finhub-new.png",
       "imageHint": "finance dashboard"
     },
     {
       "id": "globepulse",
       "description": "Screenshot of travel rankings",
-      "imageUrl": "/globepulse-video-holder.png",
+      "imageUrl": "/globepulse-new.png",
       "imageHint": "travel website"
     },
     {
