@@ -107,6 +107,24 @@
       "description": "Cover for the UN Strategic Perspectives papers",
       "imageUrl": "/un-papers.png",
       "imageHint": "research paper"
+    },
+    {
+      "id": "media-finhub",
+      "description": "Video holder for FINHUB channel",
+      "imageUrl": "/media-finhub-channel.png",
+      "imageHint": "finance youtube"
+    },
+    {
+      "id": "media-globepulse",
+      "description": "Video holder for GlobePulse channel",
+      "imageUrl": "/media-globepulse-channel.png",
+      "imageHint": "travel youtube"
+    },
+    {
+      "id": "media-ai-agency",
+      "description": "Video holder for AI Agency Agent channel",
+      "imageUrl": "/media-ai-agency-channel.png",
+      "imageHint": "ai youtube"
     }
   ]
 }

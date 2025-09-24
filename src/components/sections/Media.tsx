@@ -11,17 +11,17 @@ const channels = [
   {
     name: 'FINHUB',
     url: 'https://youtube.com/@ahmedosmanfinhub?si=kV3WaCFUrakM5JmK',
-    image: PlaceHolderImages.find(img => img.id === 'finhub'),
+    image: PlaceHolderImages.find(img => img.id === 'media-finhub'),
   },
   {
     name: 'GlobePulse',
     url: 'https://youtube.com/@ahmedosmanglobepulse?si=iqa3QSXhqvunxe_e',
-    image: PlaceHolderImages.find(img => img.id === 'globepulse'),
+    image: PlaceHolderImages.find(img => img.id === 'media-globepulse'),
   },
   {
     name: 'AI Agency Agent',
     url: 'https://youtube.com/@ahmedosmanai?si=rRH76DgzvD0zGdjU',
-    image: PlaceHolderImages.find(img => img.id === 'ai-agency-agents'),
+    image: PlaceHolderImages.find(img => img.id === 'media-ai-agency'),
   },
 ];
 
