@@ -103,12 +103,16 @@ const publications = [
     pages: 0, // Not applicable
     synopsis: 'Curated strategic studies on global solutions: operational effectiveness, disaster resilience, child protection, and more.',
     image: PlaceHolderImages.find(img => img.id === 'un-papers'),
-    links: {
-      apple: '#',
-      google: '#',
-      pdf: '/books/un-strategic-perspectives.pdf',
-      epub: '#',
-    },
+    papers: [
+        { title: 'Operational Effectiveness', url: '/books/un/un-paper-1.pdf' },
+        { title: 'Public Information Operations', url: '/books/un/un-paper-2.pdf' },
+        { title: 'Protection of Civilians', url: '/books/un/un-paper-3.pdf' },
+        { title: 'Disaster Resilience', url: '/books/un/un-paper-4.pdf' },
+        { title: 'Security Sector Reform', url: '/books/un/un-paper-5.pdf' },
+        { title: 'Child Protection', url: '/books/un/un-paper-6.pdf' },
+        { title: 'Gender Mainstreaming', url: '/books/un/un-paper-7.pdf' },
+        { title: 'Humanitarian-Development-Peace Nexus', url: '/books/un/un-paper-8.pdf' },
+    ]
   },
 ];
 
@@ -207,55 +211,73 @@ export default function Publications() {
                     {pub.synopsis}
                   </DialogDescription>
                 </DialogHeader>
-                <div className="grid md:grid-cols-2 gap-8 py-4">
-                  <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-border/20">
-                     {pub.image && (
-                        <Image
-                            src={pub.image.imageUrl}
-                            alt={pub.title}
-                            fill
-                            data-ai-hint={pub.image.imageHint}
-                            className="object-cover w-full h-full"
-                        />
-                    )}
-                  </div>
-                  <div className="flex flex-col gap-4 justify-center">
-                    <h4 className="font-bold text-xl text-white">Purchase or Download</h4>
-                    <p className="text-sm text-white/60">
-                      Access this publication through your preferred platform or download a digital copy directly.
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {pub.links.apple !== '#' && (
-                        <Button asChild>
-                          <a href={pub.links.apple} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="mr-2 h-4 w-4" /> Apple Books
-                          </a>
-                        </Button>
+
+                {pub.type === 'Papers' && pub.papers ? (
+                   <div className="py-4">
+                     <h4 className="font-bold text-xl text-white mb-4">Download Individual Papers</h4>
+                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                       {pub.papers.map((paper, paperIndex) => (
+                         <Button key={paperIndex} variant="outline" asChild>
+                           <a href={paper.url} target="_blank" rel="noopener noreferrer" download>
+                             <Download className="mr-2 h-4 w-4" /> {paper.title}
+                           </a>
+                         </Button>
+                       ))}
+                     </div>
+                   </div>
+                ) : (
+                  <div className="grid md:grid-cols-2 gap-8 py-4">
+                    <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-border/20">
+                      {pub.image && (
+                          <Image
+                              src={pub.image.imageUrl}
+                              alt={pub.title}
+                              fill
+                              data-ai-hint={pub.image.imageHint}
+                              className="object-cover w-full h-full"
+                          />
                       )}
-                      {pub.links.google !== '#' && (
-                         <Button asChild>
-                          <a href={pub.links.google} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="mr-2 h-4 w-4" /> Google Books
-                          </a>
-                        </Button>
-                      )}
-                      {pub.links.pdf !== '#' && (
-                         <Button variant="outline" asChild>
-                          <a href={pub.links.pdf} target="_blank" rel="noopener noreferrer" download>
-                            <Download className="mr-2 h-4 w-4" /> Download PDF
-                          </a>
-                        </Button>
-                      )}
-                       {pub.links.epub !== '#' && (
-                         <Button variant="outline" asChild>
-                          <a href={pub.links.epub} target="_blank" rel="noopener noreferrer" download>
-                            <Download className="mr-2 h-4 w-4" /> Download EPUB
-                          </a>
-                        </Button>
+                    </div>
+                    <div className="flex flex-col gap-4 justify-center">
+                      <h4 className="font-bold text-xl text-white">Purchase or Download</h4>
+                      <p className="text-sm text-white/60">
+                        Access this publication through your preferred platform or download a digital copy directly.
+                      </p>
+                      {pub.links && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {pub.links.apple && pub.links.apple !== '#' && (
+                            <Button asChild>
+                              <a href={pub.links.apple} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-2 h-4 w-4" /> Apple Books
+                              </a>
+                            </Button>
+                          )}
+                          {pub.links.google && pub.links.google !== '#' && (
+                            <Button asChild>
+                              <a href={pub.links.google} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-2 h-4 w-4" /> Google Books
+                              </a>
+                            </Button>
+                          )}
+                          {pub.links.pdf && pub.links.pdf !== '#' && (
+                            <Button variant="outline" asChild>
+                              <a href={pub.links.pdf} target="_blank" rel="noopener noreferrer" download>
+                                <Download className="mr-2 h-4 w-4" /> Download PDF
+                              </a>
+                            </Button>
+                          )}
+                          {pub.links.epub && pub.links.epub !== '#' && (
+                            <Button variant="outline" asChild>
+                              <a href={pub.links.epub} target="_blank" rel="noopener noreferrer" download>
+                                <Download className="mr-2 h-4 w-4" /> Download EPUB
+                              </a>
+                            </Button>
+                          )}
+                        </div>
                       )}
                     </div>
                   </div>
-                </div>
+                )}
               </DialogContent>
             </Dialog>
           ))}
@@ -264,7 +286,3 @@ export default function Publications() {
     </SectionWrapper>
   );
 }
-
-    
-
-    
