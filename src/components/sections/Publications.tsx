@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { ExternalLink, Download, BookOpen } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import StarBorder from '../StarBorder';
 
 const publications = [
   {
@@ -167,33 +168,42 @@ export default function Publications() {
             <Dialog key={index}>
               <DialogTrigger asChild>
                 <motion.div
-                  className="bg-transparent border border-border/10 rounded-lg overflow-hidden flex flex-col group cursor-pointer"
                   custom={index}
                   variants={cardVariants}
                   initial="initial"
                   whileInView="animate"
                   whileHover="hover"
                   viewport={{ once: true, amount: 0.2 }}
+                  className="h-full"
                 >
-                  <div className="relative overflow-hidden aspect-[3/4]">
-                    {pub.image && (
-                      <Image
-                        src={pub.image.imageUrl}
-                        alt={pub.title}
-                        fill
-                        data-ai-hint={pub.image.imageHint}
-                        className="object-cover w-full h-full transition-all duration-500 group-hover:scale-105"
-                      />
-                    )}
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow bg-black/70">
-                    <Badge variant="outline" className="self-start mb-3 border-primary/50 text-primary">{pub.genre}</Badge>
-                    <h3 className="text-2xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
-                    <div className="flex items-center text-xs text-primary/80 mt-auto animate-pulse">
-                        <BookOpen className="w-4 h-4 mr-2 text-primary"/>
-                        <span>Click to see details & download options</span>
+                  <StarBorder
+                    as="div"
+                    color="hsl(var(--primary))"
+                    speed="4s"
+                    className="h-full"
+                  >
+                    <div className="flex flex-col group cursor-pointer h-full">
+                      <div className="relative overflow-hidden aspect-[3/4]">
+                        {pub.image && (
+                          <Image
+                            src={pub.image.imageUrl}
+                            alt={pub.title}
+                            fill
+                            data-ai-hint={pub.image.imageHint}
+                            className="object-cover w-full h-full transition-all duration-500 group-hover:scale-105"
+                          />
+                        )}
+                      </div>
+                      <div className="p-6 flex flex-col flex-grow">
+                        <Badge variant="outline" className="self-start mb-3 border-primary/50 text-primary">{pub.genre}</Badge>
+                        <h3 className="text-2xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
+                        <div className="flex items-center text-xs text-primary/80 mt-auto animate-pulse">
+                            <BookOpen className="w-4 h-4 mr-2 text-primary"/>
+                            <span>Click to see details & download options</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </StarBorder>
                 </motion.div>
               </DialogTrigger>
 

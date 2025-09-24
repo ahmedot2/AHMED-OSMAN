@@ -1,0 +1,57 @@
+.star-border-container {
+  position: relative;
+  background-color: transparent;
+  padding: 1px;
+  border-radius: 0.5rem; /* Matches card's rounded-lg */
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.star-border-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0%,
+    transparent 75%,
+    var(--border-color) 95%,
+    transparent 100%
+  );
+  animation: spin-border var(--animation-speed) linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.star-border-container:hover::before {
+  opacity: 1;
+}
+
+.inner-content {
+  background-color: hsl(var(--card)); /* Match your card background */
+  border-radius: calc(0.5rem - 1px); /* Adjust for border thickness */
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-border {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
