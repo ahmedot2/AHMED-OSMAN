@@ -1,111 +1,101 @@
-
+'use client';
 import SectionWrapper from '../SectionWrapper';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
-import { Eye, Users, PlayCircle } from 'lucide-react';
+import { PlayCircle } from 'lucide-react';
 import { Button } from '../ui/button';
+import { motion } from 'framer-motion';
 
 const channels = [
   {
-    name: "Tech Talks",
-    subscribers: "1.2M",
-    views: "150M",
-    videos: [
-      { title: "AI in 2024", duration: "12:34", image: PlaceHolderImages.find(img => img.id === 'youtube-1') },
-      { title: "The Future of Web Dev", duration: "22:01", image: PlaceHolderImages.find(img => img.id === 'youtube-2') },
-      { title: "Quantum Computing Explained", duration: "18:56", image: PlaceHolderImages.find(img => img.id === 'youtube-1') },
-    ]
+    name: "FINHUB",
+    href: "https://youtube.com/@ahmedosmanfinhub?si=kV3WaCFUrakM5JmK",
+    image: PlaceHolderImages.find(img => img.id === 'finhub'),
   },
   {
-    name: "Code Streams",
-    subscribers: "750K",
-    views: "80M",
-     videos: [
-      { title: "Building a Next.js App", duration: "2:10:45", image: PlaceHolderImages.find(img => img.id === 'youtube-2') },
-      { title: "Live Debugging a Go API", duration: "1:45:10", image: PlaceHolderImages.find(img => img.id === 'youtube-1') },
-      { title: "Rust for Beginners", duration: "3:05:00", image: PlaceHolderImages.find(img => img.id === 'youtube-2') },
-    ]
+    name: "GlobePulse",
+    href: "https://youtube.com/@ahmedosmanglobepulse?si=iqa3QSXhqvunxe_e",
+    image: PlaceHolderImages.find(img => img.id === 'globepulse'),
+  },
+  {
+    name: "AI Agency Agent",
+    href: "https://youtube.com/@ahmedosmanai?si=rRH76DgzvD0zGdjU",
+    image: PlaceHolderImages.find(img => img.id === 'ai-agency-agents'),
   },
 ];
 
 export default function Media() {
+
+  const cardVariants = {
+    initial: { y: 30, opacity: 0 },
+    animate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    }),
+    hover: {
+      y: -8,
+      boxShadow: '0 20px 25px -5px hsl(var(--primary) / 0.2), 0 8px 10px -6px hsl(var(--primary) / 0.2)',
+      transition: { duration: 0.3 },
+    }
+  };
+
   return (
     <SectionWrapper id="media" hasBackground>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-12">
         <h2 className="font-display text-8xl md:text-[120px] font-black uppercase leading-none tracking-widest">
             <span className="text-primary block">Media &</span><span className="text-white">Appear&shy;ances</span>
         </h2>
-        <Tabs defaultValue={channels[0].name} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 bg-white/5 border-border/20">
-            {channels.map(channel => (
-              <TabsTrigger key={channel.name} value={channel.name} className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                {channel.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {channels.map(channel => (
-            <TabsContent key={channel.name} value={channel.name}>
-              <Card className="bg-transparent border-none">
-                <CardContent className="p-0 pt-6">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                    <div className="flex items-center gap-6">
-                      <div className="flex items-center gap-2 text-white/70">
-                        <Users className="w-5 h-5 text-primary" />
-                        <span className="font-bold text-white">{channel.subscribers}</span> Subscribers
-                      </div>
-                      <div className="flex items-center gap-2 text-white/70">
-                        <Eye className="w-5 h-5 text-primary" />
-                        <span className="font-bold text-white">{channel.views}</span> Total Views
-                      </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {channels.map((channel, index) => (
+             <motion.a 
+                key={channel.name} 
+                href={channel.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                custom={index}
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
+                viewport={{ once: true, amount: 0.2 }}
+                className="block"
+            >
+                <Card className="bg-card/50 border-border/20 group overflow-hidden h-full flex flex-col">
+                    <CardContent className="relative flex aspect-video items-center justify-center p-0">
+                    {channel.image && (
+                        <Image 
+                        src={channel.image.imageUrl} 
+                        alt={channel.name} 
+                        width={1280} 
+                        height={720} 
+                        data-ai-hint={channel.image.imageHint}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <PlayCircle className="w-20 h-20 text-primary" />
                     </div>
-                     <Button asChild>
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        Visit Channel <PlayCircle className="ml-2" />
-                      </a>
-                    </Button>
-                  </div>
-                  
-                  <Carousel opts={{ align: "start", loop: true }} className="w-full">
-                    <CarouselContent>
-                      {channel.videos.map((video, index) => (
-                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                          <div className="p-1">
-                            <Card className="bg-card/50 border-border/20 group overflow-hidden">
-                              <CardContent className="relative flex aspect-video items-center justify-center p-0">
-                                {video.image && (
-                                  <Image 
-                                    src={video.image.imageUrl} 
-                                    alt={video.title} 
-                                    width={1280} 
-                                    height={720} 
-                                    data-ai-hint={video.image.imageHint}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                  />
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
-                                  <h4 className="text-xl font-bold text-white">{video.title}</h4>
-                                  <p className="text-sm text-white/70">{video.duration}</p>
-                                </div>
-                                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                  <PlayCircle className="w-16 h-16 text-primary" />
-                                </div>
-                              </CardContent>
-                            </Card>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="text-white -left-4" />
-                    <CarouselNext className="text-white -right-4" />
-                  </Carousel>
-                </CardContent>
-              </Card>
-            </TabsContent>
+                    </CardContent>
+                    <div className="p-6 bg-card/30 flex-grow flex flex-col justify-between">
+                        <h3 className="text-3xl font-headline text-white mb-4">{channel.name}</h3>
+                        <Button asChild className='mt-auto w-full'>
+                            <span className="flex items-center justify-center">
+                                Visit Channel <PlayCircle className="ml-2 h-5 w-5" />
+                            </span>
+                        </Button>
+                    </div>
+                </Card>
+            </motion.a>
           ))}
-        </Tabs>
+        </div>
       </div>
     </SectionWrapper>
   );
