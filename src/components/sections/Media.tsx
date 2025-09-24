@@ -141,7 +141,8 @@ export default function Media() {
                                     <div className="flex items-center gap-2 mt-1">
                                         <Icon className={cn("w-5 h-5", 
                                             channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white",
-                                            channel.icon === Linkedin && "text-[#0077B5]"
+                                            channel.icon === Linkedin && "text-[#0077B5]",
+                                            channel.icon === PinterestIcon && "text-[#E60023]"
                                         )} />
                                         <span className="text-sm font-medium text-white/80">
                                             {channel.icon === Youtube ? 'Visit channel' : 'Visit profile'}
