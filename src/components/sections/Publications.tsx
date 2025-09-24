@@ -167,7 +167,7 @@ export default function Publications() {
             <Dialog key={index}>
               <DialogTrigger asChild>
                 <motion.div
-                  className="bg-card/30 border border-border/10 rounded-lg overflow-hidden flex flex-col group cursor-pointer"
+                  className="bg-transparent border border-border/10 rounded-lg overflow-hidden flex flex-col group cursor-pointer"
                   custom={index}
                   variants={cardVariants}
                   initial="initial"
@@ -182,11 +182,11 @@ export default function Publications() {
                         alt={pub.title}
                         fill
                         data-ai-hint={pub.image.imageHint}
-                        className="object-cover w-full h-full grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                        className="object-cover w-full h-full transition-all duration-500 group-hover:scale-105"
                       />
                     )}
                   </div>
-                  <div className="p-6 flex flex-col flex-grow bg-card/40">
+                  <div className="p-6 flex flex-col flex-grow bg-black/70">
                     <Badge variant="outline" className="self-start mb-3 border-primary/50 text-primary">{pub.genre}</Badge>
                     <h3 className="text-2xl font-headline text-white mb-2 flex-grow">{pub.title}</h3>
                     <div className="flex items-center text-xs text-primary/80 mt-auto animate-pulse">
@@ -283,4 +283,3 @@ export default function Publications() {
     </SectionWrapper>
   );
 }
-
