@@ -142,7 +142,9 @@ export default function Media() {
                                             channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white",
                                             channel.icon === Linkedin && "text-[#0077B5]"
                                         )} />
-                                        <span className="text-sm font-medium text-white/80">Visit profile</span>
+                                        <span className="text-sm font-medium text-white/80">
+                                            {channel.icon === Youtube ? 'Visit channel' : 'Visit profile'}
+                                        </span>
                                     </div>
                                 </div>
                             </CardContent>
