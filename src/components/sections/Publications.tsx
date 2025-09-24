@@ -145,7 +145,7 @@ export default function Publications() {
       <div className="flex flex-col gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
-            Publi<span className="text-white">cations</span>
+            Publi<span className="text-white md:inline">cations</span>
           </h2>
           <Tabs defaultValue={activeFilter} onValueChange={setActiveFilter} className="w-full md:w-auto">
             <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full md:w-auto bg-white/5 border-border/20">
