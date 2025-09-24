@@ -50,6 +50,7 @@ const filters = ['Directories', 'GitHub'];
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Directories');
+  const isMobile = useIsMobile();
 
   const filteredProjects = projects.filter(p => {
     if (activeFilter === 'All') return true;
@@ -90,6 +91,7 @@ export default function Projects() {
                 key={filter}
                 variant={activeFilter === filter ? 'default' : 'outline'}
                 onClick={() => setActiveFilter(filter)}
+                size="lg"
                 className="rounded-full border-primary/50 text-white hover:text-primary hover:bg-primary/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 {filter}
