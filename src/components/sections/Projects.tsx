@@ -111,15 +111,14 @@ export default function Projects() {
               whileHover="hover"
               viewport={{ once: true, amount: 0.1 }}
             >
-              <div className="overflow-hidden">
+              <div className="relative h-60 w-full overflow-hidden">
                 {project.image && (
                   <Image
                     src={project.image.imageUrl}
                     alt={project.title}
-                    width={800}
-                    height={600}
+                    fill
                     data-ai-hint={project.image.imageHint}
-                    className="w-full h-auto object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className="object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
                 )}
               </div>
@@ -148,14 +147,13 @@ export default function Projects() {
                 whileHover="hover"
                 viewport={{ once: true, amount: 0.3 }}
             >
-                <div className="overflow-hidden">
+                <div className="relative h-60 w-full overflow-hidden">
                     <Image
                         src="/github-cta.png"
                         alt="Explore more on GitHub"
-                        width={800}
-                        height={600}
+                        fill
                         data-ai-hint="code technology"
-                        className="w-full h-auto object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                        className="object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                     />
                 </div>
                 <div className="p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col gap-3 flex-grow">
