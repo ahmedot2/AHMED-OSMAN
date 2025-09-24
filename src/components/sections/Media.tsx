@@ -1,3 +1,4 @@
+
 import SectionWrapper from '../SectionWrapper';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -34,7 +35,9 @@ export default function Media() {
   return (
     <SectionWrapper id="media" hasBackground>
       <div className="flex flex-col gap-8">
-        <h2 className="font-headline text-6xl md:text-7xl text-white">Media & Appearances</h2>
+        <h2 className="font-display text-8xl md:text-[120px] font-black uppercase leading-none tracking-widest">
+            <span className="text-primary block">Media &</span><span className="text-white block md:inline">Appearances</span>
+        </h2>
         <Tabs defaultValue={channels[0].name} className="w-full">
           <TabsList className="grid w-full grid-cols-2 bg-white/5 border-border/20">
             {channels.map(channel => (
