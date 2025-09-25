@@ -57,7 +57,7 @@ const milestones = [
         icon: BookOpen,
         metric: 'Books & Papers Penned',
         title: 'Global Wisdom',
-        copy: 'Resilience strategies from aviation’s lessons to humanitarian shadows.',
+        copy: 'From shadowed skies in thrillers to resilient strategies in global papers—crafting wisdom that turns turbulence into triumph.',
         className: 'md:col-span-3',
     },
     {
