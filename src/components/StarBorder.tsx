@@ -1,5 +1,6 @@
 'use client';
 import './StarBorder.css';
+import React from 'react';
 
 const StarBorder = ({
   as: Component = 'div',
@@ -9,16 +10,26 @@ const StarBorder = ({
   thickness = 1,
   children,
   ...rest
+}: {
+  as?: React.ElementType;
+  className?: string;
+  color?: string;
+  speed?: string;
+  thickness?: number;
+  children: React.ReactNode;
+  [key: string]: any;
 }) => {
+  const style = {
+    padding: `${thickness}px`,
+    '--border-color': color,
+    '--animation-speed': speed,
+    ...rest.style,
+  } as React.CSSProperties;
+
   return (
     <Component
       className={`star-border-container ${className}`}
-      style={{
-        padding: `${thickness}px`,
-        '--border-color': color,
-        '--animation-speed': speed,
-        ...rest.style,
-      }}
+      style={style}
       {...rest}
     >
       <div className="inner-content">{children}</div>
