@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
         <div className="w-full max-w-sm mx-auto">
           <InteractiveImage
-            src="https://picsum.photos/seed/footer/600/400"
+            src="/footer-image.png"
             alt="Abstract representation of chaos and ascent"
             width={600}
             height={400}
