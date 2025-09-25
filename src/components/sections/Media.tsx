@@ -3,7 +3,7 @@
 import SectionWrapper from '../SectionWrapper';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
-import { CirclePlay, Youtube, Linkedin } from 'lucide-react';
+import { Youtube, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import BlurText from '../BlurText';
@@ -142,7 +142,6 @@ export default function Media() {
                               className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                               />
                           )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                           
                       </div>
                     </StarBorder>
@@ -154,5 +153,3 @@ export default function Media() {
     </SectionWrapper>
   );
 }
-
-    
