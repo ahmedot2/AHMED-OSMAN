@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
 import BlurText from '../BlurText';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Contact() {
   const { toast } = useToast();
@@ -15,6 +16,8 @@ export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
+
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -48,8 +51,8 @@ export default function Contact() {
     <SectionWrapper id="contact" hasBackground>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div className="flex flex-col gap-6">
-          <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
-            <BlurText text="CON" animateBy="chars" />
+          <h2 ref={titleRef} className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
+            {isTitleVisible ? <BlurText text="CON" animateBy="chars" key={titleKey} /> : 'CON'}
             <span className="text-white">TACT</span>
           </h2>
           <p className="text-white/70 text-lg">
