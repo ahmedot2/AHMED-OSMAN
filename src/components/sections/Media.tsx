@@ -132,7 +132,7 @@ export default function Media() {
                       speed="4s"
                       className="h-full"
                     >
-                      <div className="relative flex aspect-video items-center justify-center p-0 h-full">
+                      <div className="relative aspect-video w-full h-full">
                           {channel.image && (
                               <Image
                               src={channel.image.imageUrl}
