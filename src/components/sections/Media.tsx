@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import StarBorder from '../StarBorder';
 
 const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -114,49 +115,55 @@ export default function Media() {
             {channels.map((channel, index) => {
                 const Icon = channel.icon;
                 return (
-                    <motion.a 
-                        key={channel.name} 
-                        href={channel.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        custom={index}
-                        variants={cardVariants}
-                        initial="initial"
-                        whileInView="animate"
-                        whileHover="hover"
-                        viewport={{ once: true, amount: 0.2 }}
-                        className="block"
-                        >
-                        <Card className="bg-card/50 group overflow-hidden rounded-lg">
-                            <CardContent className="relative flex aspect-video items-center justify-center p-0">
-                                {channel.image && (
-                                    <Image
-                                    src={channel.image.imageUrl}
-                                    alt={channel.name}
-                                    fill
-                                    data-ai-hint={channel.image.imageHint}
-                                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <CirclePlay className="w-20 h-20 text-primary" />
-                                </div>
-                                <div className="absolute bottom-4 left-6 z-10">
-                                    <div className="flex items-center gap-2 mt-1">
-                                        <Icon className={cn("w-5 h-5", 
-                                            channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white",
-                                            channel.icon === Linkedin && "text-[#0077B5]",
-                                            channel.icon === PinterestIcon && "text-[#E60023]"
-                                        )} />
-                                        <span className="text-sm font-medium text-white/80">
-                                            {channel.icon === Youtube ? 'Visit channel' : 'Visit profile'}
-                                        </span>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </motion.a>
+                  <motion.div
+                    key={channel.name}
+                    custom={index}
+                    variants={cardVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    whileHover="hover"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="block"
+                  >
+                    <StarBorder
+                      as="a"
+                      href={channel.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      color="hsl(var(--primary))"
+                      speed="4s"
+                    >
+                      <Card className="bg-card/50 group overflow-hidden rounded-lg border-0">
+                          <CardContent className="relative flex aspect-video items-center justify-center p-0">
+                              {channel.image && (
+                                  <Image
+                                  src={channel.image.imageUrl}
+                                  alt={channel.name}
+                                  fill
+                                  data-ai-hint={channel.image.imageHint}
+                                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                                  />
+                              )}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <CirclePlay className="w-20 h-20 text-primary" />
+                              </div>
+                              <div className="absolute bottom-4 left-6 z-10">
+                                  <div className="flex items-center gap-2 mt-1">
+                                      <Icon className={cn("w-5 h-5", 
+                                          channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white",
+                                          channel.icon === Linkedin && "text-[#0077B5]",
+                                          channel.icon === PinterestIcon && "text-[#E60023]"
+                                      )} />
+                                      <span className="text-sm font-medium text-white/80">
+                                          {channel.icon === Youtube ? 'Visit channel' : 'Visit profile'}
+                                      </span>
+                                  </div>
+                              </div>
+                          </CardContent>
+                      </Card>
+                    </StarBorder>
+                  </motion.div>
                 )
             })}
         </div>
@@ -164,3 +171,5 @@ export default function Media() {
     </SectionWrapper>
   );
 }
+
+    
