@@ -2,16 +2,22 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-export const useScrollAnimation = (options?: IntersectionObserverInit): [React.RefObject<HTMLDivElement>, boolean] => {
+export const useScrollAnimation = (
+  options?: IntersectionObserverInit,
+  triggerOnce = true
+): [React.RefObject<HTMLDivElement>, boolean] => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        // We can unobserve after it has become visible if we don't want the animation to re-trigger
-        observer.unobserve(entry.target);
+      if (triggerOnce) {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      } else {
+        setIsVisible(entry.isIntersecting);
       }
     }, options);
 
@@ -25,7 +31,7 @@ export const useScrollAnimation = (options?: IntersectionObserverInit): [React.R
         observer.unobserve(currentRef);
       }
     };
-  }, [options]);
+  }, [options, triggerOnce]);
 
   return [containerRef, isVisible];
 };
