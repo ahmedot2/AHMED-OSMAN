@@ -8,8 +8,6 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
 import BlurText from '../BlurText';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { motion } from 'framer-motion';
 
 export default function Contact() {
   const { toast } = useToast();
@@ -17,9 +15,6 @@ export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
-  const [textRef, isTextVisible] = useScrollAnimation({ threshold: 0.5 });
-
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -53,23 +48,17 @@ export default function Contact() {
     <SectionWrapper id="contact" hasBackground>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div className="flex flex-col gap-6">
-          <h2 ref={titleRef} className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
-            <BlurText text="CON" animateBy="chars" key={titleKey} />
+          <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
+            <BlurText text="CON" animateBy="chars" />
             <span className="text-white">TACT</span>
           </h2>
-          <motion.p
-            ref={textRef}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: isTextVisible ? 1 : 0, x: isTextVisible ? 0 : -20 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="text-white/70 text-lg"
-          >
+          <p className="text-white/70 text-lg">
             Have a project in mind, a question, or just want to connect? Drop me a line using the form, or email me directly at{' '}
             <a href="mailto:theagencyagents@gmail.com" className="text-primary hover:underline">
               theagencyagents@gmail.com
             </a>
             . I&apos;m always open to discussing new ideas and opportunities.
-          </motion.p>
+          </p>
         </div>
         <div>
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
