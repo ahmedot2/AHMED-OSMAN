@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
-import { CirclePlay, Tv } from 'lucide-react';
+import { Tv } from 'lucide-react';
 
 const channels = [
   {
@@ -62,14 +62,15 @@ const channels = [
 
 export default function Media() {
   const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
+
   const cardVariants = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
       y: 0,
       opacity: 1,
       transition: {
-        delay: i * 0.15,
-        duration: 0.6,
+        delay: i * 0.1,
+        duration: 0.5,
         ease: 'easeOut',
       },
     }),
@@ -79,6 +80,7 @@ export default function Media() {
       transition: { duration: 0.3 },
     }
   };
+
 
   return (
     <SectionWrapper id="media" hasBackground>
@@ -91,49 +93,44 @@ export default function Media() {
           </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {channels.map((channel, index) => {
-               const Icon = channel.icon;
-               return (
-                <motion.div
-                  key={channel.name}
-                  custom={index}
-                  variants={cardVariants}
-                  initial="initial"
-                  whileInView="animate"
-                  whileHover="hover"
-                  viewport={{ once: true, amount: 0.2 }}
-                  className="h-full"
+            {channels.map((channel, index) => (
+                <a
+                key={channel.name}
+                href={channel.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-full block group"
                 >
-                    <a
-                    href={channel.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-full block group"
+                <StarBorder
+                    as="div"
+                    color="hsl(var(--primary))"
+                    speed="4s"
+                    className="h-full"
+                >
+                    <motion.div
+                    custom={index}
+                    variants={cardVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    whileHover="hover"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="relative aspect-video w-full h-full flex flex-col"
                     >
-                    <StarBorder
-                        as="div"
-                        color="hsl(var(--primary))"
-                        speed="4s"
-                        className="h-full"
-                    >
-                        <div className="relative aspect-video w-full h-full flex flex-col">
-                            <div className="relative w-full aspect-video flex-shrink-0">
-                                {channel.image && (
-                                    <Image
-                                    src={channel.image.imageUrl}
-                                    alt={channel.name}
-                                    fill
-                                    data-ai-hint={channel.image.imageHint}
-                                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                )}
-                            </div>
+                        <div className="relative w-full aspect-video flex-shrink-0">
+                            {channel.image && (
+                                <Image
+                                src={channel.image.imageUrl}
+                                alt={channel.name}
+                                fill
+                                data-ai-hint={channel.image.imageHint}
+                                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                                />
+                            )}
                         </div>
-                    </StarBorder>
-                    </a>
-                </motion.div>
-                )
-            })}
+                    </motion.div>
+                </StarBorder>
+                </a>
+            ))}
         </div>
       </div>
     </SectionWrapper>
