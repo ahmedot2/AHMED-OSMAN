@@ -155,7 +155,7 @@ export default function Publications() {
                 <BlurText text="Publi" animateBy="chars" />
             </span>
             <span className="text-white block md:inline">
-                <BlurText text="cations" animateBy="chars" delay={0.3} />
+                cations
             </span>
           </h2>
           <Tabs defaultValue={activeFilter} onValueChange={setActiveFilter} className="w-full md:w-auto">
