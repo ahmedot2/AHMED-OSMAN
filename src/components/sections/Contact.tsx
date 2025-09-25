@@ -65,18 +65,6 @@ export default function Contact() {
           <p className="text-white/70 text-lg">
             Have a project in mind, a question, or just want to connect? Drop me a line. I'm always open to discussing new ideas and opportunities.
           </p>
-          <div className="mt-4">
-            <h3 className="font-headline text-3xl text-white mb-4">Or, have a chat.</h3>
-            <div className="flex gap-4">
-              {socialLinks.map(link => (
-                <Button key={link.name} variant="outline" size="icon" asChild>
-                  <Link href={link.href} target="_blank" aria-label={link.name}>
-                    <link.icon className="h-5 w-5" />
-                  </Link>
-                </Button>
-              ))}
-            </div>
-          </div>
         </div>
         <div>
           {state.success ? (
