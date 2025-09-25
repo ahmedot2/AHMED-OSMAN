@@ -3,18 +3,6 @@ import { useRef, useState, useEffect } from 'react';
 import Matter from 'matter-js';
 import './FallingText.css';
 
-type FallingTextProps = {
-  className?: string;
-  text?: string;
-  highlightWords?: string[];
-  highlightClass?: string;
-  trigger?: 'auto' | 'scroll' | 'click' | 'hover';
-  backgroundColor?: string;
-  wireframes?: boolean;
-  gravity?: number;
-  mouseConstraintStiffness?: number;
-};
-
 const FallingText = ({
   className = '',
   text = '',
@@ -23,16 +11,32 @@ const FallingText = ({
   trigger = 'auto',
   backgroundColor = 'transparent',
   wireframes = false,
-gravity = 1,
+  gravity = 1,
   mouseConstraintStiffness = 0.2,
-}: FallingTextProps) => {
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLDivElement>(null);
-  const [effectStarted, setEffectStarted] = useState(trigger === 'auto');
+  const canvasContainerRef = useRef<HTMLDivElement>(null);
+
+  const [effectStarted, setEffectStarted] = useState(false);
 
   useEffect(() => {
-    if (trigger === 'auto') return;
+    if (!textRef.current) return;
+    const words = text.split(' ');
+    const newHTML = words
+      .map(word => {
+        const isHighlighted = highlightWords.some(hw => word.toLowerCase().includes(hw.toLowerCase()));
+        return `<span class="word ${isHighlighted ? highlightClass : ''}">${word}</span>`;
+      })
+      .join(' ');
+    textRef.current.innerHTML = newHTML;
+  }, [text, highlightWords, highlightClass]);
+
+  useEffect(() => {
+    if (trigger === 'auto') {
+      setEffectStarted(true);
+      return;
+    }
     if (trigger === 'scroll' && containerRef.current) {
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -49,73 +53,69 @@ gravity = 1,
   }, [trigger]);
 
   useEffect(() => {
-    if (!effectStarted || !containerRef.current || !textRef.current || !canvasRef.current) return;
+    if (!effectStarted || !containerRef.current || !textRef.current || !canvasContainerRef.current) return;
 
-    // Hide original text
-    textRef.current.style.opacity = '0';
-    
-    const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint, Composite } = Matter;
+    const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } = Matter;
 
     const containerRect = containerRef.current.getBoundingClientRect();
     const width = containerRect.width;
     const height = containerRect.height;
-    
+
     if (width <= 0 || height <= 0) {
-        return;
+      return;
     }
 
     const engine = Engine.create();
     engine.world.gravity.y = gravity;
 
     const render = Render.create({
-      element: canvasRef.current,
+      element: canvasContainerRef.current,
       engine,
       options: {
         width,
         height,
         background: backgroundColor,
-        wireframes,
-      },
+        wireframes
+      }
     });
 
     const boundaryOptions = {
       isStatic: true,
-      render: { fillStyle: 'transparent', strokeStyle: 'transparent' },
+      render: { fillStyle: 'transparent' }
     };
+    const floor = Bodies.rectangle(width / 2, height + 25, width, 50, boundaryOptions);
+    const leftWall = Bodies.rectangle(-25, height / 2, 50, height, boundaryOptions);
+    const rightWall = Bodies.rectangle(width + 25, height / 2, 50, height, boundaryOptions);
+    const ceiling = Bodies.rectangle(width / 2, -25, width, 50, boundaryOptions);
 
-    const wallThickness = 50;
-    const floor = Bodies.rectangle(width / 2, height + wallThickness / 2, width, wallThickness, boundaryOptions);
-    const leftWall = Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, height, boundaryOptions);
-    const rightWall = Bodies.rectangle(width + wallThickness / 2, height / 2, wallThickness, height, boundaryOptions);
-    const ceiling = Bodies.rectangle(width / 2, -wallThickness / 2, width, wallThickness, boundaryOptions);
+    textRef.current.style.visibility = 'hidden';
 
-    const originalSpans = textRef.current.querySelectorAll('.word');
-    const wordBodies: { elem: HTMLSpanElement; body: Matter.Body }[] = [];
-
-    originalSpans.forEach(span => {
+    const wordSpans = textRef.current.querySelectorAll('.word');
+    
+    // Create new spans inside the canvas container to actually render and move
+    const movingWordElements = Array.from(wordSpans).map(span => {
       const elem = span as HTMLElement;
-      const rect = elem.getBoundingClientRect();
-      
-      if (rect.width === 0 || rect.height === 0) return;
-      
-      const newElem = document.createElement('span');
-      newElem.textContent = elem.textContent;
-      newElem.className = `${elem.className} ${className}`; // Apply all classes
-      newElem.style.position = 'absolute';
-      newElem.style.left = '-9999px'; // Position off-screen initially
-      canvasRef.current!.appendChild(newElem);
-      
-      const x = rect.left - containerRect.left + rect.width / 2;
-      const y = rect.top - containerRect.top + rect.height / 2;
-      
-      const body = Bodies.rectangle(x, y, rect.width, rect.height, {
-        restitution: 0.6,
-        friction: 0.1,
-        frictionAir: 0.01,
-        density: 0.001,
-      });
+      const movingElem = document.createElement('span');
+      movingElem.textContent = elem.textContent;
+      movingElem.className = `${elem.className} ${className}`; // Apply all classes
+      movingElem.style.position = 'absolute';
+      movingElem.style.whiteSpace = 'nowrap';
+      canvasContainerRef.current!.appendChild(movingElem);
+      return movingElem;
+    });
 
-      wordBodies.push({ elem: newElem, body });
+    const wordBodies = Array.from(wordSpans).map((elem, i) => {
+        const rect = elem.getBoundingClientRect();
+        const x = rect.left - containerRect.left + rect.width / 2;
+        const y = rect.top - containerRect.top + rect.height / 2;
+        const body = Bodies.rectangle(x, y, rect.width, rect.height, {
+            restitution: 0.8,
+            frictionAir: 0.01,
+            friction: 0.2
+        });
+        Matter.Body.setVelocity(body, { x: (Math.random() - 0.5) * 5, y: 0 });
+        Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.05);
+        return { elem: movingWordElements[i], body };
     });
 
     const mouse = Mouse.create(render.canvas);
@@ -123,13 +123,12 @@ gravity = 1,
       mouse,
       constraint: {
         stiffness: mouseConstraintStiffness,
-        render: { visible: false },
-      },
+        render: { visible: false }
+      }
     });
-
-    World.add(engine.world, [floor, leftWall, rightWall, ceiling, ...wordBodies.map(wb => wb.body)]);
-    Composite.add(engine.world, mouseConstraint);
     render.mouse = mouse;
+
+    World.add(engine.world, [floor, leftWall, rightWall, ceiling, mouseConstraint, ...wordBodies.map(wb => wb.body)]);
 
     const runner = Runner.create();
     Runner.run(runner, engine);
@@ -151,33 +150,21 @@ gravity = 1,
       cancelAnimationFrame(animationFrame);
       Render.stop(render);
       Runner.stop(runner);
-      if (render.canvas && canvasRef.current) {
-         if(canvasRef.current.contains(render.canvas)) {
-            canvasRef.current.removeChild(render.canvas);
-         }
+      if (render.canvas && canvasContainerRef.current?.contains(render.canvas)) {
+        canvasContainerRef.current.removeChild(render.canvas);
       }
       World.clear(engine.world, false);
       Engine.clear(engine);
-      if(canvasRef.current) {
-        while (canvasRef.current.firstChild) {
-            canvasRef.current.removeChild(canvasRef.current.firstChild);
+      if(canvasContainerRef.current) {
+        while (canvasContainerRef.current.firstChild) {
+            canvasContainerRef.current.removeChild(canvasContainerRef.current.firstChild);
         }
       }
+      if(textRef.current) {
+        textRef.current.style.visibility = 'visible';
+      }
     };
-  }, [effectStarted, gravity, wireframes, backgroundColor, mouseConstraintStiffness, text, highlightWords, highlightClass, className]);
-
-  useEffect(() => {
-    if (!textRef.current) return;
-    const words = text.split(/(\s+)/).filter(w => w.trim().length > 0); // Split by space but keep it for layout
-    const newHTML = words
-      .map(word => {
-        const isHighlighted = highlightWords.some(hw => word.toLowerCase().includes(hw.toLowerCase()));
-        return `<span class="word ${isHighlighted ? highlightClass : ''}">${word}</span>`;
-      })
-      .join(' ');
-    textRef.current.innerHTML = newHTML;
-  }, [text, highlightWords, highlightClass]);
-  
+  }, [effectStarted, gravity, wireframes, backgroundColor, mouseConstraintStiffness, className, text]);
 
   const handleTrigger = () => {
     if (!effectStarted && (trigger === 'click' || trigger === 'hover')) {
@@ -195,9 +182,8 @@ gravity = 1,
       <div
         ref={textRef}
         className="falling-text-target"
-        style={{ visibility: effectStarted ? 'hidden' : 'visible' }}
       />
-      <div ref={canvasRef} className={`falling-text-canvas`} />
+      <div ref={canvasContainerRef} className="falling-text-canvas" />
     </div>
   );
 };

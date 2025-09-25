@@ -8,7 +8,6 @@
 .falling-text-target {
   /* This is now mainly for layout calculation and as a fallback */
   opacity: 1;
-  transition: opacity 0.3s;
   pointer-events: none;
 }
 
