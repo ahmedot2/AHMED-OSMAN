@@ -25,14 +25,9 @@
     transparent 100%
   );
   animation: spin-border var(--animation-speed) linear infinite;
-  opacity: 0;
+  opacity: 1;
   border-radius: inherit;
   z-index: -1;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.star-border-container:hover::before {
-  opacity: 1;
 }
 
 .inner-content {
