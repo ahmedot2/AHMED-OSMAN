@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import InteractiveImage from '../InteractiveImage';
 import SectionWrapper from '../SectionWrapper';
+import DecryptedText from '../DecryptedText';
 
 export default function Footer() {
   const quote = "Code the chaos, author the ascent—futures shaped by intuition's flame.";
@@ -16,29 +17,6 @@ export default function Footer() {
   const textY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
   const imageY = useTransform(scrollYProgress, [0, 1], ['10%', '-10%']);
   
-  const renderQuote = () => {
-    const highlighted = ['chaos', 'ascent', 'flame'];
-    return (
-        <p className="font-headline text-4xl lg:text-5xl text-white leading-tight">
-            {quote.split(/(\s+)/).map((part, index) => {
-                const highlightMatch = highlighted.find(h => part.toLowerCase().startsWith(h));
-                if (highlightMatch) {
-                    const wordMatch = part.match(new RegExp(`^(${highlightMatch})`, 'i'));
-                    if (wordMatch) {
-                        const word = wordMatch[0];
-                        const rest = part.substring(word.length);
-                        return (
-                            <span key={index}>
-                                <span className="text-primary">{word}</span>{rest}
-                            </span>
-                        );
-                    }
-                }
-                return <span key={index}>{part}</span>;
-            })}
-        </p>
-    );
-  };
 
   return (
     <SectionWrapper
@@ -48,7 +26,18 @@ export default function Footer() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
         <motion.div style={{ y: textY }} className="text-left">
-          {renderQuote()}
+           <DecryptedText
+              text={quote}
+              animateOn="view"
+              revealDirection="left"
+              className="font-headline text-4xl lg:text-5xl text-white leading-tight"
+              encryptedClassName="text-primary/50"
+              highlightedWords={{
+                'chaos': 'text-primary',
+                'ascent': 'text-primary',
+                'flame': 'text-primary',
+              }}
+            />
         </motion.div>
         <motion.div style={{ y: imageY }} className="w-full max-w-sm mx-auto">
           <InteractiveImage
