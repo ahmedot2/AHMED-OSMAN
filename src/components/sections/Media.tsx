@@ -61,7 +61,7 @@ const channels = [
 ];
 
 export default function Media() {
-  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 });
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
   const cardVariants = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
@@ -95,14 +95,14 @@ export default function Media() {
                const Icon = channel.icon;
                return (
                 <motion.div
-                    key={channel.name}
-                    custom={index}
-                    variants={cardVariants}
-                    initial="initial"
-                    whileInView="animate"
-                    whileHover="hover"
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="h-full"
+                  key={channel.name}
+                  custom={index}
+                  variants={cardVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  whileHover="hover"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="h-full"
                 >
                     <a
                     href={channel.url}
