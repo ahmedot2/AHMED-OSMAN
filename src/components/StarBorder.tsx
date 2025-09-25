@@ -31,7 +31,7 @@ const StarBorder = ({
       style={style}
       {...rest}
     >
-      <div className="inner-content" style={{ margin: `${thickness}px`}}>
+      <div className="inner-content">
           {children}
       </div>
     </Component>

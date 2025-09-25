@@ -20,7 +20,7 @@
   background: conic-gradient(
     from var(--angle, 0deg),
     transparent 0%,
-    transparent 75%,
+    transparent 90%,
     var(--border-color) 95%,
     transparent 100%
   );
