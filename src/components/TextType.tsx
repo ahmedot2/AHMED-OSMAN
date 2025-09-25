@@ -1,5 +1,6 @@
 'use client';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 type TextTypeProps = {
   text: string[];
@@ -24,9 +25,13 @@ const TextType = ({
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
+  const [containerRef, isVisible] = useScrollAnimation({ threshold: 0.5 });
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!text || text.length === 0) return;
+    if (!text || text.length === 0 || !isVisible || hasAnimated.current) return;
+
+    hasAnimated.current = true;
 
     const handleTyping = () => {
       const currentString = text[currentTextIndex];
@@ -52,7 +57,7 @@ const TextType = ({
     const typingTimeout = setTimeout(handleTyping, isDeleting ? typingSpeed / 2 : typingSpeed);
 
     return () => clearTimeout(typingTimeout);
-  }, [charIndex, isDeleting, currentTextIndex, text, typingSpeed, pauseDuration]);
+  }, [charIndex, isDeleting, currentTextIndex, text, typingSpeed, pauseDuration, isVisible]);
 
   const renderedText = useMemo(() => {
     let tempText = displayText;
@@ -97,7 +102,7 @@ const TextType = ({
   }, [displayText, highlightedWords]);
 
   return (
-    <p className={className}>
+    <p ref={containerRef} className={className}>
       {renderedText}
       {showCursor && <span className="animate-pulse">{cursorCharacter}</span>}
     </p>
