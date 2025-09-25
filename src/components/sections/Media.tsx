@@ -7,6 +7,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CirclePlay, Youtube, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import BlurText from '../BlurText';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -79,6 +81,7 @@ const channels = [
 ];
 
 export default function Media() {
+  const [titleRef, isTitleVisible] = useScrollAnimation({ threshold: 0.5 }, false);
   const cardVariants = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
@@ -100,8 +103,10 @@ export default function Media() {
   return (
     <SectionWrapper id="media" hasBackground>
       <div className="flex flex-col gap-12">
-          <h2 className="font-display text-6xl md:text-[120px] font-black uppercase leading-none tracking-widest">
-              <span className="text-primary block">Media &</span>
+          <h2 ref={titleRef} className="font-display text-6xl md:text-[120px] font-black uppercase leading-none tracking-widest">
+              <span className="text-primary block">
+                {isTitleVisible ? <BlurText text="Media &" animateBy="words" key={String(isTitleVisible)} /> : 'Media &'}
+              </span>
               <span className="text-white">Appear&shy;ances</span>
           </h2>
         
