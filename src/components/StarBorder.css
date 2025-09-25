@@ -2,7 +2,7 @@
   position: relative;
   background-color: transparent;
   padding: 1px;
-  border-radius: 0.5rem; /* Matches card's rounded-lg */
+  /* border-radius: 0.5rem; */ /* Matches card's rounded-lg */
   overflow: hidden;
   z-index: 1;
   transition: all 0.3s ease-in-out;
@@ -30,7 +30,7 @@
 
 .inner-content {
   background-color: hsl(var(--card)); /* Match your card background */
-  border-radius: calc(0.5rem - 1px); /* Adjust for border thickness */
+  border-radius: inherit; /* Adjust for border thickness */
   height: 100%;
   width: 100%;
   overflow: hidden;

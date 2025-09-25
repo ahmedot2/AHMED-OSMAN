@@ -45,21 +45,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, hasStarBorder = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     
-    const buttonContent = (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </Comp>
-    );
-
     if (hasStarBorder) {
       return (
-        <StarBorder as="div" color="hsl(var(--primary))" speed="3s" className={cn(buttonVariants({ size, className: 'p-0' }), 'rounded-full')}>
+        <StarBorder as="div" color="hsl(var(--primary))" speed="3s" className={cn(buttonVariants({ size, className: 'p-0' }))}>
            <Comp
-            className={cn(buttonVariants({ variant, size, className }), 'w-full h-full')}
+            className={cn(buttonVariants({ variant, size, className }), 'w-full h-full bg-transparent')}
             ref={ref}
             {...props}
           >
