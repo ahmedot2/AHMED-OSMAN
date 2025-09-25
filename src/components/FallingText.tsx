@@ -23,7 +23,7 @@ const FallingText = ({
   trigger = 'auto',
   backgroundColor = 'transparent',
   wireframes = false,
-  gravity = 1,
+gravity = 1,
   mouseConstraintStiffness = 0.2,
 }: FallingTextProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -93,14 +93,14 @@ const FallingText = ({
     const wordBodies: { elem: HTMLSpanElement; body: Matter.Body }[] = [];
 
     originalSpans.forEach(span => {
-      const elem = span.cloneNode(true) as HTMLSpanElement;
-      document.body.appendChild(elem);
+      const elem = span as HTMLElement;
       const rect = elem.getBoundingClientRect();
-      document.body.removeChild(elem);
-
+      
       if (rect.width === 0 || rect.height === 0) return;
       
-      const newElem = span.cloneNode(true) as HTMLSpanElement;
+      const newElem = document.createElement('span');
+      newElem.textContent = elem.textContent;
+      newElem.className = `${elem.className} ${className}`; // Apply all classes
       newElem.style.position = 'absolute';
       newElem.style.left = '-9999px'; // Position off-screen initially
       canvasRef.current!.appendChild(newElem);
@@ -168,7 +168,7 @@ const FallingText = ({
 
   useEffect(() => {
     if (!textRef.current) return;
-    const words = text.split(' ');
+    const words = text.split(/(\s+)/).filter(w => w.trim().length > 0); // Split by space but keep it for layout
     const newHTML = words
       .map(word => {
         const isHighlighted = highlightWords.some(hw => word.toLowerCase().includes(hw.toLowerCase()));
@@ -197,7 +197,7 @@ const FallingText = ({
         className="falling-text-target"
         style={{ visibility: effectStarted ? 'hidden' : 'visible' }}
       />
-      <div ref={canvasRef} className={`falling-text-canvas ${className}`} />
+      <div ref={canvasRef} className={`falling-text-canvas`} />
     </div>
   );
 };
