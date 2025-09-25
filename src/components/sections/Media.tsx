@@ -3,7 +3,6 @@
 import SectionWrapper from '../SectionWrapper';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
 import { CirclePlay, Youtube, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -82,7 +81,7 @@ const channels = [
 ];
 
 export default function Media() {
-  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 });
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
   const cardVariants = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
@@ -169,5 +168,3 @@ export default function Media() {
     </SectionWrapper>
   );
 }
-    
-    
