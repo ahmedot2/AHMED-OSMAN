@@ -49,7 +49,11 @@ export default function Contact() {
         <div className="flex flex-col gap-6">
           <h2 className="font-headline text-6xl md:text-7xl text-white">Contact</h2>
           <p className="text-white/70 text-lg">
-            Have a project in mind, a question, or just want to connect? Drop me a line. I'm always open to discussing new ideas and opportunities.
+            Have a project in mind, a question, or just want to connect? Drop me a line using the form, or email me directly at{' '}
+            <a href="mailto:theagencyagents@gmail.com" className="text-primary hover:underline">
+              theagencyagents@gmail.com
+            </a>
+            . I&apos;m always open to discussing new ideas and opportunities.
           </p>
         </div>
         <div>
