@@ -7,15 +7,25 @@ export default function Footer() {
   
   const renderQuote = () => {
     const highlighted = ['chaos', 'ascent', 'flame'];
-    const parts = quote.split(' ').map((word, index) => {
-      const cleanWord = word.replace(/—/g, '');
-      const isHighlighted = highlighted.includes(cleanWord);
-      return (
-        <span key={index}>
-          <span className={isHighlighted ? 'text-primary' : ''}>{word}</span>{' '}
-        </span>
-      );
+    const parts = quote.split(/(\s+)/).map((part, index) => {
+      // Find a word that starts with one of the highlighted words
+      const highlightMatch = highlighted.find(h => part.toLowerCase().startsWith(h));
+      if (highlightMatch) {
+        // Separate the word from punctuation
+        const wordMatch = part.match(new RegExp(`^(${highlightMatch})`, 'i'));
+        if (wordMatch) {
+            const word = wordMatch[0];
+            const rest = part.substring(word.length);
+            return (
+                <span key={index}>
+                    <span className="text-primary">{word}</span>{rest}
+                </span>
+            );
+        }
+      }
+      return <span key={index}>{part}</span>;
     });
+
     return <p className="font-headline text-4xl lg:text-5xl text-white leading-tight">{parts}</p>;
   };
 
