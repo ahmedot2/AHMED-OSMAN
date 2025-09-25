@@ -1,3 +1,4 @@
+
 'use client';
 import SectionWrapper from '../SectionWrapper';
 import {
@@ -54,7 +55,7 @@ const milestones = [
     },
     {
         icon: BookOpen,
-        metric: 'UN Papers Authored',
+        metric: 'Books & Papers Penned',
         title: 'Global Wisdom',
         copy: 'Resilience strategies from aviation’s lessons to humanitarian shadows.',
         className: 'md:col-span-3',
