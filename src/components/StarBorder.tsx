@@ -20,7 +20,6 @@ const StarBorder = ({
   [key: string]: any;
 }) => {
   const style = {
-    padding: `${thickness}px`,
     '--border-color': color,
     '--animation-speed': speed,
     ...rest.style,
@@ -32,7 +31,9 @@ const StarBorder = ({
       style={style}
       {...rest}
     >
-      <div className="inner-content">{children}</div>
+      <div className="inner-content" style={{ margin: `${thickness}px`}}>
+          {children}
+      </div>
     </Component>
   );
 };

@@ -7,47 +7,56 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
+import { CirclePlay, Tv } from 'lucide-react';
 
 const channels = [
   {
     name: 'FINHUB',
     url: 'https://youtube.com/@ahmedosmanfinhub?si=kV3WaCFUrakM5JmK',
     image: PlaceHolderImages.find(img => img.id === 'media-finhub'),
+    icon: Tv
   },
   {
     name: 'GlobePulse',
     url: 'https://youtube.com/@ahmedosmanglobepulse?si=iqa3QSXhqvunxe_e',
     image: PlaceHolderImages.find(img => img.id === 'media-globepulse'),
+    icon: Tv
   },
   {
     name: 'AI Agency Agent',
     url: 'https://youtube.com/@ahmedosmanai?si=rRH76DgzvD0zGdjU',
     image: PlaceHolderImages.find(img => img.id === 'media-ai-agency'),
+    icon: Tv
   },
   {
     name: 'Pinterest',
     url: 'https://pin.it/6AF6Eh0r8',
     image: PlaceHolderImages.find(img => img.id === 'media-pinterest'),
+    icon: Tv
   },
   {
     name: 'Personal TikTok',
     url: 'https://www.tiktok.com/@ahmedot2gmail.com?_t=zs-8wxoludbp4a&_r=1',
     image: PlaceHolderImages.find(img => img.id === 'media-tiktok-personal'),
+    icon: Tv
   },
   {
     name: 'Money Moves',
     url: 'https://www.tiktok.com/@ahmedosmanmoneymoves?_t=zs-8wxbfp3wnlu&_r=1',
     image: PlaceHolderImages.find(img => img.id === 'media-tiktok-money'),
+    icon: Tv
   },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/ahmed-osman-60914a170?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
     image: PlaceHolderImages.find(img => img.id === 'media-linkedin'),
+    icon: Tv
   },
   {
     name: 'X (Twitter)',
     url: 'https://x.com/ahmedot2osman?s=21&t=AbxG907-0qN53I1vpOnOEA',
     image: PlaceHolderImages.find(img => img.id === 'media-x'),
+    icon: Tv
   },
 ];
 
@@ -82,45 +91,49 @@ export default function Media() {
           </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {channels.map((channel, index) => (
-              <motion.div
-                key={channel.name}
-                custom={index}
-                variants={cardVariants}
-                initial="initial"
-                whileInView="animate"
-                whileHover="hover"
-                viewport={{ once: true, amount: 0.2 }}
-                className="h-full"
-              >
-                <a
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-full block group"
-                >
-                  <StarBorder
-                    as="div"
-                    color="hsl(var(--primary))"
-                    speed="4s"
+            {channels.map((channel, index) => {
+               const Icon = channel.icon;
+               return (
+                <motion.div
+                    key={channel.name}
+                    custom={index}
+                    variants={cardVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    whileHover="hover"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="h-full"
-                  >
-                    <div className="relative aspect-video w-full h-full">
-                        {channel.image && (
-                            <Image
-                            src={channel.image.imageUrl}
-                            alt={channel.name}
-                            fill
-                            data-ai-hint={channel.image.imageHint}
-                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                            />
-                        )}
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    </div>
-                  </StarBorder>
-                </a>
-              </motion.div>
-            ))}
+                >
+                    <a
+                    href={channel.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-full block group"
+                    >
+                    <StarBorder
+                        as="div"
+                        color="hsl(var(--primary))"
+                        speed="4s"
+                        className="h-full"
+                    >
+                        <div className="relative aspect-video w-full h-full flex flex-col">
+                            <div className="relative w-full aspect-video flex-shrink-0">
+                                {channel.image && (
+                                    <Image
+                                    src={channel.image.imageUrl}
+                                    alt={channel.name}
+                                    fill
+                                    data-ai-hint={channel.image.imageHint}
+                                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                )}
+                            </div>
+                        </div>
+                    </StarBorder>
+                    </a>
+                </motion.div>
+                )
+            })}
         </div>
       </div>
     </SectionWrapper>
