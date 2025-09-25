@@ -10,7 +10,6 @@ type BlurTextProps = {
   animateBy?: 'chars' | 'words';
   direction?: 'top' | 'bottom' | 'left' | 'right';
   onAnimationComplete?: () => void;
-  key?: string;
 };
 
 const BlurText = ({
@@ -20,7 +19,6 @@ const BlurText = ({
   animateBy = 'words',
   direction = 'top',
   onAnimationComplete,
-  key
 }: BlurTextProps) => {
   const getAnimationDirection = () => {
     switch (direction) {
@@ -69,7 +67,6 @@ const BlurText = ({
 
   return (
     <motion.div
-      key={key}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
