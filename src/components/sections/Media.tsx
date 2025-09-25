@@ -146,18 +146,7 @@ export default function Media() {
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                               <CirclePlay className="w-20 h-20 text-primary" />
                           </div>
-                          <div className="absolute bottom-4 left-6 z-10">
-                              <div className="flex items-center gap-2 mt-1">
-                                  <Icon className={cn("w-5 h-5", 
-                                      channel.icon === Youtube ? "text-red-600 animate-pulse-red" : "text-white",
-                                      channel.icon === Linkedin && "text-[#0077B5]",
-                                      channel.icon === PinterestIcon && "text-[#E60023]"
-                                  )} />
-                                  <span className="text-sm font-medium text-white/80">
-                                      {channel.icon === Youtube ? 'Visit channel' : 'Visit profile'}
-                                  </span>
-                              </div>
-                          </div>
+                          
                       </div>
                     </StarBorder>
                   </motion.a>
