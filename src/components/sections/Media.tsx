@@ -81,7 +81,7 @@ const channels = [
 ];
 
 export default function Media() {
-  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 });
   const cardVariants = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
@@ -143,7 +143,7 @@ export default function Media() {
                               />
                           )}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                               <CirclePlay className="w-20 h-20 text-primary" />
                           </div>
                           <div className="absolute bottom-4 left-6 z-10">
