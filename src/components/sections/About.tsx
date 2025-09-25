@@ -180,6 +180,11 @@ export default function About() {
                   revealDirection="center"
                   className="text-white"
                   encryptedClassName="text-primary"
+                  highlightedWords={{
+                    'milestone': 'text-primary',
+                    'ascent': 'text-primary',
+                    'soar': 'text-primary',
+                  }}
                 />
             </div>
           </div>

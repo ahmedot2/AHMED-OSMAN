@@ -13,6 +13,7 @@ type DecryptedTextProps = {
   encryptedClassName?: string;
   animateOn?: 'view' | 'hover';
   revealDirection?: 'left' | 'right' | 'center';
+  highlightedWords?: { [word: string]: string };
 };
 
 const defaultChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -27,6 +28,7 @@ const DecryptedText = ({
   encryptedClassName = 'decrypted-text-encrypted',
   animateOn = 'hover',
   revealDirection = 'left',
+  highlightedWords = {},
 }: DecryptedTextProps) => {
   const [displayedText, setDisplayedText] = useState(text);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -47,14 +49,14 @@ const DecryptedText = ({
           let charToReveal: number;
           switch (revealDirection) {
             case 'right':
-              charToReveal = text.length - index -1;
+              charToReveal = text.length - index - 1;
               break;
             case 'center':
               const mid = Math.floor(text.length / 2);
               if (index < mid) {
-                 charToReveal = mid - index - 1;
+                charToReveal = mid - index - 1;
               } else {
-                 charToReveal = index - mid;
+                charToReveal = index - mid;
               }
               break;
             case 'left':
@@ -79,7 +81,7 @@ const DecryptedText = ({
         setIsAnimating(false);
       }
     };
-    
+
     requestAnimationFrame(animate);
   }, [text, characters, speed, maxIterations, revealDirection]);
 
@@ -93,9 +95,15 @@ const DecryptedText = ({
   };
 
   useEffect(() => {
-    if (animateOn === 'view' && isVisible && !isAnimating && !hasAnimatedOnView.current) {
-      hasAnimatedOnView.current = true;
-      scramble();
+    if (animateOn === 'view' && isVisible && !isAnimating) {
+      if (triggerOnce) {
+        if (!hasAnimatedOnView.current) {
+          hasAnimatedOnView.current = true;
+          scramble();
+        }
+      } else {
+        scramble();
+      }
     }
   }, [isVisible, animateOn, isAnimating, scramble]);
 
@@ -120,14 +128,83 @@ const DecryptedText = ({
     };
   }, []);
 
-  const renderedText = displayedText.split('').map((char, index) => {
-    const isEncrypted = text[index] !== char;
-    return (
-      <span key={index} className={isEncrypted ? encryptedClassName : ''}>
-        {char}
-      </span>
-    );
-  });
+  const triggerOnce = animateOn === 'view';
+
+  const renderHighlightedText = (currentText: string) => {
+    if (!Object.keys(highlightedWords).length) {
+      return currentText.split('').map((char, index) => {
+        const isEncrypted = text[index] !== char;
+        return (
+          <span key={index} className={isEncrypted ? encryptedClassName : ''}>
+            {char}
+          </span>
+        );
+      });
+    }
+  
+    const parts: (string | JSX.Element)[] = [];
+    let lastIndex = 0;
+  
+    while (lastIndex < text.length) {
+      let foundWord = null;
+      let foundIndex = -1;
+  
+      Object.keys(highlightedWords).forEach(word => {
+        const regex = new RegExp(`\\b${word}\\b`, 'i');
+        const match = text.substring(lastIndex).match(regex);
+        if (match && (foundIndex === -1 || lastIndex + (match.index || 0) < foundIndex)) {
+          foundWord = word;
+          foundIndex = lastIndex + (match.index || 0);
+        }
+      });
+  
+      if (foundWord) {
+        if (foundIndex > lastIndex) {
+          parts.push(text.substring(lastIndex, foundIndex));
+        }
+        parts.push(
+          <span key={foundIndex} className={highlightedWords[foundWord]}>
+            {text.substring(foundIndex, foundIndex + foundWord.length)}
+          </span>
+        );
+        lastIndex = foundIndex + foundWord.length;
+      } else {
+        parts.push(text.substring(lastIndex));
+        break;
+      }
+    }
+  
+    return parts.map((part, partIndex) => {
+      if (typeof part === 'string') {
+        const partStartIndex = text.indexOf(part, partIndex > 0 ? text.indexOf(parts[partIndex - 1]?.props?.children) + parts[partIndex-1].props.children.length : 0 );
+        return part.split('').map((char, charIndex) => {
+          const originalIndex = partStartIndex + charIndex;
+          const isEncrypted = displayedText[originalIndex] !== char;
+          return (
+            <span key={`${partIndex}-${charIndex}`} className={isEncrypted ? encryptedClassName : ''}>
+              {isEncrypted ? displayedText[originalIndex] : char}
+            </span>
+          );
+        });
+      }
+      // This is a highlighted word
+      const childrenString = part.props.children;
+      const partStartIndex = text.indexOf(childrenString);
+      return (
+        <span key={partIndex} className={part.props.className}>
+          {childrenString.split('').map((char: string, charIndex: number) => {
+            const originalIndex = partStartIndex + charIndex;
+            const isEncrypted = displayedText[originalIndex] !== char;
+            return (
+              <span key={`${partIndex}-${charIndex}`} className={isEncrypted ? encryptedClassName : ''}>
+                {isEncrypted ? displayedText[originalIndex] : char}
+              </span>
+            );
+          })}
+        </span>
+      );
+    });
+  };
 
   return (
     <div
@@ -136,7 +213,7 @@ const DecryptedText = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {renderedText}
+      {renderHighlightedText(displayedText)}
     </div>
   );
 };
