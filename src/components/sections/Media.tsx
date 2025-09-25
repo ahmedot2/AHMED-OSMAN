@@ -87,25 +87,31 @@ export default function Media() {
       <div className="flex flex-col gap-12">
           <h2 ref={titleRef} className="font-display text-6xl md:text-[120px] font-black uppercase leading-none tracking-widest">
               <span className="text-primary block">
-                {isTitleVisible ? <BlurText text="Media &" animateBy="words" key={titleKey} onAnimationComplete={() => {}} /> : 'Media &'}
+                {isTitleVisible ? <BlurText text="Media &" animateBy="words" key={titleKey} /> : 'Media &'}
               </span>
               <span className="text-white">Appear&shy;ances</span>
           </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {channels.map((channel, index) => (
-                <motion.a
-                    key={channel.name}
-                    href={channel.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    custom={index}
-                    variants={cardVariants}
-                    initial="initial"
-                    whileInView="animate"
-                    whileHover="hover"
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="h-full block group rounded-lg overflow-hidden bg-card border border-border"
+              <motion.div
+                key={channel.name}
+                custom={index}
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
+                viewport={{ once: true, amount: 0.2 }}
+                className="h-full block group"
+              >
+                <StarBorder
+                  as="a"
+                  href={channel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="hsl(var(--primary))"
+                  speed="4s"
+                  className="h-full block rounded-lg overflow-hidden"
                 >
                     <div className="relative aspect-video w-full h-full flex flex-col">
                         <div className="relative w-full aspect-video flex-shrink-0">
@@ -120,7 +126,8 @@ export default function Media() {
                             )}
                         </div>
                     </div>
-                </motion.a>
+                </StarBorder>
+              </motion.div>
             ))}
         </div>
       </div>
