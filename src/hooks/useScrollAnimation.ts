@@ -3,26 +3,16 @@
 import { useState, useEffect, useRef } from 'react';
 
 export const useScrollAnimation = (
-  options?: IntersectionObserverInit,
-  triggerOnce = true
-): [React.RefObject<HTMLDivElement>, boolean, number] => {
+  options?: IntersectionObserverInit
+): [React.RefObject<HTMLDivElement>, boolean] => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      if (triggerOnce) {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          setAnimationKey(prev => prev + 1);
-          observer.unobserve(entry.target);
-        }
-      } else {
-        setIsVisible(entry.isIntersecting);
-        if (entry.isIntersecting) {
-            setAnimationKey(prev => prev + 1);
-        }
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.unobserve(entry.target);
       }
     }, options);
 
@@ -36,7 +26,7 @@ export const useScrollAnimation = (
         observer.unobserve(currentRef);
       }
     };
-  }, [options, triggerOnce]);
+  }, [options]);
 
-  return [containerRef, isVisible, animationKey];
+  return [containerRef, isVisible];
 };
