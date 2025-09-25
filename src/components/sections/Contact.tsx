@@ -47,7 +47,9 @@ export default function Contact() {
     <SectionWrapper id="contact" hasBackground>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div className="flex flex-col gap-6">
-          <h2 className="font-headline text-6xl md:text-7xl text-white">Contact</h2>
+          <h2 className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
+            CON<span className="text-white">TACT</span>
+          </h2>
           <p className="text-white/70 text-lg">
             Have a project in mind, a question, or just want to connect? Drop me a line using the form, or email me directly at{' '}
             <a href="mailto:theagencyagents@gmail.com" className="text-primary hover:underline">
