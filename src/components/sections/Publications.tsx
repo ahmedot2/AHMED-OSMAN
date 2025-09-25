@@ -11,6 +11,7 @@ import { ExternalLink, Download, BookOpen } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
 import StarBorder from '../StarBorder';
+import BlurText from '../BlurText';
 
 const publications = [
   {
@@ -150,7 +151,12 @@ export default function Publications() {
       <div className="flex flex-col gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
            <h2 className="font-display text-8xl md:text-[120px] font-black uppercase leading-none tracking-widest">
-            <span className="text-primary block">Publi</span><span className="text-white block md:inline">cations</span>
+            <span className="text-primary block">
+                <BlurText text="Publi" animateBy="chars" />
+            </span>
+            <span className="text-white block md:inline">
+                <BlurText text="cations" animateBy="chars" delay={0.3} />
+            </span>
           </h2>
           <Tabs defaultValue={activeFilter} onValueChange={setActiveFilter} className="w-full md:w-auto">
             <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full md:w-auto bg-white/5 border-border/20">
