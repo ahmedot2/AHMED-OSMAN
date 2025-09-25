@@ -82,7 +82,7 @@ const channels = [
 ];
 
 export default function Media() {
-  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 });
   const cardVariants = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
@@ -133,8 +133,8 @@ export default function Media() {
                       color="hsl(var(--primary))"
                       speed="4s"
                     >
-                      <Card className="bg-card/50 group overflow-hidden rounded-lg border-0">
-                          <CardContent className="relative flex aspect-video items-center justify-center p-0">
+                      <Card className="bg-card/50 group overflow-hidden rounded-lg border-0 h-full">
+                          <CardContent className="relative flex aspect-video items-center justify-center p-0 h-full">
                               {channel.image && (
                                   <Image
                                   src={channel.image.imageUrl}
@@ -171,5 +171,3 @@ export default function Media() {
     </SectionWrapper>
   );
 }
-
-    
