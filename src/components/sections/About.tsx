@@ -57,7 +57,7 @@ const milestones = [
         icon: BookOpen,
         metric: 'Books & Papers Penned',
         title: 'Global Wisdom',
-        copy: 'From shadowed skies in thrillers to resilient strategies in global papers—crafting wisdom that turns turbulence into triumph.',
+        copy: 'From thriller skies to UN resilience blueprints—weaving wisdom that transforms chaos into soaring victories.',
         className: 'md:col-span-3',
     },
     {
