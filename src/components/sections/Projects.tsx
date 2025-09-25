@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import StarBorder from '../StarBorder';
 
 const projects = [
   {
@@ -96,7 +97,8 @@ export default function Projects() {
                 variant={activeFilter === filter ? 'default' : 'outline'}
                 onClick={() => setActiveFilter(filter)}
                 size="lg"
-                className="rounded-full border-primary/50 text-white hover:text-primary hover:bg-primary/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                hasStarBorder={activeFilter === filter}
+                className="rounded-full border-primary/50 text-white hover:text-primary hover:bg-primary/10"
               >
                 {filter}
               </Button>
