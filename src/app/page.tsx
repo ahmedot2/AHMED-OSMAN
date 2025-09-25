@@ -5,6 +5,7 @@ import Projects from '@/components/sections/Projects';
 import Publications from '@/components/sections/Publications';
 import Media from '@/components/sections/Media';
 import Contact from '@/components/sections/Contact';
+import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Publications />
         <Media />
         <Contact />
+        <Footer />
       </main>
     </div>
   );
