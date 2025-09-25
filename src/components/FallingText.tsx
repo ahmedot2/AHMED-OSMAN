@@ -197,7 +197,7 @@ const FallingText = ({
         className="falling-text-target"
         style={{ visibility: effectStarted ? 'hidden' : 'visible' }}
       />
-      <div ref={canvasRef} className="falling-text-canvas" />
+      <div ref={canvasRef} className={`falling-text-canvas ${className}`} />
     </div>
   );
 };

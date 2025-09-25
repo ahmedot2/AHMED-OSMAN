@@ -32,4 +32,5 @@
   pointer-events: none; /* Words themselves don't need pointer events */
   user-select: none;
   display: inline-block; /* Ensure it behaves like the original span */
+  color: white; /* Default color in case styles are not passed */
 }
