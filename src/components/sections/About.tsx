@@ -13,6 +13,8 @@ import InteractiveImage from '../InteractiveImage';
 import { Plane, DollarSign, Github, Briefcase, BookOpen, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import DecryptedText from '../DecryptedText';
+
 
 const skills = [
   { category: 'Languages', items: ['TypeScript', 'Python', 'Go', 'Rust'] },
@@ -172,12 +174,13 @@ export default function About() {
               })}
             </div>
              <div className="font-headline text-3xl text-center mt-8">
-                <p>
-                    <span className="text-primary">Each </span>
-                    <span className="text-white">milestone</span>
-                    <span className="text-primary"> lifts the ascent—where will you </span>
-                    <span className="text-white">soar?</span>
-                </p>
+                <DecryptedText
+                  text={'Each milestone lifts the ascent—where will you soar?'}
+                  animateOn="view"
+                  revealDirection="center"
+                  className="text-white"
+                  encryptedClassName="text-primary"
+                />
             </div>
           </div>
         </div>

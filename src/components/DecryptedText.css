@@ -1,0 +1,10 @@
+.decrypted-text-parent {
+  display: inline-block;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.decrypted-text-encrypted {
+  opacity: 0.8;
+  color: hsl(var(--primary));
+}
