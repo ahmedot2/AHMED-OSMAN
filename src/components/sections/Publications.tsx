@@ -123,7 +123,7 @@ const filters = ['All', 'Fiction', 'Non-Fiction', 'Papers'];
 
 export default function Publications() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [titleRef, isTitleVisible] = useScrollAnimation({ threshold: 0.5 }, false);
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
 
   const filteredPublications = publications.filter(p => {
     if (activeFilter === 'All') return true;
@@ -153,11 +153,11 @@ export default function Publications() {
       <div className="flex flex-col gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
            <h2 ref={titleRef} className="font-display text-8xl md:text-[120px] font-black uppercase leading-none tracking-widest">
-            {isTitleVisible && (
+            
               <span className="text-primary block">
-                  <BlurText text="Publi" animateBy="chars" key={String(isTitleVisible)} />
+                {isTitleVisible ? <BlurText text="Publi" animateBy="chars" key={titleKey} /> : 'Publi'}
               </span>
-            )}
+            
             <span className="text-white block md:inline">
                 cations
             </span>

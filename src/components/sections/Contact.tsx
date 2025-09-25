@@ -17,8 +17,8 @@ export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [titleRef, isTitleVisible, key] = useScrollAnimation({ threshold: 0.5 }, false);
-  const [textRef, isTextVisible] = useScrollAnimation({ threshold: 0.5 });
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
+  const [textRef, isTextVisible, textKey] = useScrollAnimation({ threshold: 0.5 }, false);
 
 
   const handleSubmit = (e: FormEvent) => {
@@ -54,9 +54,10 @@ export default function Contact() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div className="flex flex-col gap-6">
           <h2 ref={titleRef} className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
-            {isTitleVisible ? <BlurText text="CON" animateBy="chars" key={key} /> : 'CON'}<span className="text-white">TACT</span>
+            {isTitleVisible ? <BlurText text="CON" animateBy="chars" key={titleKey} /> : 'CON'}<span className="text-white">TACT</span>
           </h2>
           <motion.p
+            key={textKey}
             ref={textRef}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: isTextVisible ? 1 : 0, x: isTextVisible ? 0 : -20 }}

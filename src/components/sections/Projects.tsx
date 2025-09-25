@@ -53,7 +53,7 @@ const filters = ['Directories', 'GitHub'];
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Directories');
   const isMobile = useIsMobile();
-  const [titleRef, isTitleVisible] = useScrollAnimation({ threshold: 0.5 }, false);
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
 
   const filteredProjects = projects.filter(p => {
     if (activeFilter === 'All') return true;
@@ -86,7 +86,7 @@ export default function Projects() {
       <div className="flex flex-col gap-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <h2 ref={titleRef} className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
-            {isTitleVisible ? <BlurText text="PRO " animateBy="chars" key={String(isTitleVisible)} /> : 'PRO '}
+            {isTitleVisible ? <BlurText text="PRO " animateBy="chars" key={titleKey} /> : 'PRO '}
             <span className="text-white">JECTS</span>
           </h2>
           <div className="flex flex-wrap gap-2 self-start md:self-center">

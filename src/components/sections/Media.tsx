@@ -81,7 +81,7 @@ const channels = [
 ];
 
 export default function Media() {
-  const [titleRef, isTitleVisible] = useScrollAnimation({ threshold: 0.5 }, false);
+  const [titleRef, isTitleVisible, titleKey] = useScrollAnimation({ threshold: 0.5 }, false);
   const cardVariants = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
@@ -105,7 +105,7 @@ export default function Media() {
       <div className="flex flex-col gap-12">
           <h2 ref={titleRef} className="font-display text-6xl md:text-[120px] font-black uppercase leading-none tracking-widest">
               <span className="text-primary block">
-                {isTitleVisible ? <BlurText text="Media &" animateBy="words" key={String(isTitleVisible)} /> : 'Media &'}
+                {isTitleVisible ? <BlurText text="Media &" animateBy="words" key={titleKey} /> : 'Media &'}
               </span>
               <span className="text-white">Appear&shy;ances</span>
           </h2>
