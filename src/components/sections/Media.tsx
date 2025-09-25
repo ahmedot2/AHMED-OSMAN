@@ -128,6 +128,7 @@ export default function Media() {
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <StarBorder
+                      as="div"
                       color="hsl(var(--primary))"
                       speed="4s"
                       className="h-full"
