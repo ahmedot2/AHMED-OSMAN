@@ -26,12 +26,9 @@ const TextType = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
   const [containerRef, isVisible] = useScrollAnimation({ threshold: 0.5 });
-  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!text || text.length === 0 || !isVisible || hasAnimated.current) return;
-
-    hasAnimated.current = true;
+    if (!text || text.length === 0 || !isVisible) return;
 
     const handleTyping = () => {
       const currentString = text[currentTextIndex];
