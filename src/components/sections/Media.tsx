@@ -94,44 +94,33 @@ export default function Media() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {channels.map((channel, index) => (
-                <motion.div
+                <motion.a
                     key={channel.name}
+                    href={channel.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     custom={index}
                     variants={cardVariants}
                     initial="initial"
                     whileInView="animate"
                     whileHover="hover"
                     viewport={{ once: true, amount: 0.2 }}
-                    className="h-full"
+                    className="h-full block group rounded-lg overflow-hidden bg-card border border-border"
                 >
-                    <a
-                        href={channel.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="h-full block group"
-                    >
-                        <StarBorder
-                            as="div"
-                            color="hsl(var(--primary))"
-                            speed="4s"
-                            className="h-full"
-                        >
-                            <div className="relative aspect-video w-full h-full flex flex-col">
-                                <div className="relative w-full aspect-video flex-shrink-0">
-                                    {channel.image && (
-                                        <Image
-                                            src={channel.image.imageUrl}
-                                            alt={channel.name}
-                                            fill
-                                            data-ai-hint={channel.image.imageHint}
-                                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                                        />
-                                    )}
-                                </div>
-                            </div>
-                        </StarBorder>
-                    </a>
-                </motion.div>
+                    <div className="relative aspect-video w-full h-full flex flex-col">
+                        <div className="relative w-full aspect-video flex-shrink-0">
+                            {channel.image && (
+                                <Image
+                                    src={channel.image.imageUrl}
+                                    alt={channel.name}
+                                    fill
+                                    data-ai-hint={channel.image.imageHint}
+                                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                                />
+                            )}
+                        </div>
+                    </div>
+                </motion.a>
             ))}
         </div>
       </div>
