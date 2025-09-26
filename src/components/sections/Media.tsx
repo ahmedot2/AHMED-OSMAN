@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
-import { Youtube, Linkedin, Twitter } from 'lucide-react';
+import { Youtube, Linkedin, Twitter, Tv } from 'lucide-react';
 
 const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12.017 1.99a10 10 0 0 0-7.83 15.45c.1.1.1.2.1.3 0 .1-.1.2-.2.3l-1 2.6c-.1.3.1.5.4.5l2.6-1c.1 0 .2-.1.3-.1.1 0 .2.1.3.1a10.004 10.004 0 0 0 10.62-13.63 9.95 9.95 0 0 0-5.38-4.32Z"/><path d="M7.5 10.5c.2-.5.8-1.7 1.4-2.8.5-1 1.2-1.8 2-2.4.1-.1.2-.1.3-.1.4 0 .8.3 1 .6l.3 1c.3.8.2 1.8-1 3.1l-1.3 1.4c-.1.1-.2.3-.1.5.2.5.5 1.1 1 1.8.1.1.2.2.3.2l.3-.2c.2-.2.4-.5.5-.7.2-.5.4-1 .8-1.5.3-.4.7-.8 1.2-1 .2-.1.4 0 .6.2l1.4 1.4c.2.2.2.5.1.7-.2.5-.5 1-1 1.6-1.2 1.5-2.9 2.2-4.5 2.2a5.5 5.5 0 0 1-5.5-5.5c0-1 .2-2 .5-3Z"/></svg>
@@ -89,15 +89,21 @@ export default function Media() {
     animate: (i: number) => ({
       y: 0,
       opacity: 1,
+      boxShadow: '0 20px 25px -5px hsl(var(--primary) / 0.2), 0 8px 10px -6px hsl(var(--primary) / 0.2)',
       transition: {
         delay: i * 0.1,
         duration: 0.5,
         ease: 'easeOut',
+        boxShadow: {
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }
       },
     }),
     hover: {
       y: -8,
-      boxShadow: '0 20px 25px -5px hsl(var(--primary) / 0.2), 0 8px 10px -6px hsl(var(--primary) / 0.2)',
       transition: { duration: 0.3 },
     }
   };
@@ -162,3 +168,5 @@ export default function Media() {
     </SectionWrapper>
   );
 }
+
+    
