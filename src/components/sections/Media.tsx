@@ -7,26 +7,26 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
-import { Tv } from 'lucide-react';
+import { Tv, Youtube } from 'lucide-react';
 
 const channels = [
   {
     name: 'FINHUB',
     url: 'https://youtube.com/@ahmedosmanfinhub?si=kV3WaCFUrakM5JmK',
     image: PlaceHolderImages.find(img => img.id === 'media-finhub'),
-    icon: Tv
+    icon: Youtube
   },
   {
     name: 'GlobePulse',
     url: 'https://youtube.com/@ahmedosmanglobepulse?si=iqa3QSXhqvunxe_e',
     image: PlaceHolderImages.find(img => img.id === 'media-globepulse'),
-    icon: Tv
+    icon: Youtube
   },
   {
     name: 'AI Agency Agent',
     url: 'https://youtube.com/@ahmedosmanai?si=rRH76DgzvD0zGdjU',
     image: PlaceHolderImages.find(img => img.id === 'media-ai-agency'),
-    icon: Tv
+    icon: Youtube
   },
   {
     name: 'Pinterest',
@@ -93,7 +93,9 @@ export default function Media() {
           </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {channels.map((channel, index) => (
+            {channels.map((channel, index) => {
+              const Icon = channel.icon;
+              return (
               <motion.div
                 key={channel.name}
                 custom={index}
@@ -102,7 +104,6 @@ export default function Media() {
                 whileInView="animate"
                 whileHover="hover"
                 viewport={{ once: true, amount: 0.2 }}
-                className="h-full block group"
               >
                 <StarBorder
                   as="a"
@@ -111,7 +112,7 @@ export default function Media() {
                   rel="noopener noreferrer"
                   color="hsl(var(--primary))"
                   speed="4s"
-                  className="h-full block rounded-lg overflow-hidden"
+                  className="h-full block rounded-lg overflow-hidden group"
                 >
                     <div className="relative aspect-video w-full h-full flex flex-col">
                         <div className="relative w-full aspect-video flex-shrink-0">
@@ -124,11 +125,17 @@ export default function Media() {
                                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                                 />
                             )}
+                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="flex flex-col items-center gap-2 text-white">
+                                    <Icon className="w-12 h-12 text-red-600" />
+                                    <span className="font-bold text-lg">View Channel</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </StarBorder>
               </motion.div>
-            ))}
+            )})}
         </div>
       </div>
     </SectionWrapper>
