@@ -50,7 +50,7 @@ export default function Contact() {
 
   return (
     <SectionWrapper id="contact" hasBackground>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
         <div className="flex flex-col gap-6">
           <h2 ref={titleRef} className="font-display text-8xl md:text-[120px] font-black uppercase text-primary leading-none tracking-widest">
              {isTitleVisible ? (
@@ -93,6 +93,9 @@ export default function Contact() {
             </div>
           </form>
         </div>
+      </div>
+       <div className="text-center w-full text-sm text-white/40 border-t border-white/10 pt-8">
+        <p>&copy; {new Date().getFullYear()} Ahmed Osman. All Rights Reserved.</p>
       </div>
     </SectionWrapper>
   );

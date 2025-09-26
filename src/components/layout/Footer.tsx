@@ -24,7 +24,7 @@ export default function Footer() {
       ref={containerRef}
       className="bg-gradient-to-t from-gray-900/50 to-black justify-center items-center text-center py-16"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <motion.div style={{ y: textY }} className="text-left">
            <DecryptedText
               text={quote}
@@ -49,9 +49,6 @@ export default function Footer() {
             className="rounded-lg"
           />
         </motion.div>
-      </div>
-      <div className="text-center w-full text-sm text-white/40 border-t border-white/10 pt-8">
-        <p>&copy; {new Date().getFullYear()} Ahmed Osman. All Rights Reserved.</p>
       </div>
     </SectionWrapper>
   );
