@@ -14,7 +14,11 @@ const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12.52.02C13.84 0 15.14.01 16.44 0a5 5 0 0 1 4.33 4.51v.23a5.05 5.05 0 0 1-1.6 3.84c-.3.26-.6.5-.9.73a5.05 5.05 0 0 1-4.4 1.57c-1.5.07-3 .02-4.5.02a5.05 5.05 0 0 1-5-5.05v-1.5A5.05 5.05 0 0 1 8.56.02c1.31 0 2.62 0 3.93 0l.03.02z"/><path d="M16.44 0v10.88a5.05 5.05 0 0 1-5.05 5.05h-1.5a5.05 5.05 0 0 1-5.05-5.05V15.7a5.05 5.05 0 0 1 5.05-5.05h1.5"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M16.49 3.9h-4.35V15.7a3.86 3.86 0 1 1-3.86-3.86" />
+      <path d="M12.14 11.83A5.7 5.7 0 0 0 16.49 7.5v4.33" />
+      <path d="M16.49 3.9a5.78 5.78 0 0 1 5.78 5.78v0a5.78 5.78 0 0 1-5.78 5.78h-1.16" />
+    </svg>
 );
 
 
