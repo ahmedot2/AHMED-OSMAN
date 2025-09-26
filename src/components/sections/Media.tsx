@@ -149,10 +149,10 @@ export default function Media() {
                                     alt={channel.name}
                                     fill
                                     data-ai-hint={channel.image.imageHint}
-                                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                                    className="object-cover w-full h-full transition-transform duration-500"
                                 />
                             )}
-                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-100 transition-opacity duration-300">
                                 <div className="flex flex-col items-center gap-2 text-white">
                                     <Icon className="w-12 h-12 text-primary" />
                                     <span className="font-bold text-lg">{channel.cta}</span>
@@ -168,5 +168,3 @@ export default function Media() {
     </SectionWrapper>
   );
 }
-
-    
