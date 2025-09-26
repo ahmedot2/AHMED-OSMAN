@@ -7,56 +7,64 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
-import { Tv, Youtube } from 'lucide-react';
+import { Tv, Youtube, Linkedin, Twitter } from 'lucide-react';
 
 const channels = [
   {
     name: 'FINHUB',
     url: 'https://youtube.com/@ahmedosmanfinhub?si=kV3WaCFUrakM5JmK',
     image: PlaceHolderImages.find(img => img.id === 'media-finhub'),
-    icon: Youtube
+    icon: Youtube,
+    cta: 'View Channel',
   },
   {
     name: 'GlobePulse',
     url: 'https://youtube.com/@ahmedosmanglobepulse?si=iqa3QSXhqvunxe_e',
     image: PlaceHolderImages.find(img => img.id === 'media-globepulse'),
-    icon: Youtube
+    icon: Youtube,
+    cta: 'View Channel',
   },
   {
     name: 'AI Agency Agent',
     url: 'https://youtube.com/@ahmedosmanai?si=rRH76DgzvD0zGdjU',
     image: PlaceHolderImages.find(img => img.id === 'media-ai-agency'),
-    icon: Youtube
+    icon: Youtube,
+    cta: 'View Channel',
   },
   {
     name: 'Pinterest',
     url: 'https://pin.it/6AF6Eh0r8',
     image: PlaceHolderImages.find(img => img.id === 'media-pinterest'),
-    icon: Tv
+    icon: Tv, // No specific Pinterest icon in lucide-react
+    cta: 'View Profile',
   },
   {
     name: 'Personal TikTok',
     url: 'https://www.tiktok.com/@ahmedot2gmail.com?_t=zs-8wxoludbp4a&_r=1',
     image: PlaceHolderImages.find(img => img.id === 'media-tiktok-personal'),
-    icon: Tv
+    icon: Tv, // No specific TikTok icon in lucide-react
+    cta: 'View Profile',
   },
   {
     name: 'Money Moves',
     url: 'https://www.tiktok.com/@ahmedosmanmoneymoves?_t=zs-8wxbfp3wnlu&_r=1',
     image: PlaceHolderImages.find(img => img.id === 'media-tiktok-money'),
-    icon: Tv
+    icon: Tv, // No specific TikTok icon in lucide-react
+    cta: 'View Profile',
   },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/ahmed-osman-60914a170?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
     image: PlaceHolderImages.find(img => img.id === 'media-linkedin'),
-    icon: Tv
+    icon: Linkedin,
+    cta: 'View Profile',
   },
   {
     name: 'X (Twitter)',
     url: 'https://x.com/ahmedot2osman?s=21&t=AbxG907-0qN53I1vpOnOEA',
     image: PlaceHolderImages.find(img => img.id === 'media-x'),
-    icon: Tv
+    icon: Twitter,
+    cta: 'View Profile',
   },
 ];
 
@@ -127,8 +135,8 @@ export default function Media() {
                             )}
                              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <div className="flex flex-col items-center gap-2 text-white">
-                                    <Icon className="w-12 h-12 text-red-600" />
-                                    <span className="font-bold text-lg">View Channel</span>
+                                    <Icon className="w-12 h-12 text-primary" />
+                                    <span className="font-bold text-lg">{channel.cta}</span>
                                 </div>
                             </div>
                         </div>
