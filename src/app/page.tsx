@@ -18,8 +18,8 @@ export default function Home() {
         <Projects />
         <Publications />
         <Media />
-        <Contact />
         <Footer />
+        <Contact />
       </main>
     </div>
   );
