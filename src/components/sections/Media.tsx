@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '../ui/dialog';
 
 const channels = [
   {
@@ -158,6 +158,12 @@ export default function Media() {
                       </motion.div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-2xl bg-gray-950/90 border-border/50 text-white backdrop-blur-lg p-0">
+                      <DialogHeader className="sr-only">
+                        <DialogTitle>{channel.name} Podcast Embed</DialogTitle>
+                        <DialogDescription>
+                          An embedded player for the {channel.name} podcast.
+                        </DialogDescription>
+                      </DialogHeader>
                        <div dangerouslySetInnerHTML={{ __html: channel.embed! }} />
                     </DialogContent>
                   </Dialog>
