@@ -171,28 +171,32 @@ export default function Media() {
               }
               
               return (
-              <motion.a
+              <motion.div
                 key={channel.name}
-                href={channel.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 custom={index}
                 variants={cardVariants}
                 initial="initial"
                 whileInView="animate"
                 whileHover="hover"
                 viewport={{ once: true, amount: 0.2 }}
-                className="h-full block"
+                className="h-full"
               >
-                <StarBorder
-                  as="div"
-                  color="hsl(var(--primary))"
-                  speed="4s"
-                  className="h-full block rounded-lg overflow-hidden group"
+                <a
+                  href={channel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-full block"
                 >
-                  {renderCardContent(channel)}
-                </StarBorder>
-              </motion.a>
+                  <StarBorder
+                    as="div"
+                    color="hsl(var(--primary))"
+                    speed="4s"
+                    className="h-full block rounded-lg overflow-hidden group"
+                  >
+                    {renderCardContent(channel)}
+                  </StarBorder>
+                </a>
+              </motion.div>
             )})}
         </div>
       </div>
