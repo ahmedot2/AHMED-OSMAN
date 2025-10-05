@@ -158,9 +158,9 @@ export default function Media() {
                       </motion.div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-2xl bg-gray-950/90 border-border/50 text-white backdrop-blur-lg p-0">
-                      <DialogHeader className="sr-only">
-                        <DialogTitle>{channel.name} Podcast Embed</DialogTitle>
-                        <DialogDescription>
+                      <DialogHeader className="p-4">
+                        <DialogTitle>{channel.name}</DialogTitle>
+                         <DialogDescription className="sr-only">
                           An embedded player for the {channel.name} podcast.
                         </DialogDescription>
                       </DialogHeader>
@@ -171,33 +171,31 @@ export default function Media() {
               }
               
               return (
-              <motion.div
+              <motion.a
                 key={channel.name}
+                href={channel.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 custom={index}
                 variants={cardVariants}
                 initial="initial"
                 whileInView="animate"
                 whileHover="hover"
                 viewport={{ once: true, amount: 0.2 }}
-                className="h-full"
+                className="h-full block"
               >
                 <StarBorder
-                  as="a"
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  as="div"
                   color="hsl(var(--primary))"
                   speed="4s"
                   className="h-full block rounded-lg overflow-hidden group"
                 >
                   {renderCardContent(channel)}
                 </StarBorder>
-              </motion.div>
+              </motion.a>
             )})}
         </div>
       </div>
     </SectionWrapper>
   );
 }
-
-    
