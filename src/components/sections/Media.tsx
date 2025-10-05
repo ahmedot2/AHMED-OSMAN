@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 
 const channels = [
   {
@@ -57,6 +58,19 @@ const channels = [
     image: PlaceHolderImages.find(img => img.id === 'media-x'),
     cta: 'View Profile',
   },
+  {
+    name: 'Apple Podcast',
+    type: 'podcast-apple',
+    image: PlaceHolderImages.find(img => img.id === 'media-apple-podcast'),
+    cta: 'Listen on Apple',
+    embed: '<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/us/podcast/ai-money-travel/id1844080936"></iframe>',
+  },
+  {
+    name: 'Spotify Podcast',
+    url: 'https://open.spotify.com/show/2NivKFK6TdKTJ5BAhwaQrI?si=dc048bf269694d24',
+    image: PlaceHolderImages.find(img => img.id === 'media-spotify-podcast'),
+    cta: 'Listen on Spotify',
+  },
 ];
 
 export default function Media() {
@@ -86,6 +100,27 @@ export default function Media() {
     }
   };
 
+  const renderCardContent = (channel: any) => (
+    <div className="relative aspect-video w-full h-full flex flex-col">
+        <div className="relative w-full aspect-video flex-shrink-0">
+            {channel.image && (
+                <Image
+                    src={channel.image.imageUrl}
+                    alt={channel.name}
+                    fill
+                    data-ai-hint={channel.image.imageHint}
+                    className="object-cover w-full h-full transition-transform duration-500"
+                />
+            )}
+             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-100 transition-opacity duration-300">
+                <div className="flex flex-col items-center gap-2 text-white">
+                    <span className="font-bold text-lg">{channel.cta}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  );
+
 
   return (
     <SectionWrapper id="media" hasBackground>
@@ -99,6 +134,36 @@ export default function Media() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {channels.map((channel, index) => {
+              if (channel.type === 'podcast-apple') {
+                return (
+                  <Dialog key={channel.name}>
+                    <DialogTrigger asChild>
+                      <motion.div
+                        custom={index}
+                        variants={cardVariants}
+                        initial="initial"
+                        whileInView="animate"
+                        whileHover="hover"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="h-full cursor-pointer"
+                      >
+                         <StarBorder
+                            as="div"
+                            color="hsl(var(--primary))"
+                            speed="4s"
+                            className="h-full block rounded-lg overflow-hidden group"
+                          >
+                           {renderCardContent(channel)}
+                         </StarBorder>
+                      </motion.div>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-2xl bg-gray-950/90 border-border/50 text-white backdrop-blur-lg p-0">
+                       <div dangerouslySetInnerHTML={{ __html: channel.embed! }} />
+                    </DialogContent>
+                  </Dialog>
+                )
+              }
+              
               return (
               <motion.div
                 key={channel.name}
@@ -108,6 +173,7 @@ export default function Media() {
                 whileInView="animate"
                 whileHover="hover"
                 viewport={{ once: true, amount: 0.2 }}
+                className="h-full"
               >
                 <StarBorder
                   as="a"
@@ -118,24 +184,7 @@ export default function Media() {
                   speed="4s"
                   className="h-full block rounded-lg overflow-hidden group"
                 >
-                    <div className="relative aspect-video w-full h-full flex flex-col">
-                        <div className="relative w-full aspect-video flex-shrink-0">
-                            {channel.image && (
-                                <Image
-                                    src={channel.image.imageUrl}
-                                    alt={channel.name}
-                                    fill
-                                    data-ai-hint={channel.image.imageHint}
-                                    className="object-cover w-full h-full transition-transform duration-500"
-                                />
-                            )}
-                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-100 transition-opacity duration-300">
-                                <div className="flex flex-col items-center gap-2 text-white">
-                                    <span className="font-bold text-lg">{channel.cta}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  {renderCardContent(channel)}
                 </StarBorder>
               </motion.div>
             )})}
@@ -144,3 +193,5 @@ export default function Media() {
     </SectionWrapper>
   );
 }
+
+    
