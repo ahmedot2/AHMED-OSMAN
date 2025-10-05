@@ -109,7 +109,7 @@ export default function Media() {
                     alt={channel.name}
                     fill
                     data-ai-hint={channel.image.imageHint}
-                    className="object-cover w-full h-full transition-transform duration-500"
+                    className="object-cover w-full h-full"
                 />
             )}
              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-100 transition-opacity duration-300">
