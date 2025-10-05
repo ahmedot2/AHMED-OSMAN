@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import BlurText from '../BlurText';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import StarBorder from '../StarBorder';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '../ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '../ui/dialog';
 
 const channels = [
   {
@@ -171,7 +171,7 @@ export default function Media() {
               }
               
               return (
-                <motion.div
+                <motion.a
                   key={channel.name}
                   custom={index}
                   variants={cardVariants}
@@ -179,25 +179,20 @@ export default function Media() {
                   whileInView="animate"
                   whileHover="hover"
                   viewport={{ once: true, amount: 0.2 }}
-                  className="h-full"
-                  asChild
+                  href={channel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-full block"
                 >
-                  <a
-                    href={channel.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-full block"
+                  <StarBorder
+                    as="div"
+                    color="hsl(var(--primary))"
+                    speed="4s"
+                    className="h-full block rounded-lg overflow-hidden group"
                   >
-                    <StarBorder
-                      as="div"
-                      color="hsl(var(--primary))"
-                      speed="4s"
-                      className="h-full block rounded-lg overflow-hidden group"
-                    >
-                      {renderCardContent(channel)}
-                    </StarBorder>
-                  </a>
-                </motion.div>
+                    {renderCardContent(channel)}
+                  </StarBorder>
+                </motion.a>
             )})}
         </div>
       </div>
