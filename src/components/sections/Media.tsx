@@ -101,7 +101,7 @@ export default function Media() {
   };
 
   const renderCardContent = (channel: any) => (
-    <div className="relative aspect-video w-full h-full flex flex-col">
+    <div className="relative aspect-video w-full h-full flex flex-col group">
         <div className="relative w-full aspect-video flex-shrink-0">
             {channel.image && (
                 <Image
@@ -151,7 +151,7 @@ export default function Media() {
                             as="div"
                             color="hsl(var(--primary))"
                             speed="4s"
-                            className="h-full block rounded-lg overflow-hidden group"
+                            className="h-full block rounded-lg overflow-hidden"
                           >
                            {renderCardContent(channel)}
                          </StarBorder>
@@ -171,7 +171,7 @@ export default function Media() {
               }
               
               return (
-                <motion.a
+                <motion.div
                   key={channel.name}
                   custom={index}
                   variants={cardVariants}
@@ -179,20 +179,23 @@ export default function Media() {
                   whileInView="animate"
                   whileHover="hover"
                   viewport={{ once: true, amount: 0.2 }}
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-full block"
+                  className="h-full"
                 >
                   <StarBorder
-                    as="div"
                     color="hsl(var(--primary))"
                     speed="4s"
-                    className="h-full block rounded-lg overflow-hidden group"
+                    className="h-full rounded-lg"
                   >
-                    {renderCardContent(channel)}
+                    <a
+                      href={channel.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full w-full"
+                    >
+                      {renderCardContent(channel)}
+                    </a>
                   </StarBorder>
-                </motion.a>
+                </motion.div>
             )})}
         </div>
       </div>
